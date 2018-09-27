@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1538054848 "Math 541 Lecture Notes.tex" "Math 541 Lecture Notes.pdf" "Math 541 Lecture Notes" 1538054849
+["pdflatex"] 1538054848 "Math 541 Lecture Notes.tex" "Math 541 Lecture Notes.pdf" "Math 541 Lecture Notes" 1538079400
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm" 1136768653 2532 9ad73cf4dd2173a847f2a5f5608e0b9a ""
@@ -164,8 +164,8 @@
   "Math 541 Lecture Notes.tex" 1538054848 38311 f1248af922edb21926a0ad86fba0c23c ""
   "Math 541 Lecture Notes.toc" 1538054849 1188 d58db25e8e0d1030973df83d8fd5faa3 ""
   (generated)
-  "Math 541 Lecture Notes.pdf"
-  "Math 541 Lecture Notes.toc"
-  "Math 541 Lecture Notes.log"
-  "Math 541 Lecture Notes.out"
   "Math 541 Lecture Notes.aux"
+  "Math 541 Lecture Notes.toc"
+  "Math 541 Lecture Notes.pdf"
+  "Math 541 Lecture Notes.out"
+  "Math 541 Lecture Notes.log"
