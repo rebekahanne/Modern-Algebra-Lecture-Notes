@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1538011861 "Math 541 Lecture Notes.tex" "Math 541 Lecture Notes.pdf" "Math 541 Lecture Notes" 1538011862
+["pdflatex"] 1538054848 "Math 541 Lecture Notes.tex" "Math 541 Lecture Notes.pdf" "Math 541 Lecture Notes" 1538054849
   "/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm" 1136768653 2532 9ad73cf4dd2173a847f2a5f5608e0b9a ""
@@ -51,6 +51,7 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmbb.pfb" 1136849748 12410 7504dd653d0e7cf266cb973aeafd597c ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb" 1136849748 9356 a3851bc942e9b6995883193472ba1847 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb" 1136849748 15213 d999bbe8bd9c8f231f3f66a737c76478 ""
@@ -158,13 +159,13 @@
   "/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1491433231 1888048 f2c5faed5981a516f406b2ccc20bff71 ""
   "/usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt" 1463979169 3873397 413fbfbbedb8e719ddc392043a7add02 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "Math 541 Lecture Notes.aux" 1538011862 2120 4a9683616d5e080bb95d77d53f92cfca ""
-  "Math 541 Lecture Notes.out" 1538011862 932 21711bbc4f1c332a61abf1ba2c546f03 ""
-  "Math 541 Lecture Notes.tex" 1538011571 35589 83eba5a771d2f882ed677ff3aa52f2fa ""
-  "Math 541 Lecture Notes.toc" 1538011862 1188 1b65016243bd46660fd7a48e1a675fe5 ""
+  "Math 541 Lecture Notes.aux" 1538054849 2120 7fb0c91124bfdef719be2b250fa0cdab ""
+  "Math 541 Lecture Notes.out" 1538054849 932 21711bbc4f1c332a61abf1ba2c546f03 ""
+  "Math 541 Lecture Notes.tex" 1538054848 38311 f1248af922edb21926a0ad86fba0c23c ""
+  "Math 541 Lecture Notes.toc" 1538054849 1188 d58db25e8e0d1030973df83d8fd5faa3 ""
   (generated)
+  "Math 541 Lecture Notes.pdf"
+  "Math 541 Lecture Notes.toc"
   "Math 541 Lecture Notes.log"
   "Math 541 Lecture Notes.out"
-  "Math 541 Lecture Notes.pdf"
   "Math 541 Lecture Notes.aux"
-  "Math 541 Lecture Notes.toc"

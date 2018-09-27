@@ -36,14 +36,15 @@
 \newtheorem{corollary}{Corollary}
 \newtheorem{criterion}[theorem]{Criterion}
 \newtheorem{definition}{Definition}
+\theoremstyle{definition}
 \newtheorem{example}{Example}
-\onehalfspacing
 \newtheorem{exercise}{Exercise}
 \newtheorem{lemma}{Lemma}
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{problem}[theorem]{Problem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{remark}{Remark}
+\theoremstyle{definition}
 \newtheorem{solution}[theorem]{Solution}
 \newtheorem{summary}[theorem]{Summary}
 \geometry{left=1in,right=1in,top=1in,bottom=1in}
@@ -82,6 +83,9 @@
 \newcommand{\D}{\Delta}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
+
+\setcounter{tocdepth}{4}
+%\onehalfspacing
 
 \title{Modern Algebra Lecture Notes}
 \author{Rebekah Dix}
@@ -354,7 +358,7 @@ For $n \geq 1$, define $n \mathbb{Z} = \{ k \in \mathbb{Z} : \text{ $k$ is divis
 \begin{example}(Another homomorphism)
 Define $\phi : \mathbb{Z} \to \mathbb{Z} / n \mathbb{Z}$ by $\phi(k)$ is the remainder upon dividing $k$ by $n$ (clearly this remainder is in the set $\mathbb{Z} / n \mathbb{Z}$). Then $\phi$ is a homomorphism. We need to show that $\phi(a + b) = a + b$.  
 
-Observations about this example: Note that for each $k \in n \mathbb{Z}$, $\phi(k) = 0$. Moreover $\{ k \in \mathbb{Z} : \phi(k) = 0 \} = n \mathbb{Z}$.
+Observations about this example: Note that for each $k \in n \mathbb{Z}$, $\phi(k) = 0$. Moreover $\{ k \in \mathbb{Z} : \phi(k) = 0 \} = n \mathbb{Z}$. This motivates the following definition.
 \end{example}
 
 \begin{definition}(Kernel)
@@ -410,9 +414,7 @@ Let $G$ be a finite group and let $H \leq G$. Define a relation $\sim$ on $G$ by
 	\item Symmetric ($\forall a,b \in G, a \sim b \implies b \sim a$): $a \sim b$ implies $b^{-1}a \in H$. We know that then $(b^{-1}a)^{-1} = a^{-1}b \in H$. Therefore $b \sim a$. 
 	\item Transitive ($\forall a,b,c \in G, a \sim b, b\sim c \implies a \sim c$): $a \sim b$ implies $b^{-1}a \in H$ and $b \sim c$ implies $c^{-1}b \in H$. $H$ is a subgroup, so it's closed under products. Thus $c^{-1}bb^{-1}a \in H$ or that $c^{-1}a \in H$. Therefore $a \sim c$.
 \end{enumerate}
-Then let $[a] = \{ b \in G | b \sim a \} = \{b \in G | \exists h \in H, b = ah \} = \{ah | h \in H \} = aH$. 
-
-$G$ is a disjoint union equivalence classes. 
+Then let $[a] = \{ b \in G | b \sim a \} = \{b \in G | \exists h \in H, b = ah \} = \{ah | h \in H \} = aH$. $G$ can be written as a disjoint union of equivalence classes. 
 \end{example}
 
 \begin{definition}(Coset)
@@ -421,11 +423,15 @@ Let $H \leq G$ and fixed $a \in G$. Let
 aH &= \{ ah | h \in H \} \\
 Ha &= \{ ha | h \in H \} 
 \end{align*}
-These sets are called a left coset and right coset of $H$ in $G$.
+These sets are called a left coset and right coset of $H$ in $G$. Write $G/H$ for the set of left cosets $\{aH | a \in G \}$.
 \end{definition}
 
+\begin{example}(Cosets)
+If $a=1$, then $aH = 1 \cdot H = H$. And, for any $a \in H$, $aH = H$: First observe that $aH \subset H$ since $H$ is a subgroup. Indeed if $a,h \in H$, then $ah \in H$. Next we'll show $H \subset aH$. Fix $h \in H$. We want to show that $h \in aH$, or that it can written in the form $a'h'$ where $h' \in H$. To achieve this, write $h = e \cdot h = a (a^{-1} h)$. Note that $a^{-1} h \in H$ since $H$ is a subgroup. Therefore $h \in aH$. Together these equivalences show that $aH = H$ when $a \in H$. 
+\end{example}
+
 \begin{claim}(All left cosets of $H$ have the same size) 
-$|[a] | = |aH| = |H|$
+Let $H \leq G$ be groups and let $a \in G$. Then $|[a] | = |aH| = |H|$
 \end{claim}
 \begin{proof}
 We can give a bijection between the two sets to show they have the same number of elements. To that end, define $f: H \to aH$ by $f(h) = ah$. 
@@ -441,7 +447,7 @@ Thus $f$ is a bijection. This result of course implies that $|aH| = |bH| = |H|$ 
 \end{theorem}
 
 \begin{proof}
-
+Using the above claim, define $f : H \to aH$ by $f(h) = ah$. Then it follows that $|[a] | = |aH| = |H|$. We can write $G$ as a disjoint union of equivalence classes. Let $k$ be the number of equivalence classes, and observe that they all have the same cardinality of as $H$. Therefore $|G| = k \cdot |H|$, so that $|H| \big\vert |G|$.
 \end{proof}
 
 \begin{definition}(Index)
@@ -472,11 +478,38 @@ We can make an observation about the left cosets of $\mathbb{R}_{> 0}$ more gene
 \end{example}
 
 \begin{example}(Index of Permutation Group)
-
+As a slight abuse of notation, let $S_3$ be the set of permutations in $S_4$ for which the last index is fixed. Then, since $S_3$ is finite
+\begin{equation}
+ 	|S_4 : S_3| = \frac{24}{6} = 4
+\end{equation} 
+Therefore $S_4 / S_3$ has 4 elements. To find the left cosets of $S_3$ in $S_4$, look for elements of $S_4$ that aren't in $S_3$. Intuitively, these are the permutations that \textit{don't} fix 4. We can enumerate the left cosets as
+\begin{enumerate}
+	\item $C_1 = \{\sigma \in S_4 | \sigma(4) = 4 \}$ (this is the trivial coset)
+	\item $C_2 = \{\sigma \in S_4 | \sigma(4) = 3 \}$
+	\item $C_3 = \{\sigma \in S_4 | \sigma(4) = 2 \}$
+	\item $C_4 = \{\sigma \in S_4 | \sigma(4) = 1 \}$
+\end{enumerate}
+Note that we can write each of these cosets as (using $C_2$ as an example): $\tau S_3$, where $\tau(4) = 3$. We can pick any such $\tau$ that satifies this requirement, and the left cosets generated by the different choices of $\tau$ will be the same.
 \end{example}
+
+\begin{definition}(Normal Subgroup)
+We say that a subgroup $H$ of $G$ is normal if $aH = Ha$ for every $a \in G$. Write $H \trianglelefteq G$. This means that the left and right cosets of a group of equivalent.
+\end{definition}
+
+\begin{example}(Non-example of a Normal Subgroup)
+Continuing the above example, let $S_3$ be the set of permutations in $S_4$ for which the last index is fixed [[Incomplete]].
+\end{example}
+
+\begin{claim}(The Kernal of a Homomorphism is a Normal Subgroup)
+Let $\phi : G \to H$ be homomorphism. Then $\ker (\phi) \trianglelefteq G$.
+\end{claim}
+\begin{proof}
+Incomplete
+\end{proof}
 
 \section{Quizzes}
 \subsection{Quiz 1}
+
 \begin{exercise}
 Give an example of $\sigma \in S_3$ such that $\sigma$ has order 3. 
 \end{exercise}
@@ -498,6 +531,7 @@ Let $\tau \in S_6$. Show that
 \tau \cdot (5 4 1 3 2) \cdot \tau^{-1} = (\tau(5) \tau(4) \tau(1) \tau(3) \tau(2))
 \end{equation*}
 \end{exercise}
+
 \begin{solution}
 We can show this element by element. Observe that
 \begin{equation}
@@ -516,6 +550,8 @@ $.
 
 \begin{exercise}
 Let $G$ be a group and fix $g \in G$. Define $\phi : G \to G$ by $\phi(x) = gxg^{-1}$. Show $\phi$ is an isomorphism.
+\end{exercise}
+\begin{solution}
 \begin{enumerate}
 	\item $\phi$ is a homomorphism: Fix $x, y \in G$. Then
 	\begin{align*}
@@ -534,7 +570,7 @@ Let $G$ be a group and fix $g \in G$. Define $\phi : G \to G$ by $\phi(x) = gxg^
 	\end{equation}
 	Therefore, for all $y \in G$, we can find an $x = g^{-1} y g$ such that $\phi(x) = y$.
 \end{enumerate}
-\end{exercise}
+\end{solution}
 
 \section{Homework Exercises}
 \subsection{Homework 1}
