@@ -408,9 +408,9 @@ The following are examples of kernels of homomorphisms:
 
 \subsection{Cosets and Lagrange's Theorem}
 \begin{example}(Equivalence Relation)
-Let $G$ be a finite group and let $H \leq G$. Define a relation $\sim$ on $G$ by $a \sim b$ if and only if there exists an $h \in H$ such that $a = bh$. This condition also means that $ab^{-1} \in H$. We show that $\sim$ is indeed an equivalence relation:
+Let $G$ be a finite group and let $H \leq G$. Define a relation $\sim$ on $G$ by $a \sim b$ if and only if there exists an $h \in H$ such that $a = bh$. This condition also means that $b^{-1}a \in H$. We show that $\sim$ is indeed an equivalence relation:
 \begin{enumerate}
-	\item Reflexive ($\forall a \in G, a \sim a$): One way to see this is to recall that since $H$ is a subgroup, we know that $aa^{-1} = 1 \in H$. Or simply, $a = a \cdot 1$ and $1 \in H$. 
+	\item Reflexive ($\forall a \in G, a \sim a$): One way to see this is to recall that since $H$ is a subgroup, we know that $a^{-1}a = 1 \in H$. Or simply, $a = a \cdot 1$ and $1 \in H$. 
 	\item Symmetric ($\forall a,b \in G, a \sim b \implies b \sim a$): $a \sim b$ implies $b^{-1}a \in H$. We know that then $(b^{-1}a)^{-1} = a^{-1}b \in H$. Therefore $b \sim a$. 
 	\item Transitive ($\forall a,b,c \in G, a \sim b, b\sim c \implies a \sim c$): $a \sim b$ implies $b^{-1}a \in H$ and $b \sim c$ implies $c^{-1}b \in H$. $H$ is a subgroup, so it's closed under products. Thus $c^{-1}bb^{-1}a \in H$ or that $c^{-1}a \in H$. Therefore $a \sim c$.
 \end{enumerate}
@@ -504,7 +504,9 @@ Continuing the above example, let $S_3$ be the set of permutations in $S_4$ for 
 Let $\phi : G \to H$ be homomorphism. Then $\ker (\phi) \trianglelefteq G$.
 \end{claim}
 \begin{proof}
-Incomplete
+
+We want to show that [[Incomplete]]
+
 \end{proof}
 
 \subsection{Cyclic Groups}
@@ -525,7 +527,7 @@ An alternative definition is: Let $G$ be a group and fix $x \in G$. Let $H$ be t
 		x^{-1} = \begin{pmatrix} 1 & -1 \\ 0 & 1 \end{pmatrix}
 	\end{equation}
 	Therefore the powers of the inverse of $x$ are also included in $\langle x \rangle$.
-	\item Let $x = 3 \in \mathbb{Z} / n \mathbb{Z}$. Then $\langle x \rangle = \{ 0, 3 \}$.
+	\item Let $x = 3 \in \mathbb{Z} / 6 \mathbb{Z}$. Then $\langle x \rangle = \{ 0, 3 \}$.
 \end{enumerate}
 \end{example}
 
@@ -544,6 +546,10 @@ There are two cases to consider.
 
 \section{Quizzes}
 \subsection{Quiz 1}
+
+\begin{exercise}
+
+\end{exercise}
 
 \begin{exercise}
 Give an example of $\sigma \in S_3$ such that $\sigma$ has order 3. 
@@ -805,7 +811,139 @@ Now suppose $\ker(\phi) = \{1\}$. Fix $g_1, g_2 \in G$ such that $\phi(g_1) = \p
 Therefore $g_1 g_2^{-1} \in \ker(\phi)$. Since we assumed $\ker(\phi) = \{1\}$, it must be that $g_1 g_2^{-1} = 1$. This implies that $g_1 = g_2$.
 \end{solution}
 
+\begin{exercise}
+Let $G$ be a finite group with $|G| > 2$. Show that there are at least two distinct isomorphisms from $G$ to itself. 
+\end{exercise}
+\begin{solution}
+
+\end{solution}
+
 \subsection{Homework 4}
+
+\begin{exercise}
+Let $H, K$ be normal subgroups of the group $G$. Show that $H \cap K$ is also a normal subgroup of $G$.
+\end{exercise}
+\begin{solution}
+We will use this equivalent characterization of normal subgroups: For every $g \in G$ we have $gHg^{-1} \subset H$. Let $x \in H \cap K$ (we know this intersection is nonempty). Then the normality of $H$ and $K$ implies for all $g \in G$, $gxg^{-1} \in H \cap K$. Therefore $g (H \cap K) g^{-1} \subset H \cap K$ so that $H \cap K$ is normal.
+\end{solution}
+
+\begin{exercise}
+What is the index of the subgroup $3 \Z$ in $\Z$?
+\end{exercise}
+\begin{solution}
+$[\Z : 3 \Z] = 3$. To see this, enumerate the left cosets of $3\Z$ as follows:
+\begin{align*}
+3 \Z &= \{ \ldots, -6, -3, 0, 3, 6, \ldots \} \\
+1 + 3 \Z &= \{ \ldots, -5, -2, 1, 4, 7, \ldots \} \\
+2 + 3 \Z &= \{ \ldots, -4, -1, 2, 5, 8, \ldots \}
+\end{align*}
+\end{solution}
+
+\begin{exercise}
+Let $H$ be a subgroup of $G$. Show the following conditions are equivalent.
+\begin{enumerate}
+	\item $H$ is a normal subgroup of $G$.
+	\item For every $g \in G$ we have $gHg^{-1} = H$
+	\item For every $g \in G$ we have $gHg^{-1} \subset H$
+\end{enumerate}
+\end{exercise}
+\begin{solution} 
+$1 \implies 2$: Since $H$ is normal we have that for all $g \in G$, $Hg = gH$. This implies that $H = gH g^{-1}$.
+
+$2 \implies 3$: This holds trivially.
+
+$3 \implies 1$: We have that for every $g \in G$, we have $gHg^{-1} \subset H$. This implies $gH \subset Hg$. Further, we have that for every $g \in G$, $g^{-1}Hg \subset H$. Thus $Hg \subset gH$. This shows $gH = Hg$ for all $g \in G$. 
+\end{solution}
+
+
+\begin{exercise}
+Let $H \leq G$ and $K \trianglelefteq G$ be groups, and define the set
+\begin{equation}
+	HK = \{ hk : h \in H, k \in K \}
+\end{equation}
+show $HK \leq G$.
+\end{exercise}
+
+\begin{solution}
+We need to verify the three axioms required to be a subgroup:
+\begin{enumerate}
+	\item Identity: Observe that $1 \in H \cap K$. Therefore $1 \in HK$.
+	\item Closed under Products: Since $K$ is normal, we know for all $g \in G$, $gK = Kg$. This implies that for all $g \in G$ and $k \in K$, there exists a $k' \in K$ such that $gk = k'g$. Now consider $hk, h'k' \in HK$. We want to show their product is also in $HK$. Notice that in the product $hkh'k'$, the middle term $kh'$ can be written as $h'k''$ for some $k'' \in K$. Therefore we can now consider the product $hh'kk''$. Since $H$ and $K$ are both subgroups, then $hh'=\tilde{h} \in H$ and $kk'' = \tilde{k} \in K$. Therefore by the definition of $HK$, $\tilde{h}\tilde{k} \in HK$. 
+	\item Closed under Inverses: Let $hk \in HK$. We want to show that $(hk)^{-1} = k^{-1} h^{-1} \in HK$. Using a similar technique as above, the normality of $K$ implies that we can find a $k' \in K$ such that $k^{-1} h^{-1} = h^{-1} k'$. Therefore $k^{-1} h^{-1} = h^{-1} k' \in HK$.
+\end{enumerate}
+This three properties show that $HK$ is a subgroup of $G$.
+\end{solution}
+
+\begin{exercise}
+Let $H$ be the subset of upper-triangular matrices $GL_2(\R)$. Show that $H$ is a subgroup of $GL_2(\R)$. Is it a normal subgroup?
+\end{exercise}
+
+\begin{solution}
+We need to verify the three axioms required to be a subgroup:
+\begin{enumerate}
+	\item Identity: Clearly $\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ is an upper triangular matrix.
+	\item Closed under Products: Let $\begin{pmatrix} a & b \\ 0 & c \end{pmatrix}$ and $\begin{pmatrix} d & e \\ 0 & f \end{pmatrix}$ be two upper triangular matrices. Their product is
+	\begin{equation}
+		\begin{pmatrix} a & b \\ 0 & c \end{pmatrix} \begin{pmatrix} d & e \\ 0 & f \end{pmatrix} =
+		\begin{pmatrix}
+		ad & ae + bf \\ 0 & cd
+		\end{pmatrix}
+	\end{equation}
+	which is clearly an upper triangular matrix. 
+	\item Closed under Inverse: Let $\begin{pmatrix} a & b \\ 0 & c \end{pmatrix}$ be an upper triangular matrix. Its inverse is
+	\begin{equation}
+		\frac{1}{ac} \begin{pmatrix} c & -b \\ 0 & a \end{pmatrix}
+	\end{equation}
+	which is also an upper triangular matrix.
+
+\end{enumerate}
+Therefore $H$ is a subgroup of $GL_2(\R)$.
+
+$H$ is not a normal subgroup. We showed that an equivalent condition for being a subgroup is that $H$ must be closed under conjugation by elements of $G$. It's easy to find examples of conjugation which lead to matrices that are not upper triangular. Thus $H$ is not a normal subgroup. 
+\end{solution}
+
+\begin{exercise}
+Let $G$ be a finite group, and let $H$ be a nonempty subset of $G$ such that for any $a,b \in H$ we have $ab \in H$. Show that $H$ is a subgroup of $H$. 
+\end{exercise}		
+\begin{solution}
+We need to verify the three axioms required to be a subgroup:
+\begin{enumerate}
+	\item Identity: Proved in (3).
+	\item Closed under Products: This follows by the hypothesis of the claim.
+	\item Closed under Inverses: Since $H$ is assumed nonempty, take an element $x \in H$. Since $H$ is closed under products, we must have that all of the powers of $x$ are in $H$. That is, $x, x^2, x^3, x^4, \ldots \in H$. Since $G$ is assumed finite and $H$ is a subset of $G$, $H$ must also be finite. Therefore there must exist powers of $x$ that are equal (pigeonhole principle). Let $m,n \in \mathbb{N}$ be the first such powers such that $x^m = x^n$, and without loss of generality, assume $m > n$. Next observe that $x^m = x^n$ implies $x^{m-n} = 1 \in H$ (this shows the identity is in $H$) which implies $x^{m-n-1} = x^{-1}$. Since  $m > n$, we know that $m -n >0$ or equivalently that $m -n \geq 1$. There are two cases to consider:
+	\begin{enumerate}
+		\item $m-n = 1$: In this case $x^{m-n-1} = x^{1-1} = 1 = x^{-1} \in H$. 
+		\item $m - n > 1$: In this case $m - n - 1 > 0$, so that $x^{m-n-1} = x^{-1} \in H$ since $x^{m-n-1}$ is a positive power of $x$ and $H$ is closed under products. 
+	\end{enumerate}
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Let $H$ be the subset of matrices in $GL_3(\R)$ whose determinant is positive. Show that $H$ is a normal subgroup of $GL_3(\R)$, and describe $GL_3(\R) / H$.
+\end{exercise}
+\begin{solution}
+We first verify that $H$ is indeed a subgroup by verifying the three axioms:
+\begin{enumerate}
+	\item Identity: The identity matrix has determinant $1$, which is positive. 
+	\item Closed under products: Take any $A, B \in H$. Recall from linear algebra that $\det(AB) = \det(A)\det(B) > 0$. therefore $H$ is closed under taking products. 
+	\item Closed under inverses: Take any $A \in H$. Recall from linear algebra the $\det(A^{-1}) = \frac{1}{\det(A)} > 0$. Therefore $H$ is closed under inverses. 
+\end{enumerate}
+These three points show that $H$ is indeed a subgroup. 
+
+To show that $H$ is a normal subgroup, we will use the equivalent characterization that $H$ is closed under conjugation by elements of $G$. Take any $A \in G$ and $B \in G$. Then $\det(BAB^{-1}) = \frac{\det(A)\det(B)}{\det(B)} = \det(A) > 0$. Therefore $H$ is closed under conjugation by elements of $G$ so that $H$ is a normal subgroup.   
+\end{solution}	
+
+\begin{exercise}
+Say that a subgroup $M$ of a group $G$ is maximal if $M \subsetneq G$ and for every subgroup $H$ of $G$ that contains $M$ we have either $H = M$ or $H = G$. For each of the following conditions on a finite group $G$, decide whether it implies that $G$ is cyclic.
+\begin{enumerate}
+	\item $G$ has exactly one maximal subgroup.
+	\item $G$ has exactly two maximal subgroups. 
+	\item $G$ has exactly three maximal subgroups. 
+\end{enumerate} 
+\end{exercise}
+\begin{solution}
+
+\end{solution}
 
 \section{Honors Questions}
 \begin{exercise}
@@ -814,5 +952,6 @@ From homework 1, we showed that if $g^2 = 1$ for all $g \in G$ where $G$ is a gr
 \begin{solution}
 
 \end{solution}
+
 
 \end{document}
