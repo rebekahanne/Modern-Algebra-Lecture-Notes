@@ -179,7 +179,7 @@ Therefore, $(ab)(b^{-1}a^{-1}) = (b^{-1}a^{-1})(ab) = 1$ so that $b^{-1}a^{-1}$ 
 Give an example of $\tau \in S_3$ such that $\tau \neq 1$, $\tau^2 \neq 1$, and $\tau^3 \neq 1$.
 \end{exercise}
 \begin{solution}
-Consider $\tau(1) = 2$, $\tau(2) = 3$, $\tau(3) = 4$, $\tau(4) = 1$. Then, $\tau^2(1) = 3$ and $\tau^3(4)$. Thus is sufficient to show that $\tau \neq 1$, $\tau^2 \neq 1$, and $\tau^3 \neq 1$.
+Consider $\tau(1) = 2$, $\tau(2) = 3$, $\tau(3) = 4$, $\tau(4) = 1$. Then, $\tau^2(1) = 3$ and $\tau^3(1) = 4$. This is sufficient to show that $\tau \neq 1$, $\tau^2 \neq 1$, and $\tau^3 \neq 1$.
 \end{solution}
 
 \begin{definition}(The group $\mathbb{Z} / n \mathbb{Z}$)
@@ -198,6 +198,8 @@ What is the inverse of $15$ in $\mathbb{Z} / 30 \mathbb{Z}$.
 Observe that $15 + 15 = 30 = 0$. Hence $15$ is its own inverse.
 \end{solution}
 
+\subsubsection{Order}
+
 \begin{definition}(Order of a group, order of an element of a group)
 Let $G$ be a group. We call $|G|$ the order of $G$ (i.e. the number of elements in $G$). Further, the least $d >0$ such that $g^d = 1$ is called the order of $g \in G$.
 \end{definition}
@@ -215,10 +217,42 @@ Calculate the order of $2$ in $\mathbb{Z} / 7 \mathbb{Z}$.
 The order of $2$ is $7$.
 \end{solution}
 
+\subsubsection{Direct Product}
+Given groups $G, H$ we define a group structure on $G \times H$ by $(g_1,h_2)(g_2,h_2) = (g_1g_2,h_1h_2)$. The unit of $G \times H$ is $(1,1) = (1_G, 1_H)$. The inverse of $(g,h)$ is $(g,h)^{-1} = (g^{-1}, h^{-1})$. Questions about direct products will decompose into questions about the individual groups. 
+
 \subsubsection{Symmetric Groups}
 \begin{definition}(Cycle, Cycle Decomposition, Length, $k$-Cycle)
 A cycle is a string of integers which represents the element of $S_n$ which cyclically permutes these integers (and fixes all other integers). The product of all the cycles is called the cycle decomposition. The length of a cycle is the number of integers which appear in it. A cycle of length $k$ is called a $k$-cycle. 
 \end{definition}
+
+\begin{claim}
+The order of a $k$-cycle is $k$. 
+\end{claim}
+\begin{proof}
+Let $(i_1 i_2 \ldots i_k)$ be a $k$-cycle. By checking each index, observe that $(i_1 i_2 \ldots i_k)^k = id$. For any $d < k$, note that $(i_1 i_2 \ldots i_k)^d (i_1) = i_{d+1} \neq i_1$, since $d < k$. 
+\end{proof}
+
+\begin{claim}
+Disjoint cycles commute.
+\end{claim}
+\begin{proof}
+Let $\sigma = (s_1 s_2 \ldots s_k)$ and $\tau = (t_1 t_2 \ldots t_l)$ be disjoint cycles. Consider an index $s_i$ in the first cycle and an index $t_j$ in the second. Then
+\begin{equation}
+\sigma(\tau(s_i)) = \sigma(s_i) = s_{i+1}
+\end{equation}
+and
+\begin{equation}
+\tau(\sigma(s_i)) = \tau(s_{i+1}) = s_{i+1}
+\end{equation}
+Repeating this argument for all indices shows that
+\begin{equation}
+\sigma \tau = \tau \sigma
+\end{equation}
+\end{proof}
+
+\begin{example}
+$(2 3 6) (1 4) = (1 4) (2 3 6)$
+\end{example}
 
 \subsubsection{Matrix Groups (General Linear Groups)}
 \begin{example}
@@ -265,7 +299,7 @@ In this case we write $H \leq G$. Observe that $H$ is indeed a group.
 		\item Closed under products: Note that $0 + 2 = 2 + 0 = 2 \in H$, $0 + 4 = 4 + 0 = 4 \in H$, and $2 + 4 = 4 + 2 = 0 \in H$.
 		\item Closed under inverses: Note that $2^{-1} = 4 \in H$ (because $2 + 4 = 0$) and of course $4^{-1} = 2 \in H$.
 	\end{enumerate}
-	\item Define $H = \{ \sigma_n \in S_n | \sigma(n) = n \} \subset S_3$ (the set of $n$-permutations which fix the last index).
+	\item Define $H = \{ \sigma_n \in S_n | \sigma(n) = n \} \subset S_n$ (the set of $n$-permutations which fix the last index).
 	\begin{enumerate}
 		\item Identity: $id \in H$ because the identity permutation fixes the last element.
 		\item Closed under products: Let $\sigma, \tau \in H$. Then $\sigma \circ \tau (n) = \sigma(\tau(n)) = \sigma(n) = n$. Therefore $\sigma \tau$ also fixes the last element.
@@ -296,7 +330,7 @@ Define $H = \{ \sigma \in S_3 | \sigma(1) \in \{1, 2 \} \} \subset S_3$.
 	\item Let $G = GL_n(\mathbb{R})$, $H = \mathbb{R}^{\times}$, $\phi : G \to H$. Define $\phi(A) = \det(A)$.
 	\item Let $G = \mathbb{Z} / 7 \mathbb{Z}$, $H = \{z \in \mathbb{C}: z^7 = 1\}$. Define
 	\begin{equation}
-		\phi(A) = e^{\frac{2\pi i a}{7}}
+		\phi(a) = e^{\frac{2\pi i a}{7}}
 	\end{equation}
 	Then
 	\begin{align*}
@@ -341,7 +375,7 @@ Let's check the axioms required for $Im(\phi)$ to be a subgroup.
 \begin{enumerate}
 	\item Identity: Take $1 \in G$, then $\phi(1) = 1 \in Im(\phi)$.
 	\item Closed under products: $\phi(a)\phi(b) = \phi(ab) \in Im(\phi)$.
-	\item Closed under inverses: $\phi(a) = \phi(a^{-1}) \in Im(\phi)$.
+	\item Closed under inverses: $\phi(a)^{-1} = \phi(a^{-1}) \in Im(\phi)$.
 \end{enumerate}
 Therefore $Im(\phi)$ is a subgroup.
 \end{proof}
@@ -423,7 +457,9 @@ Let $H \leq G$ and fixed $a \in G$. Let
 aH &= \{ ah | h \in H \} \\
 Ha &= \{ ha | h \in H \} 
 \end{align*}
-These sets are called a left coset and right coset of $H$ in $G$. Write $G/H$ for the set of left cosets $\{aH | a \in G \}$.
+These sets are called a left coset and right coset of $H$ in $G$. 
+
+Write $G/H$ for the set of left cosets $\{aH | a \in G \}$.
 \end{definition}
 
 \begin{example}(Cosets)
@@ -451,7 +487,7 @@ Using the above claim, define $f : H \to aH$ by $f(h) = ah$. Then it follows tha
 \end{proof}
 
 \begin{definition}(Index)
-If $G$ is a group (possibly infinite) and $H \leq G$, the number of left cosets of $H$ in $G$ is called the index of $H$ in $G$ and is denoted by $|G : H|$. Alternatively, $|G : H| = | G / H | = \{aH | a \in G\}$. If $G$ is finite, the $|G:H| = \frac{|G|}{|H|}$.
+If $G$ is a group (possibly infinite) and $H \leq G$, the number of left cosets of $H$ in $G$ is called the index of $H$ in $G$ and is denoted by $|G : H|$. Alternatively, $|G : H| = | G / H | =  |\{aH | a \in G\} |$. If $G$ is finite, the $|G:H| = \frac{|G|}{|H|}$.
 \end{definition}
 
 \begin{example}(Index when $G$ finite)
@@ -463,7 +499,7 @@ Thus there are $2$ left cosets of $H$ in $G$. To write out $G/H$ we need only fi
 \begin{equation}
 	G/H = \{H, (1 2) H \}
 \end{equation}
-You can verify that $(1 2) H = (1 3) G = (2 3) H$.
+You can verify that $(1 2) H = (1 3) H = (2 3) H$.
 \end{example}
 
 \begin{example}(Index when $G$ infinite)
@@ -540,7 +576,7 @@ There are two cases to consider.
 	\begin{equation}
 		\phi(x^n \cdot x^m) = \phi(x^{n+m}) = n + m = \phi(x^n) + \phi(x^m)
 	\end{equation}
-	\item The powers of $x$ are not distinct: Suppose there is some $m \neq n$ such that $x^m = x^n$ (without loss of generality assume $m \leq n$). Then since $x^m = x^n$, we find that $x^m x^{-m} = x^n x^{-m}$. Therefore $x^{n-m} = 1$. Since there is some finite power of $x$ that equals the identity, let $k$ be the order of $x$. Define $\phi : \to \mathbb{Z} / k \mathbb{Z}$ by $\phi(x^r) = r$, where $r$ is the remainder upon dividing $r$ by $k$. 
+	\item The powers of $x$ are not distinct: Suppose there is some $m \neq n$ such that $x^m = x^n$ (without loss of generality assume $m \leq n$). Then since $x^m = x^n$, we find that $x^m x^{-m} = x^n x^{-m}$. Therefore $x^{n-m} = 1$. Since there is some finite power of $x$ that equals the identity, let $k$ be the order of $x$. Define $\phi : H \to \mathbb{Z} / k \mathbb{Z}$ by $\phi(x^r) = r$, where $r$ is the remainder upon dividing $r$ by $k$. 
 \end{enumerate}
 \end{proof}
 
