@@ -612,7 +612,7 @@ There are two cases to consider.
 Let $G$ be a finite cyclic group of order $n$. For every $m | n$ ($m$ that divides $n$) there exists a unique subgroup $H$ of $G$ with $|H|=m$. Furthermore, $H$ is cyclic.
 \end{claim}
 \begin{proof}
-
+Assume that $G = \mathbb{Z} / n \mathbb{Z}$. This is without generality since $G$ is a finite cyclic group, and every finite cyclic group is isomorphic to $\mathbb{Z} / n \mathbb{Z}$. Definite $H = \langle \frac{n}{m} \rangle$, Indeed, $H = \{ 0, \frac{n}{m}, \frac{2n}{m}, \ldots, \frac{(m-1)n}{m} \}$, and $|H| = m$. 
 \end{proof}
 
 \subsection{Dihedral Groups}
@@ -640,22 +640,45 @@ For a regular $n$-gon, there are $n$ rotational symmetries and $n$ mirror symmet
 	\begin{center}
 		\includegraphics[scale=.75]{square-symmetries}
 	\end{center}
-	\caption{The symmetries of an equilateral triangle}
+	\caption{The symmetries of a square}
 	\label{triangle_sym}
 \end{figure}
 
 \end{example}
 
-In general, $D_n$ is a group with $2n$ elements, where the binary operation is composition. The rotation $\rho$ is $\frac{2\pi}{n}$ radians clockwise. The set of all rotations is $\langle \rho \rangle = \{1, \rho, \rho^2, \ldots, \rho^{n-1} \}$. Let $\e$ be a vertical mirror symmetry. Then the set of all mirror symmetries is $\{\e, \e\rho, \e\rho^2, \ldots, \e \rho^{n-1} \}$. 
+\begin{definition}(Dihedral Group, $D_n$)
+In general, $D_n$ is a group with $2n$ elements, where the binary operation is composition. It contains two types of symmetries:
+\begin{enumerate}
+	\item The rotation $\rho$ is $\frac{2\pi}{n}$ radians clockwise. The set of all rotations is $\langle \rho \rangle = \{1, \rho, \rho^2, \ldots, \rho^{n-1} \}$. 
+	\item Let $\e$ be a vertical mirror symmetry. Then the set of all mirror symmetries is $\{\e, \e\rho, \e\rho^2, \ldots, \e \rho^{n-1} \}$. 
+\end{enumerate}
+\end{definition}
 
-Important facts: $\rho \e = \e \rho^{-1}$. 
+
+\begin{claim}(Important Identity)
+$\rho \e = \e \rho^{-1}$. 
+\end{claim}
+We use this relation to make computations in dihedral groups. 
+
 
 \begin{claim}
 $\rho^i \e = \e \rho^{-i}$
 \end{claim}
 \begin{proof}
-
+By induction, using the above claim. 
 \end{proof}
+
+\begin{example}(Uniqueness of rotations/mirror symmetries)
+Can two elements in the mirror symmetry set be equal, or equal to an element in the set of rotations? No! Suppose $\e \rho^i = \e \rho^j$. Then $\rho^i = \rho^j$, which implies $i = j$. Now suppose $\e \rho^i = \rho^j$, which implies $\e = \rho^{j-i}$. However this implies $\e$ is a rotation, which is nonsense.
+\end{example}
+
+\begin{example}(Mirror Symmetries are a Coset)
+Observe that the set of mirror symmetries is simply $\e \langle \rho \rangle$, thus they are a left coset of the cyclic group of rotations.  Then
+\begin{equation}
+	D_n / \langle \rho \rangle = \{ \langle \rho \rangle, \e \langle \rho \rangle\}
+\end{equation}
+Since $|D_n| = 2n$ and $|\langle \rho \rangle| = n$, we know that by Lagrange's theorem, $[D_n : \langle \rho \rangle] = 2$. 
+\end{example}
 
 \section{Quizzes}
 \subsection{Quiz 1}
