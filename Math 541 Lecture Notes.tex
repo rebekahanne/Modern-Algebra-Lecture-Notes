@@ -539,10 +539,32 @@ Continuing the above example, let $S_3$ be the set of permutations in $S_4$ for 
 \begin{claim}(The Kernal of a Homomorphism is a Normal Subgroup)
 Let $\phi : G \to H$ be homomorphism. Then $\ker (\phi) \trianglelefteq G$.
 \end{claim}
-\begin{proof}
+\begin{proof}(Easier Proof)
+We've already shown that $\ker \phi$ is a subgroup of $G$. To show that it is a normal subgroup, we will show that $g k g^{-1} \in \ker \phi$ for all $g \in G$ and $k \in \ker \phi$. This is equivalent to showing that $\phi(g k g^{-1}) = 1$ for all $g \in G$ and $k \in \ker \phi$. Then
+\begin{align*}
+	\phi(g k g^{-1}) &= \phi(g)\phi(k)\phi(g^{-1}) \\
+	&= \phi(g) \phi(g)^{-1} \\
+	&= 1
+\end{align*}
+Therefore $g k g^{-1} \in \ker \phi$ for all $g \in G$ and $k \in \ker \phi$, so that $\ker \phi$ is a normal subgroup of $G$. 
+\end{proof}
 
-We want to show that [[Incomplete]]
+\begin{proof}(Harder Proof)
+We will show that for all $a \in G$, 
+\begin{equation}
+	a \ker\phi = \{g \in G | \phi(g) = \phi(a) \} = \ker \phi a
+\end{equation}
+Let $S = \{g \in G | \phi(g) = \phi(a) \}$ and fix and $a \in G$. 
 
+Let $at \in a \ker \phi$. Then 
+\begin{equation}
+	\phi(at) = \phi(a)\phi(t) = \phi(a)
+\end{equation}
+Thus $a \ker \phi \subset S$. 
+
+Next let $g \in S$. Therefore $\phi(g) = \phi(a)$, so that $\phi(a^{-1}) \phi(g) = 1 = \phi(a^{-1}g)$. Therefore $a^{-1}g \in \ker \phi$, so that $S \subset a \ker\phi$. 
+
+The proof for the right cosets is similar. Together, these inclusions show that $\ker \phi$ is a normal subgroup. 
 \end{proof}
 
 \subsection{Cyclic Groups}
@@ -576,8 +598,63 @@ There are two cases to consider.
 	\begin{equation}
 		\phi(x^n \cdot x^m) = \phi(x^{n+m}) = n + m = \phi(x^n) + \phi(x^m)
 	\end{equation}
-	\item The powers of $x$ are not distinct: Suppose there is some $m \neq n$ such that $x^m = x^n$ (without loss of generality assume $m \leq n$). Then since $x^m = x^n$, we find that $x^m x^{-m} = x^n x^{-m}$. Therefore $x^{n-m} = 1$. Since there is some finite power of $x$ that equals the identity, let $k$ be the order of $x$. Define $\phi : H \to \mathbb{Z} / k \mathbb{Z}$ by $\phi(x^r) = r$, where $r$ is the remainder upon dividing $r$ by $k$. 
+	\item The powers of $x$ are not distinct: Suppose there is some $m \neq n$ such that $x^m = x^n$ (without loss of generality assume $m \leq n$). Then since $x^m = x^n$, we find that $x^m x^{-m} = x^n x^{-m}$. Therefore $x^{n-m} = 1$. Since there is some finite power of $x$ that equals the identity, let $k$ be the order of $x$. Define $\phi : H \to \mathbb{Z} / k \mathbb{Z}$ by $\phi(x^m) = r$, where $r$ is the remainder upon dividing $m$ by $k$. Surjectivity is clear by definition. To show $\phi$ is injective, we can use the fact that since $\phi$ is a homomorphism, it is injective if and only if $\ker{\phi} = 1$. Then
+	\begin{align*}
+		\ker{\phi} &= \{x^r : \phi(x^r) = 0 \} \\
+		&= \{x^r : k \text{ divides } r \} \\
+		&= \{x^{kt} : t \in \Z \} \\
+		&= \{ 1 \} \tag{since $k$ is the order of $x$}
+	\end{align*}
 \end{enumerate}
+\end{proof}
+
+\begin{claim}
+Let $G$ be a finite cyclic group of order $n$. For every $m | n$ ($m$ that divides $n$) there exists a unique subgroup $H$ of $G$ with $|H|=m$. Furthermore, $H$ is cyclic.
+\end{claim}
+\begin{proof}
+
+\end{proof}
+
+\subsection{Dihedral Groups}
+For each $n \geq 3$, let $D_n$ be the set of symmetries of the regular $n$-gon. A symmetry is a rigid motion of the $n$-gon which takes a copy of the $n$-gon, moves this copy through space, and places the copy back on the original $n$-gon so it exactly covers it.  
+
+In general, we consider two types of symmetries:
+\begin{enumerate}
+	\item Rotational symmetries (denoted $\rho$)
+	\item Mirror symmetries (denoted by $\e$). There is a distinction in the mirror symmetries when $n$ is even and when $n$ is odd. When $n$ is odd, the mirror symmetries (i.e. the line of symmetry in this case) all have the same form of starting from a vertex and going to the mid-point of the edge opposite of the vertex. When $n$ is even, the lines of symmetry either go from a vertex to a vertex or from a mid-point of an edge to the mid-point of an edge. 
+\end{enumerate}
+For a regular $n$-gon, there are $n$ rotational symmetries and $n$ mirror symmetries. Therefore $|D_n| = 2n$.
+
+\begin{example}($D_3$, Symmetries of a Triangle)
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=3]{triangle_symmetries}
+	\end{center}
+	\caption{The symmetries of an equilateral triangle}
+	\label{triangle_sym}
+\end{figure}
+\end{example}
+
+\begin{example}($D_4$, Symmetries of a Square)
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=.75]{square-symmetries}
+	\end{center}
+	\caption{The symmetries of an equilateral triangle}
+	\label{triangle_sym}
+\end{figure}
+
+\end{example}
+
+In general, $D_n$ is a group with $2n$ elements, where the binary operation is composition. The rotation $\rho$ is $\frac{2\pi}{n}$ radians clockwise. The set of all rotations is $\langle \rho \rangle = \{1, \rho, \rho^2, \ldots, \rho^{n-1} \}$. Let $\e$ be a vertical mirror symmetry. Then the set of all mirror symmetries is $\{\e, \e\rho, \e\rho^2, \ldots, \e \rho^{n-1} \}$. 
+
+Important facts: $\rho \e = \e \rho^{-1}$. 
+
+\begin{claim}
+$\rho^i \e = \e \rho^{-i}$
+\end{claim}
+\begin{proof}
+
 \end{proof}
 
 \section{Quizzes}
@@ -650,6 +727,21 @@ Let $G$ be a group and fix $g \in G$. Define $\phi : G \to G$ by $\phi(x) = gxg^
 \end{solution}
 
 \subsection{Quiz 3}
+\begin{exercise}
+Let $G$ be a group and define $\phi : G \to G$ by $\phi(g) = g^{-1}$ for $g \in G$. Show that $\phi$ is a homomorphism if and only if $G$ is abelian.
+\end{exercise}
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+Define $H = \{\sigma \in S_5 : \{\sigma(1), \sigma(2), \sigma(3) \} \in \{ 1, 2, 3 \} \}$. Show that $H \leq S_5$ and calculate $[S_5 : H]$. 
+\end{exercise}
+\begin{solution}
+
+Since $S_5$ is a finite group, we can use Lagrange's theorem to find $[S_5 : H] = \frac{|S_5|}{|H|}$.  $|S_5| = 5! = 120$. Then $|H| = 3! \times 2! = 12$. Therefore 
+\end{solution}
+
 
 \section{Homework Exercises}
 \subsection{Homework 1}
@@ -696,7 +788,7 @@ We check each of the axioms:
 \begin{enumerate}
 \item Associativity: This follows from the associativity of $\mathbb{C}$.
 \item Identity: Observe that $1 \in G$ since $1^7 = 1$. Fix $g \in G$, and under multiplication, $g \star 1 = 1 \star g = g$. Therefore, $G$ has an identity.
-\item Inverse: First observe that $0 \not\in G$ since $0^7 = 0$. The inverse of $z \in G$ is simply $z^{-1}$. Since $z \in G$, we know that $z^7 = 1$. Then, $z^{-7} = 1^{-1} = 1$. Therefore, $z^{-1} \in G$ since $z^{-7} = 1$. Then $z z^{-1} 1$, and the inverse of each $z \in G$ is also in $G$.
+\item Inverse: First observe that $0 \not\in G$ since $0^7 = 0$. The inverse of $z \in G$ is simply $z^{-1}$. Since $z \in G$, we know that $z^7 = 1$. Then, $z^{-7} = 1^{-1} = 1$. Therefore, $z^{-7} \in G$ since $z^{-7} = 1$. Then $z z^{-1} = 1$, and the inverse of each $z \in G$ is also in $G$.
 \item Closure of binary operation: Let $a,b \in G$, so that $a^7 = b^7 = 1$. Then $(ab)^7 = a^7 b^7 = 1$. Therefore $ab \in G$. (Remark: To show that $ab \in G$, we need to prove that $(ab)^7 = 1$. Therefore, in our proof, we can start with $(ab)^7$ directly.)
 \end{enumerate}
 \end{solution}
@@ -735,7 +827,7 @@ The order of a permutation is the lcm of the lengths of the cycles in its cycle 
 Let $\sigma \in S_n$ be a $k$-cycle, and let $\tau \in S_n$. Prove that $\tau \sigma \tau^{-1}$ is also a $k$-cycle.
 \end{exercise}
 \begin{solution}
-Let $\sigma = (i_1 i_2 \ldots i_k)$. We claim that $\tau \sigma \tau^{-1} = (\tau(i_1) \tau(i_2) \ldots \tau(i_3))$. We can calculate each element of $\tau \sigma \tau^{-1}$ to show that this is true. Consider $\tau(i_1)$. Then,
+Let $\sigma = (i_1 i_2 \ldots i_k)$. We claim that $\tau \sigma \tau^{-1} = (\tau(i_1) \tau(i_2) \ldots \tau(i_k))$ (which is also a $k$-cycle). We can calculate each element of $\tau \sigma \tau^{-1}$ to show that this is true. Consider how $\tau \sigma \tau^{-1}$ acts on $\tau(i_1)$:
 \begin{equation}
 	\tau \sigma \tau^{-1}(\tau(i_1)) = \tau(\sigma(i_1)) = \tau(i_2)
 \end{equation}
@@ -755,15 +847,15 @@ Let $G$ be a group, and let $g \in G$ be an element of order $d$. Show that the 
 \begin{solution}
 There are two cases to consider. First suppose that $|g| = \infty$. For the sake of reaching a contradiction, suppose that $|g^{-1}| < \infty$. Thus for some $m < \infty$ we have that $(g^{-1})^m = 1$ (this is the smallest $m$ for which this is true). But then,
 \begin{equation}
-	g^m = g^{-1 \cdot m \cdot -1} = ((g^{-1})^m)^{-1} = 1^{-1} = 1
+	g^m = \mathbf{g^{-1 \cdot m \cdot -1}} = ((g^{-1})^m)^{-1} = 1^{-1} = 1
 \end{equation}
-This is a contradiction. Therefore if $|g| = \infty$, then $g^{-1} = \infty$. In the second case, we suppose that $|g| = d$ and $|g^{-1}| = c$. We then show that $c=d$. First,
+This is a contradiction. Therefore if $|g| = \infty$, then $|g^{-1}| = \infty$. In the second case, we suppose that $|g| = d$ and $|g^{-1}| = c$. We then show that $c=d$. First,
 \begin{equation}
 	(g^d)^{-1} = (g^{-1})^d = 1
 \end{equation}
 Therefore $c \leq d$. Next, 
 \begin{equation}
-	g^c = ((g^c)^{-1})^{-1} = ((g^{-1})^c)^{-1} = 1^{-1} = 1
+	g^c = \mathbf{((g^c)^{-1})^{-1}} = ((g^{-1})^c)^{-1} = 1^{-1} = 1
 \end{equation}
 Therefore $d \leq c$. Together we get that $d = c$.
 \end{solution}
@@ -796,7 +888,7 @@ Thus
 \begin{equation}
 (A^{-1})^T (B^{-1})^T = (A^{-1})^T (A^{-1})^T 
 \end{equation}
-Use the right left cancellation law to show that $(B^{-1})^T = (A^{-1})^T$. This implies that $A = B$. Next show $\phi$ is surjective. That is, we must show that for all $B \in GL_n(\mathbb{R})$ there exists an $A \in GL_n(\mathbb{R})$ such that $\phi(A) = B$. Consider $A = (B^T)^{-1}$. Then
+Use the left cancellation law to show that $(B^{-1})^T = (A^{-1})^T$. This implies that $A = B$. Next show $\phi$ is surjective. That is, we must show that for all $B \in GL_n(\mathbb{R})$ there exists an $A \in GL_n(\mathbb{R})$ such that $\phi(A) = B$. Consider $A = (B^T)^{-1}$. Then
 \begin{align}
 \phi((B^T)^{-1}) &= (((B^T)^{-1})^{-1})^T \\
 &= B
@@ -841,7 +933,6 @@ Now suppose $\ker(\phi) = \{1\}$. Fix $g_1, g_2 \in G$ such that $\phi(g_1) = \p
 \begin{align*}
 \phi(g_1 g_2^{-1}) &= \phi(g_1) \phi(g_2^{-1}) \tag{$\phi$ is a homomorphism}\\
 &= \phi(g_1) \phi(g_2)^{-1} \tag{property of homomorphism} \\
-&= \phi(g_1) \phi(g_1)^{-1} \tag{since $\phi(g_1) = \phi(g_2)$} \\
 &= 1
 \end{align*} 
 Therefore $g_1 g_2^{-1} \in \ker(\phi)$. Since we assumed $\ker(\phi) = \{1\}$, it must be that $g_1 g_2^{-1} = 1$. This implies that $g_1 = g_2$.
@@ -851,7 +942,7 @@ Therefore $g_1 g_2^{-1} \in \ker(\phi)$. Since we assumed $\ker(\phi) = \{1\}$, 
 Let $G$ be a finite group with $|G| > 2$. Show that there are at least two distinct isomorphisms from $G$ to itself. 
 \end{exercise}
 \begin{solution}
-
+\it Incomplete.
 \end{solution}
 
 \subsection{Homework 4}
@@ -888,7 +979,21 @@ $1 \implies 2$: Since $H$ is normal we have that for all $g \in G$, $Hg = gH$. T
 
 $2 \implies 3$: This holds trivially.
 
-$3 \implies 1$: We have that for every $g \in G$, we have $gHg^{-1} \subset H$. This implies $gH \subset Hg$. Further, we have that for every $g \in G$, $g^{-1}Hg \subset H$. Thus $Hg \subset gH$. This shows $gH = Hg$ for all $g \in G$. 
+$3 \implies 1$: We have that for every $g \in G$, we have $gHg^{-1} \subset H$. Let $h \in H$ and $g \in G$. Then 
+\begin{equation}
+	gh = ghg^{-1}g = h'g \in Hg \implies gH \subset Hg 	
+\end{equation} 
+Similarly,
+\begin{equation}
+	hg = gg^{-1}hg = gh' \in gH \implies Hg \subset gH
+\end{equation}
+Therefore, these two inclusions show that $gH = Hg$. 
+
+$1 \implies 3$: Suppose $gH = Hg$ for all $g \in G$. Fix $g \in G$ and $h \in H$. We want to show that $ghg^{-1} \in H$. To that end
+\begin{equation}
+	ghg^{-1} = gg^{-1}h' = h' \in H
+\end{equation}
+Therefore $gHg^{-1} \subset H$.
 \end{solution}
 
 
