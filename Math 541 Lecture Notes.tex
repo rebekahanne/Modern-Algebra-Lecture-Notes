@@ -45,7 +45,8 @@
 \newtheorem{proposition}{Proposition}
 \newtheorem{remark}{Remark}
 \theoremstyle{definition}
-\newtheorem{solution}[theorem]{Solution}
+%\newtheorem{solution}[theorem]{Solution}
+\newtheorem{solution}{Solution}
 \newtheorem{summary}[theorem]{Summary}
 \geometry{left=1in,right=1in,top=1in,bottom=1in}
 %\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
@@ -680,12 +681,182 @@ Observe that the set of mirror symmetries is simply $\e \langle \rho \rangle$, t
 Since $|D_n| = 2n$ and $|\langle \rho \rangle| = n$, we know that by Lagrange's theorem, $[D_n : \langle \rho \rangle] = 2$. 
 \end{example}
 
+\begin{example}
+In $D_5$, compute (simplify)
+\begin{equation}
+\rho \e^7 \rho \e \rho^2 \e \rho^{-3} \e^{-1}
+\end{equation}
+We know that $\rho \e = \e \rho^{-1}$, $\rho^5 = 1$, and $\e^2 = 1$. Then, with the strategy of pushing $\e$ to the left,
+\begin{align*}
+	\rho \e^7 \rho \e \rho^2 \e \rho^{-3} \e^{-1} &= \rho \e \rho \e \rho^2 \e \rho^{2} \e \tag{$\rho^{-3} = \rho^{2}, \e^{-1} = \e$} \\
+	&= \rho \e \rho \e \rho^2 \e \rho \e \rho^{-1} \\
+	&= \rho \e \rho \e \rho^2 \e \e \rho^{-1} \rho^{-1} \\
+	&= \rho \e \rho \e \rho^2 \rho^{-1} \rho^{-1} \\
+	&= \rho \e \rho \e \\
+	&= \rho \e \e \rho^{-1} \\
+	&= 1
+\end{align*}
+\end{example}
+
+\subsection{Quotient Groups}
+
+\begin{definition}(Quotient Group)
+Let $G$ be a group and $N \trianglelefteq G$ (that is, $N$ is a normal subgroup of $G$). Let $G/N = \{gN|g \in G\}$ be the set of left cosets of $N$ in $G$. Then the quotient group of $G$ by $N$ is the group $(G/N, \cdot)$, where $\cdot$ is the binary operation on $G/N$ defined for all $g_1 N, g_2 N \in G / N$ by $g_1 N g_2 N = g_1g_2N$. 
+\end{definition}
+
+\begin{claim}
+In the above definition, $G/N$ is a group. 
+\end{claim}
+\begin{proof}
+Binary operation well-defined: We need to check that $\cdot: G/N \times G/N \to G/N$, where $(g_1N, g_2N) \to g_1 g_2 N$ is well-defined (A function is well-defined if it gives the same result when the representation of the input is changed without changing the value of the input. In this context, we show that the definition of multiplication depends on only the cosets and not on the coset representatives). Suppose that $g_1 N = g'_1 N$ and $g_2 N = g'_2 N$, so we want to show $g_1 g_2 N = g'_1 g'_2 N$. Then $g_1N = g'_1 N \iff (g'_1)^{-1} g_1 \in N$ and $g_2 N = g'_2 N \iff (g'_2)^{-1} g_2 \in N$. We then want to show $(g'_1g'_2)^{-1}g_1g_2 \in N$. Then
+\begin{align*}
+	(g'_1g'_2)^{-1}g_1g_2 &= (g'_2)^{-1} (g'_1)^{-1} g_1 g_2 \\
+	&= (g'_2)^{-1} n g_2 \tag{$n = (g'_1)^{-1} g_1 \in N$} \\
+	&= (g'_2)^{-1} n g'_2 (g'_2)^{-1} g_2 \\
+	&= (g'_2)^{-1} n g'_2 n' \tag{$n' = (g'_2)^{-1} g_2 \in N$}\\
+	&= (g'_2)^{-1} g'_2 n'' n' \tag{$N$ is normal}\\
+	&= n'' n' \in N
+\end{align*}
+Therefore the binary operation is indeed well-defined. 
+
+We now check the axioms required to be a group.
+
+\begin{enumerate}
+	\item Identity: Observe that
+	\begin{equation}
+		1 \cdot N = N
+	\end{equation}
+
+	\item Inverse: Observe that
+	\begin{equation}
+		(gN)^{-1} = g^{-1}N
+	\end{equation}
+	because 
+	\begin{equation}
+		gNg^{-1}N = gg^{-1} N = N
+	\end{equation}
+
+	\item Associativity: Follows clearly from the associativity of $G$. 
+	\begin{align*}
+		(g_1 N g_2 N)(g_3 N) &= (g_1 g_2 N)(g_3 N) \\
+		&= g_1 g_2 g_3 N \\
+		&= (g_1 N) (g_2 g_3 N) \\
+		&= (g_1 N)(g_2 N g_3 N)
+	\end{align*}
+\end{enumerate}
+
+Therefore $G/H$ is a group. 
+\end{proof}
+
+\begin{example}(Examples of Quotient Groups)
+\begin{enumerate}
+	\item $\mathbb{R}^{\times} / \mathbb{R}_{> 0} = \{\mathbb{R}_{> 0}, (-1) \cdot \mathbb{R}_{> 0}\} \cong \{\pm 1\}$
+	\item $\mathbb{Z} / 12 \mathbb{Z} = \{0 + 12 \mathbb{Z}, 1 + 12 \mathbb{Z}, \ldots, 11 + 12 \mathbb{Z} \} $
+	\item $(\mathbb{Z} / 12 \mathbb{Z}) / \{0, 4, 8 \} \cong \mathbb{Z} / 4 \mathbb{Z}$. Thus this quotient group has $4$ elements (we can also see this from Lagrange's theorem). Also observe that this is a cyclic group.
+\end{enumerate}
+\end{example}
+
+\subsection{Isomorphism Theorems}
+
+\begin{theorem}(The First Isomorphism Theorem)
+If $\phi:G\to H$ is a homomorphism of groups, then $G / \ker(\phi) \cong Im \phi$. 
+\end{theorem}
+
+\begin{proof}
+Define $f: G / \ker(\phi) \to Im \phi$ by $f(a \ker(\phi)) = \phi(a)$. We first show $f$ is indeed well-defined. To that end, pick $a \ker(\phi) = b \ker(\phi)$. Therefore there exists some $k \in \ker(\phi)$ such that $a = bk$. Then
+\begin{equation}
+	\phi(a) = f(a \ker(\phi)) = f(bk \ker(\phi)) = f(b \ker(\phi)) = \phi(b)
+\end{equation}
+Therefore $f$ is well-defined. We now show $f$ is an isomorphism. 
+
+\begin{enumerate}
+	\item $f$ is a homomorphism: 
+	\begin{align*}
+		f(a \ker(\phi) b \ker(\phi)) &= f(ab \ker(\phi)) \\
+		&=  \phi(ab) \\
+		&= \phi(a)\phi(b) \tag{$\phi$ is a homomorphism} \\
+		&= f(a \ker(\phi)) f(b \ker(\phi))
+	\end{align*}
+
+	\item $f$ is surjective: Let $\phi(a) \in Im \phi$. Then $f(a \ker \phi) = \phi(a)$. 
+	\item $f$ is injective:  
+	\begin{align*}
+		\ker(f) &= \{a \ker \phi : f(a \ker \phi) = 1_H \} \\
+		&= \{a \ker \phi : \phi(a) = 1_H \} \\
+		&= \{\ker \phi \} 
+	\end{align*}
+	Thus the kernal of $f$ is trivial (the trivial left coset), so $f$ is injective. 
+\end{enumerate}
+
+Therefore $f$ is an isomorphism.
+\end{proof}
+
+Intuition for this theorem:
+\begin{itemize}
+	\item This is a more general version of the rank-nullity theorem.
+	\item Given vector spaces $V, W$ and a linear transformation $A : V \to W$, this theorem says
+	\begin{equation}
+		dim( V / \ker A ) = dim (range(A))
+	\end{equation}
+	or that
+	\begin{equation}
+		dim(V) - nullity(A) = rank(A)
+	\end{equation}
+\end{itemize}
+
+\begin{example}(Examples of applications of first isomorphism theorem) Consider the following examples
+\begin{enumerate}
+	\item $sgn : \R^{\times} \to \{\pm 1 \}$. This is indeed a homomorphism. By the theorem, we know that
+	\begin{equation}
+		\R^{\times} /\ker(sgn) \cong \{ \pm 1\}
+	\end{equation}
+	Then $\ker(sgn) = \R_{>0}$. This matches the previous example. 
+	\item $\det : GL_2(\mathbb{R}) \to \R^{\times}$. The theorem implies
+	\begin{equation}
+		GL_2(\mathbb{R}) / \{A \in GL_2(\mathbb{R}) | \det(A) = 1 \} \cong \R^{\times}
+	\end{equation}
+\end{enumerate}
+
+\end{example}
+
+\begin{theorem}(The Second or Diamond Isomorphism Theorem)
+Let $H \leq G$ and $K \trianglelefteq G$. Then $HK / K \cong H / H \cap K$. 
+\end{theorem}
+
+\begin{proof}
+Define $f : HK / K \to H / H \cap K$ by 
+\begin{equation}
+	f(hk K) = h (H \cap K)
+\end{equation}
+We'll first show $f$ is well-defined. Fix $hk, h'k' \in HK$ such that $hk K = h'k'K \in HK/K$. There $h = h'\tilde{k}$ for some $\tilde{k} \in K$. Then
+\begin{equation}
+	h (H \cap k) = f(hk K) = f(h' \tilde{k} K) = h' (H \cap K)
+\end{equation}
+Therefore $f$ is well-defined, and we now show $f$ is an isomorphism.
+\begin{enumerate}
+	\item $f$ is a homomorphism:
+	\begin{align*}
+	f(h_1 k_1 K \cdot h_2 k_2 K) &= f(h_1 K \cdot h_2 K) \\
+	&= f(h_1h_2 K) \\
+	&= h_1h_2 (H \cap K) \\
+	&= h_1 (H \cap K) h_2 (H \cap K) \\
+	&= f(h_1 k_1 K) f(h_2 k_2 K)
+	\end{align*}
+	\item $f$ is surjective: Clear by the definition of $f$. 
+	\item $f$ is injective: We'll show the kernal of $f$ is trivial (in this context, the trivial left coset). 
+	\begin{align*}
+		\ker(f) &= \{ hk \cdot K | f(hk \cdot K) = H \cap K \} \\
+		&= \{ hk \cdot K | h (H \cap K) = H \cap K \} \\
+		&= \{ hk \cdot K | h \in H \cap K \} \tag{$h (H\cap K) = H \cap K \iff h \in H\cap K$} \\
+		&= \{K \}
+	\end{align*}
+\end{enumerate}
+\end{proof}
+
 \section{Quizzes}
+The course did not give solutions to any quizzes, homeworks, or midterms, so be wary of the solutions I've written below. 
+
 \subsection{Quiz 1}
-
-\begin{exercise}
-
-\end{exercise}
 
 \begin{exercise}
 Give an example of $\sigma \in S_3$ such that $\sigma$ has order 3. 
@@ -765,6 +936,8 @@ Define $H = \{\sigma \in S_5 : \{\sigma(1), \sigma(2), \sigma(3) \} \in \{ 1, 2,
 Since $S_5$ is a finite group, we can use Lagrange's theorem to find $[S_5 : H] = \frac{|S_5|}{|H|}$.  $|S_5| = 5! = 120$. Then $|H| = 3! \times 2! = 12$. Therefore 
 \end{solution}
 
+\section{Exams}
+\subsection{Exam 1}
 
 \section{Homework Exercises}
 \subsection{Homework 1}
@@ -1107,6 +1280,99 @@ Say that a subgroup $M$ of a group $G$ is maximal if $M \subsetneq G$ and for ev
 \end{exercise}
 \begin{solution}
 
+\end{solution}
+
+\subsection{Homework 5}
+
+\begin{exercise}
+Write down the order of each element in $D_8$.
+\end{exercise}
+\begin{solution}
+Geometrically, it's clear that all the ($8$) mirror symmetries of $D_8$ have order 2 (we can undo a reflection by reflecting again). We can also show this as follows. Fix an $i$ such that $0 \leq i \leq 8$. Then
+\begin{equation}
+	(\e \rho^i)(\e \rho^i) = \e \rho^i \rho^{-i} \e = \e^2 = 1	
+\end{equation}
+Therefore $|\e \rho^i| = 2$. 
+
+The orders of the rotational symmetries are as follows
+\begin{align*}
+|1| &= 1 \\
+|\rho| &= 8 \\
+|\rho^2| &= 4 \\
+|\rho^3| &= 8 \\
+|\rho^4| &= 2 \\
+|\rho^5| &= 8 \\
+|\rho^6| &= 4 \\
+|\rho^7| &= 8 \\
+\end{align*}
+\end{solution}
+
+\begin{exercise}
+Define a function $\phi : D_n \to \{\pm 1\}$ by $\phi(x) = 1$ if $x$ is a rotation and $\phi(x) = -1$ otherwise. Show that $\phi$ is a homomorphism.
+\end{exercise}
+\begin{solution}
+Proof by cases. 
+\end{solution}
+
+\begin{exercise}
+Let $G$ be a group, and let
+\begin{equation}
+	Aut(G) = \{f : G \to G | f \text{ is an isomorphism} \} 
+\end{equation}
+be the set of all isomorphisms from $G$ to $G$. Show $Aut(G)$ is a group under the binary operation of composition of functions. 
+\end{exercise}
+
+\begin{solution}
+Observe that $Aut(G)$ is a subset of the set of all permutations of $G$. Therefore, we will prove that $Aut(G)$ is a subgroup of $G$. 
+\end{solution}
+
+\begin{exercise}
+Let $G$ be a group, and let
+\begin{equation}
+	Z(G) = \{ z \in G | zg = gz \text{ for all } g \in G\}
+\end{equation}
+be the set of all elements in $G$ which commute with all other elements. Define a function $f: G\to Aut(G)$ by 
+\begin{equation}
+	(f(g))(x) = gxg^{-1}
+\end{equation}
+Show that $f$ is a homomorphism and that $Ker(f) = Z(G)$
+\end{exercise}
+\begin{solution}
+First show $f$ is a homomorphism. Fix $x,y \in G$. Then,
+\begin{align*}
+	(f(g))(xy) &= gxyg^{-1} \\
+	&=gxg^{-1}gyg^{-1} \\
+	&=(f(g))(x)(f(g))(y)
+\end{align*}
+Next, 
+\begin{align*}
+	Ker(G) &= \{g \in G | (f(g))(x) = x, \quad \forall x \in G \} \\
+	&= \{g \in G |  gxg^{-1} = x, \quad \forall x \in G \} \\
+	&= \{g \in G |  gx = xg, \quad \forall x \in G \} \\
+	&= Z(G)
+\end{align*}
+\end{solution}
+
+\begin{exercise}
+Let $G$ be a group, let $K \trianglelefteq G$, and let $H \leq G$. Show that $K \cap H \trianglelefteq H$.
+\end{exercise}
+\begin{solution}
+Since $K$ is a normal subgroup of $G$, we know that
+\begin{equation}
+	gkg^{-1} \in K \quad \forall k \in K, \forall g \in G
+\end{equation}
+Further, since $H$ is a subgroup, we know if is closed under products. Fix $x \in H \cap K$. 
+\begin{equation}
+	gxg^{-1} \in H \quad \forall x \in H \cap K, \forall g \in H
+\end{equation}
+But since $x \in K$, we know that $gxg^{-1} \in K$. Therefore $gxg^{-1} \in H \cap K \quad \forall x \in H \cap K, \forall g \in H$, so that $K \cap H \trianglelefteq H$.
+\end{solution}
+
+\begin{exercise}
+How many subgroups does a cyclic group of order 30 have?
+\end{exercise}
+\begin{solution}
+For a finite cyclic group, we know there exists a unique subgroup for each divisor of the order. Thus, the divisors of 30 are 1, 2, 3, 5, 6, 10, 15, 30. The cyclic group of order 30 has 8 subgroups. 
 \end{solution}
 
 \section{Honors Questions}
