@@ -1,0 +1,6 @@
+\begin{XTRdefinition}(Stabilizer)
+The stabilizer of $x$ is
+\begin{equation}
+G_x = Stab_G(x) = \{ g\in G | gx = x \}
+\end{equation}
+\end{XTRdefinition}
