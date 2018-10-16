@@ -1567,6 +1567,20 @@ For the action of $GL_2(\mathbb{R})$ on $\R^2$, find the orbit of each $v \in \R
 There are two cases to consider. Suppose $v = 0$ (the zero vector). Then $O_v = \{0\}$. For $v \neq 0$, since each matrix in $GL_2(\mathbb{R})$ is invertible, we know that the nullspaces of these matrices are trivial. Conversely, $v\neq 0$ implies the action cannot map $v$ to 0. Therefore, $O_v = \R^2 \ \{0 \}$. 
 \end{solution}
 
+\begin{exercise}
+Let $G$ be a group, and let $G$ act on itself by (left) multiplication. Show that the stabilizer of each element is trivial.
+\end{exercise}
+\begin{solution}
+This follows from the fact that the identity element of $G$ is unique. Thus, $1 \cdot g = g$ and uniqueness implies the stabilizer of each element of $G$ is trivial. 
+\end{solution}
+
+\begin{exercise}
+For the action of the dihedral group $D_4$ on the vertices of a square, determine the size of a vertex stabilizer. 
+\end{exercise}
+\begin{solution}
+The size of a vertex stabilizer is $2$: the identity element and the mirror symmetry which passes through the opposite vertex. All other symmetries do not fix a vertex. 
+\end{solution}
+
 \section{Honors Questions}
 \begin{exercise}
 From homework 1, we showed that if $g^2 = 1$ for all $g \in G$ where $G$ is a group, then $G$ is abelian. Note that $ab = ba$ iff $aba^{-1}b^{-1} = 1$. Can we write $aba^{-1}b^{-1}$ as a product of squares $c_1 c_2 c_3 \ldots $? (And then each $c^2_i = 1$).
