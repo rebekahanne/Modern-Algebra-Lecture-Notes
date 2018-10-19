@@ -2,7 +2,7 @@
 %% This is file, `math_541_definitions.tex',
 %% generated with the extract package.
 %% 
-%% Generated on :  2018/10/14,15:25
+%% Generated on :  2018/10/18,19:16
 %% From source  :  "Math 541 Lecture Notes".tex
 %% Using options:  active,generate=Math_541_Definitions,extract-env={definition}
 %% 
@@ -133,6 +133,38 @@ The stabilizer of $x$ is
 \begin{equation}
 G_x = Stab_G(x) = \{ g\in G | gx = x \}
 \end{equation}
+\end{definition}
+
+\begin{definition}(Transitive action)
+We say that an action of $G$ on $X$ is transitive if for every $x,y \in X$, there is an element $g \in G$ such that $gx = y$. In words, this means that we can arrive at $y$ from $x$ by applying an element from $G$.
+\end{definition}
+
+\begin{definition}(Action induces equivalence relation)
+The action of any group $G$ on $X$ induces an equivalence relation by saying $x \sim y$ if there exists a $g \in G$ such that $gx = y$.
+\end{definition}
+
+\begin{definition}(Conjugation action, conjugacy classes, conjugate)
+Consider the action of $G$ on itself by $g(x) = gxg^{-1}$. We call this the conjugation action. The equivalence classes created by this action are called the conjugacy classes of $G$. We say that two elements in $x,y\in G$ are conjugate if they belong to the same conjugacy class.
+\end{definition}
+
+\begin{definition}(Fixed points)
+For any element $g\in G$, let $X^g = \{x\in X|gx = x\}$. In words, this is the set of all elements in $X$ such that $g$ acts on them like the identity.
+\end{definition}
+
+\begin{definition}(Free, faithful action)
+Let $G$ be a group that acts on a set $X$.
+\begin{enumerate}
+\item The action is said to be faithful if for all $x \in X$
+\begin{equation}
+gx = x \implies g = 1
+\end{equation}
+Thus the only element that acts like the identity is actually the identity $g=1$.
+\item The action is free if for all $g\in G$ and for all $x \in X$
+\begin{equation}
+gx = x \implies g = 1
+\end{equation}
+This means all stabilizers are trivial. Or, any element which has a fixed point is the identity element.
+\end{enumerate}
 \end{definition}
 
 \end{document}

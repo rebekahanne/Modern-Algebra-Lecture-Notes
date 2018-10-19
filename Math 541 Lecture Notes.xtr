@@ -1,6 +1,15 @@
-\begin{XTRdefinition}(Stabilizer)
-The stabilizer of $x$ is
+\begin{XTRdefinition}(Free, faithful action)
+Let $G$ be a group that acts on a set $X$.
+\begin{enumerate}
+\item The action is said to be faithful if for all $x \in X$
 \begin{equation}
-G_x = Stab_G(x) = \{ g\in G | gx = x \}
+gx = x \implies g = 1
 \end{equation}
+Thus the only element that acts like the identity is actually the identity $g=1$.
+\item The action is free if for all $g\in G$ and for all $x \in X$
+\begin{equation}
+gx = x \implies g = 1
+\end{equation}
+This means all stabilizers are trivial. Or, any element which has a fixed point is the identity element.
+\end{enumerate}
 \end{XTRdefinition}
