@@ -1212,6 +1212,116 @@ Observations:
 \end{enumerate}
 \end{example}
 
+\subsection{Multiplicative group of integers modulo n}
+
+\begin{definition}(coprime)
+	An integer $a$ is coprime to $n$ if the only positive divisor of both $a$ and $n$ is 1.
+\end{definition}
+
+\begin{definition}($(\mathbb{Z}/n \mathbb{Z})^{\times}$)
+\begin{equation}
+	(\mathbb{Z}/n \mathbb{Z})^{\times} = \{1 \leq a \leq n - 1 | a \text{ coprime to } n\}
+\end{equation}
+$n \geq 2$. This is called the multiplicative group of integers modulo $n$, where the binary operation is multiplication and taking the remainder upon dividing by $n$. 
+\end{definition}
+
+\begin{example}($(\mathbb{Z}/n \mathbb{Z})^{\times}$)
+
+\begin{center}
+\begin{tabular}{c|c}
+$n$ & ($(\mathbb{Z}/n \mathbb{Z})^{\times}$) \\
+\hline 
+2 & \{ 1 \} \\
+3 & \{1 , 2\} \\
+4 & \{1, 3\} \\
+5 & \{1, 2, 3, 4\} \\
+6 & \{1, 5\}
+\end{tabular}
+\end{center}
+\end{example}
+
+\begin{example}(Computations in $(\mathbb{Z}/n \mathbb{Z})^{\times}$)
+Suppose $n=5$. Then we consider $(\mathbb{Z}/5 \mathbb{Z})^{\times}$. 
+\begin{enumerate}
+	\item $1 \cdot 2 = 2$ 
+	\item $2 \cdot 3 = 1$
+	\item $2 \cdot 2 = 4$
+	\item $3 \cdot 3 = 4$
+\end{enumerate}
+\end{example}
+
+\begin{claim}
+$(\mathbb{Z}/n \mathbb{Z})^{\times}$ is a group.
+\end{claim}
+\begin{proof}
+We verify the axioms:
+\begin{enumerate}
+	\item Unit: The unit element is $1$, since $1$ is coprime to every number and acts an identity under multiplication.
+	\item Inverse: Define a function for a fixed $g \in (\mathbb{Z}/n \mathbb{Z})^{\times}$ by $f : (\mathbb{Z}/n \mathbb{Z})^{\times} \to (\mathbb{Z}/n \mathbb{Z})^{\times}$ where $f(x) = gx$. To show that $g$ has an inverse, it suffices to show that $f$ is surjective. If $f$ is surjective, then there must exist some $x \in (\mathbb{Z}/n \mathbb{Z})^{\times}$ such that $gx = 1$. However, since $(\mathbb{Z}/n \mathbb{Z})^{\times}$ is finite, it is enough to show that $g$ is injective (so that $f$ must also be surjective.) suppose that $gx = gy$ for some $x,y \in (\mathbb{Z}/n \mathbb{Z})^{\times}$. Then, for some $\alpha, \beta \in \mathbb{Z}$
+	\begin{equation}
+		gx - n\alpha = gy - n\beta \tag{equality of integers}
+	\end{equation}
+	this implies
+	\begin{equation}
+		g(x-y) = n(\alpha - \beta)
+	\end{equation}
+	so that $n$ divides $g(x-y)$. Next, recall that $n$ is coprime to $g$ (by the definition of the set/group), so  $n | (x-y)$. However, since $x,y \in (\mathbb{Z}/n \mathbb{Z})^{\times}$, the difference in absolute value of $x$ and $y$ must be less than $n$. This implies that $x=y$, which proves injectivity.
+\end{enumerate}
+\end{proof}
+
+\begin{corollary}(Fermat's Little Theorem)
+	For a prime number $p$ and $1 \leq x \leq p-1$, we have $x^{p-1} - 1$ is divisible by $p$.
+\end{corollary}
+\begin{proof}
+	Note that $x \in (\mathbb{Z}/p \mathbb{Z})^{\times}$ (since $p$ is prime and $x$ is less than $p$). Let $k$ be the order of $x$ and consider 
+	\begin{equation}
+		\langle x \rangle = \{1,x,x^2,\ldots,x^{k-1}\}
+	\end{equation}
+	by Lagrange's theorem, $|\langle x \rangle|$ divides $|(\mathbb{Z}/n \mathbb{Z})^{\times}|$. Thus $k$ divides $p-1$ (because $|\langle x \rangle|$ is $k$ and$|(\mathbb{Z}/n \mathbb{Z})^{\times}|$ is $p-1$, since $p$ is prime). Then there exists some $t$ such that $p-1 = k \cdot t$. Thus
+	\begin{equation}
+		x^{p-1} = x^{k\cdot t} = (x^k)^t = 1^t = 1 \tag{mod $p$}
+	\end{equation}
+\end{proof}
+
+\begin{claim}
+	Let $p \neq q$ be odd primes. Then
+	\begin{equation}
+		(\mathbb{Z}/pq \mathbb{Z})^{\times} \cong (\mathbb{Z}/p \mathbb{Z})^{\times} \times (\mathbb{Z}/q \mathbb{Z})^{\times}
+	\end{equation}
+\end{claim}
+\begin{proof}
+	Define a homomorphism $\phi: (\mathbb{Z}/pq \mathbb{Z})^{\times} \cong (\mathbb{Z}/p \mathbb{Z})^{\times} \times (\mathbb{Z}/q \mathbb{Z})^{\times}$ by taking remainders for division by $p$ and $q$ separately. 
+	\begin{example}
+	Suppose $p=3$ and $q=5$. Then $\phi(11) = (2, 1)$.
+	\end{example}
+	It suffices to check that $\phi: (\mathbb{Z}/pq \mathbb{Z})^{\times} \cong (\mathbb{Z}/p \mathbb{Z})^{\times}$ is a homomorphism. This requires checking that $ab$ reduces mod $p$ to the product of the reductions of $a$ and $b$. 
+	\begin{example}$p = 3$ and $q = 5$.
+	\begin{equation}
+	7 \cdot 11 = 77 = 2
+	\end{equation}
+	and 
+	\begin{equation}
+	1 \cdot 2 = 2
+	\end{equation}
+	\end{example}
+	Next we'll show $\phi$ is injective. We'll show that $\ker \phi$ is trivial.
+	\begin{align*}
+		\ker \phi &= \{1 \leq a \leq pq - 1 | \phi(a) = (1,1)\} \\
+		&= \{1 \leq a \leq pq - 1 \Big\vert p | (a-1), q | (a-1) \} \\ 
+		&= \{1 \leq a \leq pq - 1 \Big\vert pq | (a-1) \} \\
+		&= \{1\}
+	\end{align*}
+	To show surjectivity, we'll show that the domain and the range have the same size (we can do this since we've already shown $\phi$ is injective.) Then
+	\begin{equation}
+		|(\mathbb{Z}/pq \mathbb{Z})^{\times}| = (p-1)(q-1) 
+	\end{equation}
+	and
+	\begin{equation}
+		|(\mathbb{Z}/pq \mathbb{Z})^{\times}| = pq - q - p + 1
+	\end{equation}
+	because there are $pq$ total possible elements, but $q$ are divisible by $p$, $p$ divisible by $q$, and 1 element ($pq$) that is divisible by both $p$ and $q$. 
+\end{proof}
+
 \section{Quizzes}
 The course did not give solutions to any quizzes, homeworks, or midterms, so be wary of the solutions I've written below. 
 
@@ -1830,6 +1940,60 @@ For the action of the dihedral group $D_4$ on the vertices of a square, determin
 \begin{solution}
 The size of a vertex stabilizer is $2$: the identity element and the mirror symmetry which passes through the opposite vertex. All other symmetries do not fix a vertex. 
 \end{solution}
+
+\subsection*{Homework 7}
+\begin{exercise}
+In how many ways can one color the vertices of a $5$-gon using $7$ colors?
+\end{exercise}
+\begin{solution}
+Let's first consider the fixed points of the mirror symmetries. Since a pentagon has an odd number of vertices, all of its mirror symmetries are of the form vertex to midpoint. Therefore, all mirror symmetries will behave the same. By the figure below, we see that we need vertices 2 and 5 to have the same color, 3 and 4 to be the same color, and 1 can be another color. Therefore, there are $7^3$ fixed colorings for each mirror symmetry (of which there are 5). 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=.6]{pentagon_permutation}
+	\end{center}
+	\caption{Pentagon Mirror Symmetries}
+\end{figure}
+\end{solution}
+
+Now let's consider the rotations. For $\rho$, all vertices must be the same color. Thus, there are $7$ fixed colorings for $\rho$. Actually, for a pentagon, all rotations must consist of a single cycle (except the identity), so there are $7$ fixed colorings for each rotation. The identity permutation fixes everything, so there are $7^5$ possible colorings. Then by Burnside's theorem, the solution is
+\begin{equation}
+	\frac{1}{10}(7^5 + 4 \times 7 + 5 \times 7^3)
+\end{equation}
+
+\begin{exercise}
+	Let a group $G$ act on itself by conjugation. Show that the action is faithful if and only if $Z(G) = \{1\}$.
+\end{exercise}
+\begin{solution}
+	$\rightarrow$ Suppose the action is faithful. This means that if $gxg^{-1} = x$ for all $x \in G$, then $g = 1$. Then
+	\begin{align*}
+		Z(G) &= \{ g \in G | gx = xg \quad \forall x\in G \} \\
+		&= \{ g \in G | x = g^{-1}xg \quad \forall x\in G \} \\
+		&= \{1 \} \tag{since the action is faithful}
+	\end{align*}
+
+	$\leftarrow$ Suppose $Z(G) = \{1\}$. Consider a $g \in G$ such that $gxg^{-1} = x$ for all $x \in G$. This implies $gx = xg$ for all $x \in G$, and that $g \in Z(G)$. Therefore $g = 1$, so that the action is faithful. 
+\end{solution}
+
+\begin{exercise}
+	Let $G$ be a group such that $G/Z(G)$ is cyclic. Then $G$ is abelian.
+\end{exercise}
+\begin{solution}
+	Since $G/Z(G)$ is cyclic, there exists an $x \in G$ such that $G/Z(G) = \langle x Z(G) \rangle$. Now fix $g \in G$. There must be some $m \in \mathbb{N}$ such that $gZ(G) = (xZ(G))^m = x^m Z(G)$. This implies that $(x^m)^{-1} g \in Z(G)$, so that there must exist some $z \in Z(G)$ such that $(x^m)^{-1} g = z$. This implies $g = x^m z$. Now consider another element $h \in G$. by the same logic, there must exist an $n \in \mathbb{N}$ and $z' \in Z(G)$ such that $h = x^n z'$. Then
+	\begin{align*}
+	gh &= x^m z x^n z' \\
+	&= x^m x^n z z' \tag{since $z \in Z(G)$} \\
+	&= x^{m + n} z' z \tag{combine powers and $z' \in Z(G)$} \\
+	&= x^{n + m} z' z \\
+	&= x^n x^m z' z \\
+	&= x^n z' x^m z \\
+	&= hg 
+	\end{align*}
+	Therefore $G$ is abelian. 
+\end{solution}
+
+\begin{exercise}
+	Let $G$ be a group that acts transitively on a set $X$. Show that for every $x,y \in X$, we have $G_x \cong G_y$. 
+\end{exercise}
 
 \section{Honors Questions}
 \begin{exercise}

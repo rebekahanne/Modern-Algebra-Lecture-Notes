@@ -2,7 +2,7 @@
 %% This is file, `math_541_definitions.tex',
 %% generated with the extract package.
 %% 
-%% Generated on :  2018/10/19,20:17
+%% Generated on :  2018/10/25,8:25
 %% From source  :  "Math 541 Lecture Notes".tex
 %% Using options:  active,generate=Math_541_Definitions,extract-env={definition}
 %% 
@@ -165,6 +165,17 @@ gx = x \implies g = 1
 \end{equation}
 This means all stabilizers are trivial. Or, any element which has a fixed point is the identity element.
 \end{enumerate}
+\end{definition}
+
+\begin{definition}(coprime)
+An integer $a$ is coprime to $n$ if the only positive divisor of both $a$ and $n$ is 1.
+\end{definition}
+
+\begin{definition}($(\mathbb{Z}/n \mathbb{Z})^{\times}$)
+\begin{equation}
+(\mathbb{Z}/n \mathbb{Z})^{\times} = \{1 \leq a \leq n - 1 | a \text{ coprime to } n\}
+\end{equation}
+$n \geq 2$. This is called the multiplicative group of integers modulo $n$, where the binary operation is multiplication and taking the remainder upon dividing by $n$.
 \end{definition}
 
 \end{document}
