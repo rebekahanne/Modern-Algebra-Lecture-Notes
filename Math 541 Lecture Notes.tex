@@ -960,11 +960,12 @@ This is the set of all elements that can be reached from $x$ by applying element
 \end{enumerate}
 \end{example}
 
-\begin{definition}(Stabilizer)
-The stabilizer of $x$ is 
+\begin{definition}(Stabilizer, Isotropy Subgroup)
+Let $X$ be a $G$-set and $x \in X$. The stabilizer of $x$ is 
 \begin{equation}
 	G_x = Stab_G(x) = \{ g\in G | gx = x \}
 \end{equation}
+also called the isotropy subgroup of $x$. 
 \end{definition}
 
 \begin{claim}(The stabilizer of a group element in a subgroup)
@@ -1321,6 +1322,86 @@ We verify the axioms:
 	\end{equation}
 	because there are $pq$ total possible elements, but $q$ are divisible by $p$, $p$ divisible by $q$, and 1 element ($pq$) that is divisible by both $p$ and $q$. 
 \end{proof}
+
+\begin{definition}(Permutation representation of action)
+	Let $G$ be a group that acts on $\{1,\ldots, n\}$. Associated to the action is a homomorphism $\lambda : G \to S_n$, defined by 
+	\begin{equation}
+		\lambda(g)(i) = gi
+	\end{equation}
+	where the RHS is the action of $g$ on $i$, $i \in \{1,\ldots, n\}$.
+\end{definition}
+We need to confirm that $\lambda$ is indeed a homomorphism.
+\begin{proof}
+\begin{align*}
+	\lambda(gh)(i) &= gh(i) \\
+	&= g(h(i)) \tag{since action} \\
+	&= \lambda(g)(h(i)) \tag{definition of $\lambda$} \\
+	&= \lambda(g)(\lambda (h)(i)) \tag{definition of $\lambda$} 
+\end{align*}
+\end{proof}
+
+For completeness, we should also check $\lambda(g)$ is indeed a permutation for every $g \in G$.
+\begin{proof}
+Incomplete (some weird proof with the inverse?)
+\end{proof}
+
+\begin{claim}
+If $\lambda : G \to S_n$ is a homomorphism, we can define an action of $G$ on $\{1,\ldots, n\}$ by
+\begin{equation}
+	g(i) = \lambda(g)(i)
+\end{equation}
+\end{claim}
+\begin{proof}
+We check the two conditions required to be an action:
+\begin{enumerate}
+	\item $1(i) = \lambda(1)(i) = id (i) = i$
+	\item $gh(i) = \lambda (gh)(i) = \lambda(g)(\lambda (h)(i)) = \lambda(g)(h(i)) = g(h(i))$
+\end{enumerate}
+\end{proof}
+
+\begin{example}
+	Let $D_4$ action of the vertices of a square. We can enumerate the values of the homomorphism $\lambda : D_4 \to  S_4$.
+	\begin{enumerate}
+		\item $\lambda(id) = id$
+		\item $\lambda(\rho) = (1 2 3 4)$
+		\item $\lambda(\rho^2) = (13)(24)$ 
+		\item $\lambda(\rho^3) = (1 4 3 2)$
+		\item $\lambda(\e) = (1 2)(34)$
+		\item and so on
+	\end{enumerate}
+\end{example}
+
+\begin{claim}
+Under the above assumptions: $\lambda$ is injective if and only if the action of $G$ on $X$ (which we can think of as $\{1,\ldots, n\}$) is faithful.
+\end{claim}
+\begin{proof}
+	Since $\lambda$ is a homomorphism, we can prove it is injective by showing its kernal is trivial. Then
+	\begin{equation}
+		\ker \lambda = \{g\in G | \lambda(g)(i) = i \quad \forall i \in X\}
+	\end{equation}
+	Hence, $\ker \lambda = \{1\}$ if and only if the action is faithful.
+\end{proof}
+
+\begin{theorem}(Cayley)
+	Let $G$ be a group of order $n$. Then, there exists an injective homomorphism $\phi : G \to S_n$.
+\end{theorem}
+\begin{proof}
+	Consider the action of $G$ on itself by (left) multiplication. Associated to this action is a homomorphism $\phi : G \to S_n$. This action is free (shown in homework), and therefore faithful, so $\phi$ is injective by the above claim.
+\end{proof}
+
+\begin{example}
+	Take $G = \mathbb{Z} / 3 \mathbb{Z} = \{1,2,3\}$ (where $3 = 0$). Then $\phi : G \to S_3$ has elements
+	\begin{enumerate}
+		\item $\phi(3) = id$
+		\item $\phi(2) = (1 3 2)$ (since $1 + 2 = 3$ and $3 + 2 = 5 = 2$ and $2 + 2 = 4 = 1$)
+		\item $\phi(1) = (1 2 3)$
+	\end{enumerate}
+\end{example}
+
+\begin{corollary}
+	If $|G| = n$, then $G$ is isomorphic to a subgroup of $S_n$. Indeed $\phi : G \to Im(\phi) \subset S_n$.
+\end{corollary}
+
 
 \section{Quizzes}
 The course did not give solutions to any quizzes, homeworks, or midterms, so be wary of the solutions I've written below. 
@@ -1961,13 +2042,20 @@ Now let's consider the rotations. For $\rho$, all vertices must be the same colo
 \end{equation}
 
 \begin{exercise}
+	Verify by direct calculation that Burnside's formula for the number of orbits holds for the action of $D_4$ on the vertices of a square.
+\end{exercise}
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
 	Let a group $G$ act on itself by conjugation. Show that the action is faithful if and only if $Z(G) = \{1\}$.
 \end{exercise}
 \begin{solution}
 	$\rightarrow$ Suppose the action is faithful. This means that if $gxg^{-1} = x$ for all $x \in G$, then $g = 1$. Then
 	\begin{align*}
 		Z(G) &= \{ g \in G | gx = xg \quad \forall x\in G \} \\
-		&= \{ g \in G | x = g^{-1}xg \quad \forall x\in G \} \\
+		&= \{ g \in G | x = gxg^{-1} \quad \forall x\in G \} \\
 		&= \{1 \} \tag{since the action is faithful}
 	\end{align*}
 
@@ -1994,6 +2082,19 @@ Now let's consider the rotations. For $\rho$, all vertices must be the same colo
 \begin{exercise}
 	Let $G$ be a group that acts transitively on a set $X$. Show that for every $x,y \in X$, we have $G_x \cong G_y$. 
 \end{exercise}
+\begin{solution}
+
+\end{solution}
+
+\begin{exercise}
+Let $G$ be an abelian group that acts transitively and faithfully on a set $X$. Show that the action is free. 
+\end{exercise}
+\begin{solution}
+
+\end{solution}
+
+\subsection{Homework 8}
+
 
 \section{Honors Questions}
 \begin{exercise}
