@@ -1,8 +1,13 @@
 \documentclass[12pt]{article}
+% \usepackage[active,
+%             generate=Math_541_Definitions,
+%             %extract-cmd={section},
+%             extract-env={definition}]{extract}
+
 \usepackage[active,
-            generate=Math_541_Definitions,
+            generate=Math_541_Theorems,
             %extract-cmd={section},
-            extract-env={definition}]{extract}
+            extract-env={theorem,corollary}]{extract}
 
 \begin{extract*}
   \usepackage{amsthm}
@@ -13,6 +18,8 @@
   \definecolor{Tm}{rgb}{0,0,0.80}
   %\newtheorem{definition}{Definition}
   \newtheorem{definition}{\color{NavyBlue}{\textbf{Definition}}}
+  \newtheorem{theorem}{\color{ForestGreen}{\textbf{Theorem}}}
+  \newtheorem{corollary}{Corollary}
   %\newtheorem{example}{Example}
 	\newcommand{\e}{\epsilon}
 	%\newcommand{\d}{\delta}
@@ -46,7 +53,7 @@
 
 \providecommand{\u}[1]{\protect\rule{.1in}{.1in}}
 \providecommand{\u}[1]{\protect\rule{.1in}{.1in}}
-\newtheorem{theorem}{\color{ForestGreen}{\textbf{Theorem}}}
+%\newtheorem{theorem}{\color{ForestGreen}{\textbf{Theorem}}}
 \newtheorem{acknowledgement}[theorem]{Acknowledgement}
 %\newtheorem{algorithm}[theorem]{Algorithm}
 \newtheorem{axiom}[theorem]{Axiom}
@@ -55,7 +62,6 @@
 \newtheorem{conclusion}[theorem]{Conclusion}
 \newtheorem{condition}[theorem]{Condition}
 \newtheorem{conjecture}{Conjecture}
-\newtheorem{corollary}{Corollary}
 \newtheorem{criterion}[theorem]{Criterion}
 % \newtheorem{definition}{Definition}
 % \theoremstyle{definition}
@@ -162,23 +168,23 @@ Not everything is a group.
 \end{enumerate}
 \end{example}
 
-\begin{claim}(The unit element is unique)
+\begin{theorem}(The unit element is unique)
 Let $G$ be a group and $\star$ its binary operation. Suppose that $e_1, e_2 \in G$ are both units elements. Then, $e_1 = e_2$.
-\end{claim}
+\end{theorem}
 \begin{proof}
 Since $e_1$ and $e_2$ are unit elements, we know that for all $a \in G$, $a \star e_1 = e_1 \star a = e_1$ and $a \star e_2 = e_2 \star a = e_2$. Consider the product $e_1 \star e_2$. We know that $e_1 \star e_2 = e_2$ since $e_2$ is a unit element. Further, $e_1 \star e_2 = e_1$ since $e_1$ is a unit element. Therefore, $e_1 = e_2$. 
 \end{proof}
 
-\begin{lemma}(Cancellation Law)
+\begin{theorem}(Cancellation Law)
 For every group $G$ and $a,b,c \in G$ that satisfy $ab = ac$, we have $b=c$.
-\end{lemma}
+\end{theorem}
 \begin{proof}
 Let $x$ be the inverse of $a$. Then, $x(ab) = x(ac)$. Be associativity, we may write $(xa)b = (xa)c$. This simplifies to $1 \star b = 1 \star c$ or that $b = c$.
 \end{proof}
 
-\begin{corollary}(The inverse of a group element is unique)
+\begin{theorem}(The inverse of a group element is unique)
 Let $G$ be a group and let $a \in G$. If $b$ and $c$ are inverses of $a$, then $b = c$. 
-\end{corollary}
+\end{theorem}
 \begin{proof}
 Since $b$ and $c$ are inverses of $a$, we know that $ab = 1 = ac$. Then by the Cancellation Law, we know $b=c$.
 \end{proof}
@@ -247,16 +253,16 @@ Given groups $G, H$ we define a group structure on $G \times H$ by $(g_1,h_2)(g_
 A cycle is a string of integers which represents the element of $S_n$ which cyclically permutes these integers (and fixes all other integers). The product of all the cycles is called the cycle decomposition. The length of a cycle is the number of integers which appear in it. A cycle of length $k$ is called a $k$-cycle. 
 \end{definition}
 
-\begin{claim}
+\begin{theorem}
 The order of a $k$-cycle is $k$. 
-\end{claim}
+\end{theorem}
 \begin{proof}
 Let $(i_1 i_2 \ldots i_k)$ be a $k$-cycle. By checking each index, observe that $(i_1 i_2 \ldots i_k)^k = id$. For any $d < k$, note that $(i_1 i_2 \ldots i_k)^d (i_1) = i_{d+1} \neq i_1$, since $d < k$. 
 \end{proof}
 
-\begin{claim}
+\begin{theorem}
 Disjoint cycles commute.
-\end{claim}
+\end{theorem}
 \begin{proof}
 Let $\sigma = (s_1 s_2 \ldots s_k)$ and $\tau = (t_1 t_2 \ldots t_l)$ be disjoint cycles. Consider an index $s_i$ in the first cycle and an index $t_j$ in the second. Then
 \begin{equation}
@@ -370,13 +376,13 @@ Define $H = \{ \sigma \in S_3 | \sigma(1) \in \{1, 2 \} \} \subset S_3$.
 \end{enumerate}
 \end{example}
 
-\begin{claim}(Basic facts about homomorphisms)
+\begin{theorem}(Basic facts about homomorphisms)
 Let $\phi : G \to H$ be a homomorphism. Then
 \begin{enumerate}
 	\item $\phi(1_G) = 1_H$ (the identity of $G$ is mapped to the identity of $H$).
 	\item $\phi(x^{-1}) = \phi(x)^{-1}$ for all $x \in G$.
 \end{enumerate}
-\end{claim}
+\end{theorem}
 \begin{proof}
 Observe that
 \begin{enumerate}
@@ -389,9 +395,9 @@ Observe that
 Take $\sigma = (1 2 3) \in S_3$. Define $\phi : \mathbb{Z} / 3 \mathbb{Z} \to S_3$ by $\phi(t) = \sigma^t$. Then $\phi(0) = id$ (we expected this from the above claim), $\phi(1) = \sigma$, $\phi(2) = \sigma^2$. 
 \end{example}
 
-\begin{claim}
+\begin{theorem}
 Let $\phi : G \to H$ be a homomorphism. Then $Im(\phi) = \{ \phi(g) | g \in G \} \leq H$.
-\end{claim}
+\end{theorem}
 \begin{proof}
 Let's check the axioms required for $Im(\phi)$ to be a subgroup.
 \begin{enumerate}
@@ -425,9 +431,9 @@ Let $\phi:G \to H$ be a homomorphism. Then
 (note that $1$ is the identity of H).
 \end{definition}
 
-\begin{claim}
+\begin{theorem}
 Let $\phi: G \to H$ be a homomorphism. Then $\ker(\phi) \leq G$. That is, the kernel of $\phi$ is a subgroup of $G$.
-\end{claim}
+\end{theorem}
 \begin{proof}
 Let's check the 3 axioms required to be a subgroup:
 \begin{enumerate}
@@ -488,9 +494,9 @@ Write $G/H$ for the set of left cosets $\{aH | a \in G \}$.
 If $a=1$, then $aH = 1 \cdot H = H$. And, for any $a \in H$, $aH = H$: First observe that $aH \subset H$ since $H$ is a subgroup. Indeed if $a,h \in H$, then $ah \in H$. Next we'll show $H \subset aH$. Fix $h \in H$. We want to show that $h \in aH$, or that it can written in the form $a'h'$ where $h' \in H$. To achieve this, write $h = e \cdot h = a (a^{-1} h)$. Note that $a^{-1} h \in H$ since $H$ is a subgroup. Therefore $h \in aH$. Together these equivalences show that $aH = H$ when $a \in H$. 
 \end{example}
 
-\begin{claim}(All left cosets of $H$ have the same size) 
+\begin{theorem}(All left cosets of $H$ have the same size) 
 Let $H \leq G$ be groups and let $a \in G$. Then $|[a] | = |aH| = |H|$
-\end{claim}
+\end{theorem}
 \begin{proof}
 We can give a bijection between the two sets to show they have the same number of elements. To that end, define $f: H \to aH$ by $f(h) = ah$. 
 \begin{enumerate}
@@ -554,7 +560,7 @@ Note that we can write each of these cosets as (using $C_2$ as an example): $\ta
 We say that a subgroup $H$ of $G$ is normal if $aH = Ha$ for every $a \in G$. Write $H \trianglelefteq G$. This means that the left and right cosets of a group of equivalent.
 \end{definition}
 
-\begin{claim}(Equivalent conditions to be a normal subgroup)
+\begin{theorem}(Equivalent conditions to be a normal subgroup)
 Let $N \leq G$. Then $N \trianglelefteq G$ if one of the following holds:
 \begin{enumerate}
 	\item $\forall g\in G$, $gN = Ng$
@@ -562,15 +568,15 @@ Let $N \leq G$. Then $N \trianglelefteq G$ if one of the following holds:
 	\item $\forall g\in G$, $gNg^{-1} \subseteq N$
 	\item $\forall g\in G$ and $\forall n\in N$, $gng^{-1} \in N$
 \end{enumerate}
-\end{claim}
+\end{theorem}
 
 \begin{example}(Non-example of a Normal Subgroup)
 Continuing the above example, let $S_3$ be the set of permutations in $S_4$ for which the last index is fixed [[Incomplete]].
 \end{example}
 
-\begin{claim}(The Kernal of a Homomorphism is a Normal Subgroup)
+\begin{theorem}(The Kernal of a Homomorphism is a Normal Subgroup)
 Let $\phi : G \to H$ be homomorphism. Then $\ker (\phi) \trianglelefteq G$.
-\end{claim}
+\end{theorem}
 \begin{proof}(Easier Proof)
 We've already shown that $\ker \phi$ is a subgroup of $G$. To show that it is a normal subgroup, we will show that $g k g^{-1} \in \ker \phi$ for all $g \in G$ and $k \in \ker \phi$. This is equivalent to showing that $\phi(g k g^{-1}) = 1$ for all $g \in G$ and $k \in \ker \phi$. Then
 \begin{align*}
@@ -621,8 +627,8 @@ An alternative definition is: Let $G$ be a group and fix $x \in G$. Let $H$ be t
 \end{enumerate}
 \end{example}
 
-\begin{claim}(Every cyclic group is isomorphic to either $\mathbb{Z}$ or to $\mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.) For every group $H$ for which there exists an $x \in H$ such that $H = \langle x \rangle$, there exists a bijective homomorphism (i.e. an isomorphism) $\phi : H \to C$ where $C = \mathbb{Z}$ or $C = \mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.
-\end{claim}
+\begin{theorem}(Every cyclic group is isomorphic to either $\mathbb{Z}$ or to $\mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.) For every group $H$ for which there exists an $x \in H$ such that $H = \langle x \rangle$, there exists a bijective homomorphism (i.e. an isomorphism) $\phi : H \to C$ where $C = \mathbb{Z}$ or $C = \mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.
+\end{theorem}
 \begin{proof}
 There are two cases to consider. 
 \begin{enumerate}
@@ -640,9 +646,9 @@ There are two cases to consider.
 \end{enumerate}
 \end{proof}
 
-\begin{claim}
+\begin{theorem}
 Let $G$ be a finite cyclic group of order $n$. For every $m | n$ ($m$ that divides $n$) there exists a unique subgroup $H$ of $G$ with $|H|=m$. Furthermore, $H$ is cyclic.
-\end{claim}
+\end{theorem}
 \begin{proof}
 Assume that $G = \mathbb{Z} / n \mathbb{Z}$. This is without generality since $G$ is a finite cyclic group, and every finite cyclic group is isomorphic to $\mathbb{Z} / n \mathbb{Z}$. Definite $H = \langle \frac{n}{m} \rangle$, Indeed, $H = \{ 0, \frac{n}{m}, \frac{2n}{m}, \ldots, \frac{(m-1)n}{m} \}$, and $|H| = m$. 
 \end{proof}
@@ -687,15 +693,15 @@ In general, $D_n$ is a group with $2n$ elements, where the binary operation is c
 \end{definition}
 
 
-\begin{claim}(Important Identity)
+\begin{theorem}(Important Identity for Dihedral Groups)
 $\rho \e = \e \rho^{-1}$. 
-\end{claim}
+\end{theorem}
 We use this relation to make computations in dihedral groups. 
 
 
-\begin{claim}
+\begin{theorem}
 $\rho^i \e = \e \rho^{-i}$
-\end{claim}
+\end{theorem}
 \begin{proof}
 By induction, using the above claim. 
 \end{proof}
@@ -735,9 +741,9 @@ We know that $\rho \e = \e \rho^{-1}$, $\rho^5 = 1$, and $\e^2 = 1$. Then, with 
 Let $G$ be a group and $N \trianglelefteq G$ (that is, $N$ is a normal subgroup of $G$). Let $G/N = \{gN|g \in G\}$ be the set of left cosets of $N$ in $G$. Then the quotient group of $G$ by $N$ is the group $(G/N, \cdot)$, where $\cdot$ is the binary operation on $G/N$ defined for all $g_1 N, g_2 N \in G / N$ by $g_1 N g_2 N = g_1g_2N$. 
 \end{definition}
 
-\begin{claim}
+\begin{theorem}
 In the above definition, $G/N$ is a group. 
-\end{claim}
+\end{theorem}
 \begin{proof}
 Binary operation well-defined: We need to check that $\cdot: G/N \times G/N \to G/N$, where $(g_1N, g_2N) \to g_1 g_2 N$ is well-defined (A function is well-defined if it gives the same result when the representation of the input is changed without changing the value of the input. In this context, we show that the definition of multiplication depends on only the cosets and not on the coset representatives). Suppose that $g_1 N = g'_1 N$ and $g_2 N = g'_2 N$, so we want to show $g_1 g_2 N = g'_1 g'_2 N$. Then $g_1N = g'_1 N \iff (g'_1)^{-1} g_1 \in N$ and $g_2 N = g'_2 N \iff (g'_2)^{-1} g_2 \in N$. We then want to show $(g'_1g'_2)^{-1}g_1g_2 \in N$. Then
 \begin{align*}
@@ -968,9 +974,9 @@ Let $X$ be a $G$-set and $x \in X$. The stabilizer of $x$ is
 also called the isotropy subgroup of $x$. 
 \end{definition}
 
-\begin{claim}(The stabilizer of a group element in a subgroup)
+\begin{theorem}(The stabilizer of a group element in a subgroup)
 $G_x \leq G$
-\end{claim}
+\end{theorem}
 \begin{proof}
 We verify the three axioms required to be a subgroup:
 \begin{enumerate}
@@ -1071,9 +1077,9 @@ We'll show that this is indeed an equivalence relation. We need to verify three 
 The equivalence class of $x \in X$ is the orbit of $x$, $O_x$. 
 \end{remark}
 
-\begin{claim}
+\begin{theorem}
 An action is transitive if and only if there exists an $x \in X$ such that $O_x = X$. That is, all elements of $X$ have the same equivalence class. 
-\end{claim}
+\end{theorem}
 \begin{proof}
 	\color{Red}{TODO}
 \end{proof}
@@ -1251,9 +1257,9 @@ Suppose $n=5$. Then we consider $(\mathbb{Z}/5 \mathbb{Z})^{\times}$.
 \end{enumerate}
 \end{example}
 
-\begin{claim}
+\begin{theorem}
 $(\mathbb{Z}/n \mathbb{Z})^{\times}$ is a group.
-\end{claim}
+\end{theorem}
 \begin{proof}
 We verify the axioms:
 \begin{enumerate}
@@ -1270,9 +1276,9 @@ We verify the axioms:
 \end{enumerate}
 \end{proof}
 
-\begin{corollary}(Fermat's Little Theorem)
+\begin{theorem}(Fermat's Little Theorem)
 	For a prime number $p$ and $1 \leq x \leq p-1$, we have $x^{p-1} - 1$ is divisible by $p$.
-\end{corollary}
+\end{theorem}
 \begin{proof}
 	Note that $x \in (\mathbb{Z}/p \mathbb{Z})^{\times}$ (since $p$ is prime and $x$ is less than $p$). Let $k$ be the order of $x$ and consider 
 	\begin{equation}
@@ -1284,12 +1290,12 @@ We verify the axioms:
 	\end{equation}
 \end{proof}
 
-\begin{claim}
+\begin{theorem}
 	Let $p \neq q$ be odd primes. Then
 	\begin{equation}
 		(\mathbb{Z}/pq \mathbb{Z})^{\times} \cong (\mathbb{Z}/p \mathbb{Z})^{\times} \times (\mathbb{Z}/q \mathbb{Z})^{\times}
 	\end{equation}
-\end{claim}
+\end{theorem}
 \begin{proof}
 	Define a homomorphism $\phi: (\mathbb{Z}/pq \mathbb{Z})^{\times} \cong (\mathbb{Z}/p \mathbb{Z})^{\times} \times (\mathbb{Z}/q \mathbb{Z})^{\times}$ by taking remainders for division by $p$ and $q$ separately. 
 	\begin{example}
@@ -1345,12 +1351,12 @@ For completeness, we should also check $\lambda(g)$ is indeed a permutation for 
 Incomplete (some weird proof with the inverse?)
 \end{proof}
 
-\begin{claim}
+\begin{theorem}
 If $\lambda : G \to S_n$ is a homomorphism, we can define an action of $G$ on $\{1,\ldots, n\}$ by
 \begin{equation}
 	g(i) = \lambda(g)(i)
 \end{equation}
-\end{claim}
+\end{theorem}
 \begin{proof}
 We check the two conditions required to be an action:
 \begin{enumerate}
@@ -1371,9 +1377,9 @@ We check the two conditions required to be an action:
 	\end{enumerate}
 \end{example}
 
-\begin{claim}
+\begin{theorem}
 Under the above assumptions: $\lambda$ is injective if and only if the action of $G$ on $X$ (which we can think of as $\{1,\ldots, n\}$) is faithful.
-\end{claim}
+\end{theorem}
 \begin{proof}
 	Since $\lambda$ is a homomorphism, we can prove it is injective by showing its kernal is trivial. Then
 	\begin{equation}
@@ -1398,10 +1404,49 @@ Under the above assumptions: $\lambda$ is injective if and only if the action of
 	\end{enumerate}
 \end{example}
 
-\begin{corollary}
+\begin{theorem}
 	If $|G| = n$, then $G$ is isomorphic to a subgroup of $S_n$. Indeed $\phi : G \to Im(\phi) \subset S_n$.
+\end{theorem}
+
+\begin{definition}($p$-Group)
+	Let $p$ be a prime number. $G$ is a $p$-group if $|G|$ is a power of $p$. 
+\end{definition}
+
+\begin{theorem}
+	Let $G$ be a $p$-group that acts on a finite set $X$. Let $X^G = \cap_{g \in G} X^g$ where $X^g = \{x\in X| gx =x\}$, that is those $x\in X$ such that for all $g\in G$, $gx = x$. Then $p$ divides $|X| - |X^G|$, that is
+	\begin{equation}
+		|X^G| \equiv |X| \quad (mod p)
+	\end{equation}
+\end{theorem}
+
+\begin{theorem}(A $p$-group has a non-trivial center)
+	Let $G$ be a $p$-group. Then $Z(G) = \{1\}$.  In words, there has to be a non-trivial element of the group that commutes with everything else.
+\end{theorem}
+
+\begin{corollary}
+	Let $p$ be a prime number and let $G$ be a group of order $p^2$. Then $G$ is abelian.
 \end{corollary}
 
+\begin{theorem}(Cauchy)
+	Let $G$ be a finite group and suppose that $p \big\vert |G|$ for some prime $p$. Then there exists an element of order $p$ in $G$. 
+\end{theorem}
+
+\begin{theorem}(Correspondence Theorem)
+	Let $G, H$ be groups, and let $\phi : G \to H$ be a group homomorphism. Then there exists a correspondence (i.e.\ a bijection)
+	\begin{equation}
+		\{\text{Subgroups $K$ of $G$ containing $\ker \phi$}\} \iff \{\text{Subgroups $L$ of $H$ contained in $Im(\phi)$}\}
+	\end{equation}
+	given by $K \mapsto \phi(K)$ and $L \mapsto \phi^{-1}(L)$. In addition, let $K_1$ and $K_2$ be subgroups of $G$ containing $\ker(\phi)$ and $L_1$ and $L_2$ subgroups $L$ of $H$ contained in $Im(\phi)$. 
+	\begin{enumerate}
+		\item $K_1 \leq K_2 \implies \phi(K_1) \leq \phi(K_2)$
+		\item $L_1 \leq L_2 \implies \phi^{-1}(L_1) \leq \phi^{-1}(L_2)$
+	\end{enumerate}
+	and
+	\begin{enumerate}
+		\item $K_1 \leq K_2 \implies [K_2 : K_1] = [\phi(K_2) : \phi(K_1)]$
+		\item $L_1 \leq L_2 \implies [L_2 : L_1] = [\phi(L_2) : \phi(L_1)]$
+	\end{enumerate}
+\end{theorem}
 
 \section{Quizzes}
 The course did not give solutions to any quizzes, homeworks, or midterms, so be wary of the solutions I've written below. 
