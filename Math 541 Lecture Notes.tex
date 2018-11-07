@@ -1408,6 +1408,8 @@ Under the above assumptions: $\lambda$ is injective if and only if the action of
 	If $|G| = n$, then $G$ is isomorphic to a subgroup of $S_n$. Indeed $\phi : G \to Im(\phi) \subset S_n$.
 \end{theorem}
 
+\subsection{p-Groups}
+
 \begin{definition}($p$-Group)
 	Let $p$ be a prime number. $G$ is a $p$-group if $|G|$ is a power of $p$. 
 \end{definition}
@@ -1418,24 +1420,76 @@ Under the above assumptions: $\lambda$ is injective if and only if the action of
 		|X^G| \equiv |X| \quad (mod p)
 	\end{equation}
 \end{theorem}
+\begin{proof}
+Let $x_1, \ldots, x_m$ be the representatives for the orbits of $G$ on $X$ (recall that the the disjoint union of orbits of these representatives cover $X$). Let's partition these elements into those in $X^G$ and those not. Thus suppose that $x_1, \ldots, x_k \in X^G$ and $x_{k+1}, \ldots, x_m \not\in X^G$. Then
+\begin{equation}
+	|X| = \sum_{i=1}^m |O(x_i)| = \sum_{i=1}^k |O(x_i)| \sum_{j=k+1}^m |O(x_j)|
+\end{equation}
+Then
+\begin{equation}
+	\sum_{i=1}^k |O(x_i)| = |X^G|
+\end{equation}
+and by the orbit-stabilizer theorem
+\begin{equation}
+	\sum_{j=k+1}^m |O(x_j)| = \sum_{j=k+1}^m \frac{|G|}{|G_{x_j}|}
+\end{equation}
+Notice that $|G|$ is divisible by $p$. Further, $|G_{x_j}|$ must be divisible by $p$ since it is a subgroup of $G$ (this follows from Lagrange's theorem). Therefore, $|X|$ equals $|X^G|$ plus the sum of things divisible by $p$, so that we must have that $p$ divides $|X| - |X^G|$. 
+\end{proof}
 
 \begin{theorem}(A $p$-group has a non-trivial center)
-	Let $G$ be a $p$-group. Then $Z(G) = \{1\}$.  In words, there has to be a non-trivial element of the group that commutes with everything else.
+	Let $G$ be a $p$-group. Then $Z(G) \neq \{1\}$.  In words, there has to be a non-trivial element of the group that commutes with everything else.
 \end{theorem}
+\begin{proof}
+	Let $X = G$ and consider the action of $G$ on $X$ by conjugation. By the above theorem, we know that $p$ divides $|X| - |X^G|$. Therefore since $p$ divides $|X|$, we must have that $p$ divides $|X^G|$. Now
+	\begin{align*}
+		X^G &= \{x\in X | \forall g \in G, g(x) = x\} \\
+		&= \{x\in X | \forall g \in G, gxg^{-1} = x\} \\
+		&= \{x\in X | \forall g \in G, gx = xg\} = Z(G)
+	\end{align*}
+	We always have that $1 \in Z(G)$. Now since $p$ divides $|X^G|$, we must have that $Z(G) \neq \{1\}$, since no prime $p$ divides 1.  
+\end{proof}
 
 \begin{corollary}
 	Let $p$ be a prime number and let $G$ be a group of order $p^2$. Then $G$ is abelian.
 \end{corollary}
+\begin{proof}	
+	Consider $Z(G)$. By Lagrange's theorem, we must have that $|Z(G)| = p, p^2$ (the above theorem rules out $1$. The only other possible divisors are $p$ and $p^2$ since $p$ is prime). There are two cases to consider.
+	\begin{enumerate}
+		\item Case 1: $|Z(G)| = p^2$. Then $Z(G) = G$. Thus since $Z(G)$ is abelian, $G$ is abelian.
+		\item Case 2: $|Z(G)| = p$. Then by Lagrange's theorem, $| G / Z(G) | = p$ $G / Z(G)$ is cyclic (since $Z(G)$ is normal), Thus $G$ is abelian.
+	\end{enumerate}
+\end{proof}
+
+This same result need not hold for higher powers of $p$. For example, consider $D_8$. $2^3 = 8$. But $|D_8|$ is not abelian. 
 
 \begin{theorem}(Cauchy)
 	Let $G$ be a finite group and suppose that $p \big\vert |G|$ for some prime $p$. Then there exists an element of order $p$ in $G$. 
 \end{theorem}
 
+\begin{proof}
+	Let's start by proving the simple case of $p=2$. Therefore $|G|$ is even. We can pair each element in $G$ with its inverse. Note that $1 = 1^{-1}$ so the identity element is paired with itself. Since $|G|$ is even, there must exist $1 \neq g \in G$ such that $g = g^{-1}$. Then $g^2 = 1$. Thus there exists an element of order $2$. 
+
+	Let's now prove the general case. Define the set $X$ as 
+	\begin{equation}
+		X = \{(g_1, \ldots, g_p) | g_1g_2 \cdots g_p = 1, \quad g_1, g_2, \ldots, g_p \in G\}
+	\end{equation}
+	Then $\Z / p \Z$ acts on $X$ by $a(g_1, \ldots, g_p)$ by cyclic rotation of $a$ times of $(g_1, \ldots, g_p)$ where $a \in \{0,1,\ldots, p-1\}$. 
+\end{proof}
+
+\begin{example}(Example of Cauchy's Theorem)
+	Consider $G = S_5$. If $p=3$, then $(123)$ is an example of an element with order $3$. If $p=5$, then $(12345)$ is an example of an element with order $5$. 
+\end{example}
+
+\subsubsection*{Summary of $p$-Groups}
+\begin{enumerate}
+	\item Any group of order $p$ is cyclic.
+\end{enumerate}
+
 \begin{theorem}(Correspondence Theorem)
 	Let $G, H$ be groups, and let $\phi : G \to H$ be a group homomorphism. Then there exists a correspondence (i.e.\ a bijection)
-	\begin{equation}
+	\begin{equation*}
 		\{\text{Subgroups $K$ of $G$ containing $\ker \phi$}\} \iff \{\text{Subgroups $L$ of $H$ contained in $Im(\phi)$}\}
-	\end{equation}
+	\end{equation*}
 	given by $K \mapsto \phi(K)$ and $L \mapsto \phi^{-1}(L)$. In addition, let $K_1$ and $K_2$ be subgroups of $G$ containing $\ker(\phi)$ and $L_1$ and $L_2$ subgroups $L$ of $H$ contained in $Im(\phi)$. 
 	\begin{enumerate}
 		\item $K_1 \leq K_2 \implies \phi(K_1) \leq \phi(K_2)$
@@ -2125,21 +2179,128 @@ Now let's consider the rotations. For $\rho$, all vertices must be the same colo
 \end{solution}
 
 \begin{exercise}
+	Let $G$ be a group acting on a set $X$ and let $x,y \in X$. Suppose that for some $g \in G$ we have $gx = y$. Show $gG_xg^{-1} = G_y$.
+\end{exercise}
+\begin{solution}
+	We show two inclusions.
+	\begin{enumerate}
+		\item $\subseteq$: First let $h \in G_x$. We want to show that $ghg^{-1} \in G_y$, so that $ghg^{-1}(y) = y$.  Then
+		\begin{align*}
+			ghg^{-1}(y) &= gh(x) \tag{$g(x) = y$ implies $x = g^{-1}y$} \\
+			&= g(x) \tag{since $h \in G_x$} \\
+			&= y 
+		\end{align*}
+		Therefore $gG_xg^{-1} \subseteq G_y$.
+		\item $\supseteq$: Fix $h \in G_y$. We want to show that $h \in gG_xg^{-1}$, or that there exists some $h' \in G_x$ such that $h = gh'g^{-1}$. Let $h' = g^{-1}hg$, and we'll show $h' \in G_x$. Then
+		\begin{align*}
+			g^{-1}hg(x) &= g^{-1}h(y) \\
+			&= g^{-1}(y) \tag{since $h \in G_y$} \\
+			&= x
+		\end{align*}
+		Thus $h' \in G_x$. This implies that$h = gh'g^{-1} \in gG_xg^{-1}$ so that $gG_xg^{-1} \supseteq G_y$. 
+	\end{enumerate}
+\end{solution}
+
+\begin{exercise}
 	Let $G$ be a group that acts transitively on a set $X$. Show that for every $x,y \in X$, we have $G_x \cong G_y$. 
 \end{exercise}
 \begin{solution}
-
+	We can apply the above exercise to notice that $G_y = gG_xg^{-1}$, where $g(x) = y$ (this $g$ exists by transitivity). We then define a function $\phi : G_x \to G_y = gG_xg^{-1}$ by $\phi(h) = ghg^{-1}$. We claim that $\phi$ is an isomorphism (that is is a homomorphism which is injective and surjective). 
 \end{solution}
 
 \begin{exercise}
 Let $G$ be an abelian group that acts transitively and faithfully on a set $X$. Show that the action is free. 
 \end{exercise}
 \begin{solution}
-
 \end{solution}
 
 \subsection{Homework 8}
 
+\subsection{Homework 9}
+\begin{exercise}
+Write explicitly the elements of $Z(D_4)$ and of $Z(D_5)$.
+\end{exercise}
+\begin{solution}
+More generally, the center of the Dihedral Group $D_n$ is trivial when $n$ is odd. When $n$ is even, the center consists of the identity element together with the $180$ degree rotation of the polygon.
+\end{solution}
+
+\begin{exercise}
+	Let $G$ be a group of order 60 that has a normal subgroup of $N$ of order $10$. Show that $G$ has a subgroup of index $2$.
+\end{exercise}
+\begin{solution} \color{Red}{(Sketchy)}
+	\color{Black}
+	By Lagrange's theorem,
+	\begin{equation}
+		\vert G/ N \vert = \frac{|G|}{|N|} = \frac{60}{10} = 6
+	\end{equation}
+	Then, Cauchy's theorem guarantees the existence of an element $H \leq G/N$ with order $3$ (since 3 divides 6).  Note that $H$ is a subgroup of order $3$. The index of this subgroup in $G$ is then
+	\begin{equation}
+		[G/N:H] = \frac{|G|}{|N|} \cdot \frac{1}{|H|} = \frac{6}{3} = 2
+	\end{equation}
+\end{solution}
+
+\begin{exercise}
+	Let $G$ be an abelian group of order divisible by 14. Show that $G$ has an element of order 14.
+\end{exercise}
+\begin{solution}
+	By Cauchy's theorem, we know there exists an element $x$ of order 2 and an element $y$ of order 7. We then claim that $xy$ has order 14. This result generalizes. If $G$ is an abelian group, and $x$ and $y$ are elements of $G$ with orders $m$ and $n$ respectively, then if $m$ and $n$ are relatively prime, the order of the element $xy$ is $mn$. We'll prove this more general statement. Note that
+	\begin{align*}
+	(xy)^{mn} &= x^{mn} y^{mn} \tag{since $G$ is abelian} \\ 
+	&= (x^m)^n (y^n)^m \\
+	&= 1
+	\end{align*}
+	Thus the order $r$ of $xy$ divides $mn$. Given that $r$ is the order of $xy$, we also know that 
+	\begin{align*}
+	1 = (xy)^r = x^r y^r \tag{since $G$ abelian}
+	\end{align*}
+	Further
+	\begin{align*}
+	1 = 1^n = x^{rn} y^{rn} = x^{rn} \tag{since $y^n = 1$}.
+	\end{align*}
+	Thus the order of $x$, $m$, divides $rn$. An analogous argument shows that the order of $y$, $n$, divides $rm$. Thus we get that $mn$ divides $r$ since $m$ and $n$ are relatively prime. Therefore $r = mn$, so that the order of $xy$ is $mn$. 
+
+	In the context of this problem, since $2$ and $7$ are relatively prime, we know that the order of $xy$ is 14.
+\end{solution}
+
+\begin{exercise}
+Write explicitly the conjugacy classes of $D_6$ and $D_7$. 
+\end{exercise}
+\begin{solution}
+More generally, we can calculate the conjugacy classes of $D_n$ as follows. The identity element always forms its own conjugacy class $\{1\}$. Consider a rotation $\rho^k$. First conjugate by another rotation $\rho^m$:
+\begin{align*}
+	\rho^m \rho^k \rho^{-m} &= \rho^k
+\end{align*}	
+Next conjugate by a reflection $\e \rho^m$:
+\begin{align*}
+	\e \rho^m \rho^k (\e \rho^m)^{-1} &= \e \rho^m \rho^k \rho^{-m} \e^{-1} \\
+	&= \e \rho^m \rho^k \rho^{-m} \e \\
+	&= \e \rho^k \e \\
+	&= \e \e \rho^{-k} \\
+	&= \rho^{-k}
+\end{align*}
+Thus, if $n$ is odd, there will be $\frac{n-1}{2}$ conjugacy classes of size $2$ that contain a rotation and its inverse rotation (i.e.\ $\{\rho^{\pm i}\}$). If $n$ is even, there will be $\frac{n}{2}-1$ conjugacy classes of size $2$ that contain a rotation and its inverse rotation.  
+
+Consider the reflection $\e$. First conjugate by the rotation $\rho^m$:
+\begin{align*}
+	\rho^m \e \rho^{-m} &= \rho^m \rho^m \e \\
+	&= \rho^{2m} \e \\
+	&= \e \rho^{-2m} 
+\end{align*}
+Next conjugate by another reflection $\e\rho^m$:
+\begin{align*}
+	\e \rho^m \e (\e \rho^m)^{-1} &= \e \rho^m \e \rho^{-m} \e^{-1} \\
+	&= \e \rho^m \e \rho^{-m} \e \\
+	&= \e \rho^m \rho^{m} \e \e \\
+	&= \e \rho^{2m}
+\end{align*}
+Thus, if $n$ is odd, the reflections all fall in the same conjugacy class. If $n$ is even, the reflections will fall into two conjugacy classes: the reflections where the rotation is an even power and the reflections where the rotation is an odd power. 
+
+For the specific cases requested:
+\begin{align*}
+	&D_6: \quad \{1\}, \{\rho, \rho^5\}, \{\rho^2, \rho^4\}, \{\rho^3\}, \{\e,\e\rho^2, \e\rho^4\}, \{\e\rho, \e\rho^3, \e\rho^5\} \\
+	&D_7: \quad \{1\}, \{\rho, \rho^6\}, \{\rho^2,\rho^5\}, \{\rho^3,\rho^4\}, \{\e, \e\rho, \ldots, \e\rho^6\}
+\end{align*}
+\end{solution}
 
 \section{Honors Questions}
 \begin{exercise}

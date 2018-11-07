@@ -1,8 +1,8 @@
 \begin{XTRtheorem}(Correspondence Theorem)
 Let $G, H$ be groups, and let $\phi : G \to H$ be a group homomorphism. Then there exists a correspondence (i.e.\ a bijection)
-\begin{equation}
+\begin{equation*}
 \{\text{Subgroups $K$ of $G$ containing $\ker \phi$}\} \iff \{\text{Subgroups $L$ of $H$ contained in $Im(\phi)$}\}
-\end{equation}
+\end{equation*}
 given by $K \mapsto \phi(K)$ and $L \mapsto \phi^{-1}(L)$. In addition, let $K_1$ and $K_2$ be subgroups of $G$ containing $\ker(\phi)$ and $L_1$ and $L_2$ subgroups $L$ of $H$ contained in $Im(\phi)$.
 \begin{enumerate}
 \item $K_1 \leq K_2 \implies \phi(K_1) \leq \phi(K_2)$
