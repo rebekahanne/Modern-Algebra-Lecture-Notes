@@ -1,13 +1,13 @@
 \documentclass[12pt]{article}
-% \usepackage[active,
-%             generate=Math_541_Definitions,
-%             %extract-cmd={section},
-%             extract-env={definition}]{extract}
-
 \usepackage[active,
-            generate=Math_541_Theorems,
+            generate=Math_541_Definitions,
             %extract-cmd={section},
-            extract-env={theorem,corollary}]{extract}
+            extract-env={definition}]{extract}
+
+% \usepackage[active,
+%             generate=Math_541_Theorems,
+%             %extract-cmd={section},
+%             extract-env={theorem,corollary}]{extract}
 
 \begin{extract*}
   \usepackage{amsthm}
@@ -1197,14 +1197,22 @@ In how many ways can one color the vertices of a square using $10$ distinct colo
 		\begin{equation}
 			gx = x \implies g = 1
 		\end{equation}
-		Thus the only element that acts like the identity is actually the identity $g=1$. 
+		Thus the only element that acts like the identity is actually the identity $g=1$. Alternatively, 
+		\begin{equation}
+			\cap_{x \in X} G_x = \{1\}
+		\end{equation}
 		\item The action is free if for all $g\in G$ and for all $x \in X$
 		\begin{equation}
 			gx = x \implies g = 1
 		\end{equation}
-		This means all stabilizers are trivial. Or, any element which has a fixed point is the identity element.
+		Alternatively, this means all stabilizers are trivial. We have that for all $x \in X$, 
+		\begin{equation}
+			G_x = \{1\}
+		\end{equation}
+		 Or, any element which has a fixed point is the identity element. 
 	\end{enumerate}
 \end{definition}
+
 Observations:
 \begin{itemize}
 	\item If free, then faithful.
@@ -1502,6 +1510,30 @@ This same result need not hold for higher powers of $p$. For example, consider $
 	\end{enumerate}
 \end{theorem}
 
+\begin{theorem}(Sylow's Theorem)
+	Let $p$ be a prime number, let $G$ be a finite group, and let $p^n$ be the largest power of $p$ that divides $
+	|G|$. Then $G$ contains a subgroup $P$ of order $p^n$. $P$ is called a $p$-Sylow subgroup of $G$. 
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}($p$-Sylow subgroups are conjugate)
+	Let $G$ be a finite group and let $P,Q$ be $p$-Sylow subgroups of $G$. Then there exists $g \in G$ such that $gPg^{-1} = Q$. 
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+Observations about this theorem:
+\begin{enumerate}
+	\item If the group is abelian, then the Sylow subgroups are unique.
+\end{enumerate}
+
+\begin{corollary}
+	Let $G$ be a finite group and let $P$ be a $p$-Sylow subgroup of $G$. Then $P$ is a unique $p$-Sylow subgroup if and only if $P \trianglelefteq G$. 
+\end{corollary}
+
 \section{Quizzes}
 The course did not give solutions to any quizzes, homeworks, or midterms, so be wary of the solutions I've written below. 
 
@@ -1583,6 +1615,120 @@ Define $H = \{\sigma \in S_5 : \{\sigma(1), \sigma(2), \sigma(3) \} \in \{ 1, 2,
 \begin{solution}
 
 Since $S_5$ is a finite group, we can use Lagrange's theorem to find $[S_5 : H] = \frac{|S_5|}{|H|}$.  $|S_5| = 5! = 120$. Then $|H| = 3! \times 2! = 12$. Therefore 
+\end{solution}
+
+\subsection{Quiz 5}
+\begin{exercise}
+	Let $H$ be a subgroup of $\{1, \rho, \ldots, \rho^{n-1}\}$. Show that $H \trianglelefteq D_n$. 
+\end{exercise}
+\begin{solution}
+	We will show that for all $g \in D_n$ and for all $h \in H$, $ghg^{-1} \in H$. We will prove this by cases (whether $g$ is a rotation or a mirror symmetry). Further, since $h \in H$, we know that $h = \rho^{i}$ for some $i \in \{0,1,\ldots, n-1\}$. 
+	\begin{enumerate}
+		\item Case 1: $g$ is a rotation. Then $g = \rho^j$ for some $j \in \{0,1,\ldots, n-1\}$. Then
+		\begin{equation}
+			ghg^{-1} = \rho^j \rho^i \rho^{-j} = \rho^i \in H
+		\end{equation}
+		\item Case 2: $g$ is a mirror symmetry. Then $g = \e \rho^j$ for some $j \in \{0,1,\ldots, n-1\}$. Then,
+		\begin{align*}
+			ghg^{-1} &= (\e \rho^j)\rho^i(\e \rho^j)^{-1} \\
+			&= \e \rho^j \rho^i \rho^{-j} \e^{-1} \\
+			&= \e \rho^j \rho^i \rho^{-j} \e \\
+			&= \e \rho^i \e \\
+			&= \e \e \rho^{-i} \\
+			&= \rho^{-i} \in H \tag{since $H$ is a subgroup, contains inverses}
+		\end{align*}
+	\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+Let $\tau$ be a reflection (a mirror symmetry). Show that $G = \{1,\tau\} \leq D_n$ but $\{1,\tau\} \not \trianglelefteq D_n$. 
+\end{exercise}
+\begin{solution}
+	We first show that $G \leq D_n$. Therefore we must verify the three axioms.
+	\begin{enumerate}
+		\item Identity: Clearly $1 \in G$. 
+		\item Closed under products: Observe that
+		\begin{enumerate}
+			\item $1 \cdot \tau = \tau \in G$ 
+			\item $\tau \cdot 1 = \tau \in G$ 
+			\item $1 \cdot 1 = 1 \in G$ 
+			\item $\tau \cdot \tau = \tau^2 = 1 \in G$ since $\tau$ is a mirror symmetry, we know $\tau^2 = 1$.
+		\end{enumerate}
+		\item Closed under inverses: Note that $1^{-1} = 1 \in G$. Since $\tau$ is a mirror symmetry, we know $\tau = \tau^{-1} \in G$. 
+	\end{enumerate}
+	To show that $G$ is not a normal subgroup, we will find an element $g \in D_n$ such that $g \tau g^{-1} \not\in G$. Suppose $g = \tau \rho$. Then
+	\begin{align*}
+		g \tau g^{-1} &= \tau \rho \tau \rho^{-1} \tau^{-1} \\
+		&= \tau \rho \tau \rho^{-1} \tau \\
+		&= \tau \rho \rho \tau \tau\\
+		&= \tau \rho^2 \tau^2 \\
+		&= \tau \rho^2
+	\end{align*}
+	But we needn't have that $\tau \rho^2 \in G$. 
+\end{solution}
+
+\subsection{Quiz 6}
+\begin{exercise}
+	Let $G$ be a group that acts on a set $X$. Take $G = GL_2(\R)$ and $X = \R^2$. The actions is $A(v) = Av$ where $A \in GL_2(\R)$ and $v \in \R^2$. Let $H = \langle \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \rangle$. Find $O\left(\begin{pmatrix} 1 \\2 \end{pmatrix}\right)$.
+\end{exercise}
+\begin{solution}
+	Observe that the generator of $H$ is a rotation. Thus the orbit is simply given by
+	\begin{equation}
+		\left\{\begin{pmatrix}-2 \\ 1 \end{pmatrix}, \begin{pmatrix}-2 \\ -1 \end{pmatrix}, \begin{pmatrix}2 \\ -1 \end{pmatrix}, \begin{pmatrix}2 \\ 1 \end{pmatrix}\right\}
+	\end{equation}
+\end{solution}
+
+\begin{exercise}
+	Let $G$ be a group acting on a set $X$ and let $x,y \in X$. Suppose that for some $g \in G$ we have $gx = y$. Show $gG_xg^{-1} = G_y$.
+\end{exercise}
+\begin{solution}
+	We show two inclusions.
+	\begin{enumerate}
+		\item $\subseteq$: First let $h \in G_x$. We want to show that $ghg^{-1} \in G_y$, so that $ghg^{-1}(y) = y$.  Then
+		\begin{align*}
+			ghg^{-1}(y) &= gh(x) \tag{$g(x) = y$ implies $x = g^{-1}y$} \\
+			&= g(x) \tag{since $h \in G_x$} \\
+			&= y 
+		\end{align*}
+		Therefore $gG_xg^{-1} \subseteq G_y$.
+		\item $\supseteq$: Fix $h \in G_y$. We want to show that $h \in gG_xg^{-1}$, or that there exists some $h' \in G_x$ such that $h = gh'g^{-1}$. Let $h' = g^{-1}hg$, and we'll show $h' \in G_x$. Then
+		\begin{align*}
+			g^{-1}hg(x) &= g^{-1}h(y) \\
+			&= g^{-1}(y) \tag{since $h \in G_y$} \\
+			&= x
+		\end{align*}
+		Thus $h' \in G_x$. This implies that$h = gh'g^{-1} \in gG_xg^{-1}$ so that $gG_xg^{-1} \supseteq G_y$. 
+	\end{enumerate}
+\end{solution}
+
+\subsection{Quiz 7}
+\begin{exercise}
+	In how many ways can we color the vertices of a $5$-gon using 10 colors, up to equivalence. 
+\end{exercise}
+\begin{solution}
+	We apply Burnside's formula, where $N$ is the number of colorings (i.e.\ the number of orbits) and $G = D_5$:
+	\begin{equation}
+		N = \frac{1}{|G|} \sum_{g\in G} |X^g|
+	\end{equation}
+	We'll solve this question for an arbitrary number of colors $k$. Consider a rotation. All the vertices must have the same color. Thus there are $k$ possible colorings for a rotation, and there are $4$ non-trivial rotations. Since $5$ is odd, all mirror symmetries are alike, in that the mirror symmetry goes through a vertex and the mid-point of the opposite edge. For a $5$-gon, this mirror symmetry allows for $k^3$ colorings. Thus, in sum we have
+	\begin{equation}
+		\frac{1}{10}(k^5 + 4 \times k + 5 \times k^3)
+	\end{equation}
+\end{solution}
+
+\subsection{Quiz 8}
+\begin{exercise}
+	Show that $(\Z/13 \Z)^{\times}$ is cyclic. 
+\end{exercise}
+\begin{solution}
+	Notice that $2$ generates the group. 
+\end{solution}
+
+\begin{exercise}
+	Show that $(\Z/15 \Z)^{\times}$ is not cyclic. 
+\end{exercise}
+\begin{solution}
+	Recall that if $G$ is a cyclic subgroup, then if $m$ divides $|G|$, then $G$ has a unique (cyclic) subgroup of order $m$. Note that $|(\Z/15 \Z)^{\times}| = 8$. $2$ divides $8$ so if $(\Z/15 \Z)^{\times}$ is cyclic, then it must have a unique subgroup of order $2$. However, we can find two. Consider $\{1,14\}$ and $\{1,4\}$. Each of these is a cyclic subgroup of order $2$, therefore $(\Z/15 \Z)^{\times}$ is not cyclic. 
 \end{solution}
 
 \section{Exams}
@@ -2144,7 +2290,10 @@ Now let's consider the rotations. For $\rho$, all vertices must be the same colo
 	Verify by direct calculation that Burnside's formula for the number of orbits holds for the action of $D_4$ on the vertices of a square.
 \end{exercise}
 \begin{solution}
-
+	By inspection, there is only one orbit. The identity element has $4$ fixed points. Then, the rotations have no fixed points/vertices. The two mirror symmetries that connect a vertex to a vertex each have two fixed points/vertices. The remaining two mirror symmetries (which go from midpoint to midpoint) have no fixed points. Therefore, by Burnside's formula, the number of orbits $N$ of the action of $D_4$ on the vertices of a square is
+	\begin{equation}
+		\frac{1}{8}(4 + 0 + 0 + 0 + 0 + 2 + 0 + 2) = 1
+	\end{equation}
 \end{solution}
 
 \begin{exercise}
@@ -2215,6 +2364,54 @@ Let $G$ be an abelian group that acts transitively and faithfully on a set $X$. 
 \end{solution}
 
 \subsection{Homework 8}
+\begin{exercise}
+	Write explicitly the injective homomorphism from $(\Z/2 \Z) \times (\Z/2 \Z)$ to $S_4$ given by Cayley's theorem. 
+\end{exercise}
+\begin{solution}
+	Motivated by the proof of Cayley's theorem, we should consider the action of $G$ on itself by (left) multiplication. Observe that $(\Z/2 \Z) \times (\Z/2 \Z)$ has 4 elements: $\{(0,0),(0,1),(1,0),(1,1)\}$. Also note that $S_4$ permutes $4$ elements. This motivates labeling the $4$ elements in $(\Z/2 \Z) \times (\Z/2 \Z)$  and using left multiplication to create permutations of elements. For example, call the elements 1, 2, 3, and 4. Then
+	\begin{align*}
+	&2 + 1 = (0,1) = 2\\
+	&2 + 2 = (0,0) = 1\\
+	&2 + 3 = (1,1) = 4\\
+	&2 + 4 = (1,0) = 3 
+	\end{align*}
+	And we can view this as the permutation $(12)(43)$.
+	\begin{align*}
+	&3 + 1 = (1,0) = 3\\
+	&3 + 2 = (1,1) = 4\\
+	&3 + 3 = (0,0) = 1\\
+	&3 + 4 = (0,1) = 2 
+	\end{align*}
+	And we can view this as the permutation $(13)(42)$.
+	\begin{align*}
+	&4 + 1 = (1,1) = 4\\
+	&4 + 2 = (1,0) = 3\\
+	&4 + 3 = (0,1) = 2\\
+	&4 + 4 = (0,0) = 1 
+	\end{align*}
+	And we can view this as the permutation $(14)(32)$. Finally applying $(0,0)$ results in the identity permutation. 
+ \end{solution}
+
+ \begin{exercise}
+ 	Show that the group $(\Z / 11 \Z)^{\times}$ is cyclic.
+ \end{exercise}
+ \begin{solution}
+ 	Observe that the element $2$ generates $(\Z / 11 \Z)^{\times}$.
+ \end{solution}
+
+ \begin{exercise}
+	 Show that the group $(\Z / 8 \Z)^{\times}$ is not cyclic.
+ \end{exercise}
+ \begin{solution}
+ 	Recall that $(\Z / 8 \Z)^{\times} = \{1,3,5,7\}$. Therefore $|(\Z / 8 \Z)^{\times}| = 4$. We'll demonstrate two subgroups of order $2$, which shows that the group cannot be cyclic. Consider $\{1,3\}$ and $\{1,5\}$. Both of these are (cyclic) subgroups of order $2$, which means that $(\Z / 8 \Z)^{\times}$ cannot be cyclic, since for each $m$ which divides the order of $(\Z / 8 \Z)^{\times}$, we must have a unique subgroup of order $m$. 
+ \end{solution}
+
+ \begin{exercise}
+ 	Find the inverse of each element in $(\Z / 13 \Z)^{\times}$. 
+ \end{exercise}
+ \begin{solution}
+ 	Make multiplication table. 
+ \end{solution}
 
 \subsection{Homework 9}
 \begin{exercise}

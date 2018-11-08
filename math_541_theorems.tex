@@ -2,7 +2,7 @@
 %% This is file, `math_541_theorems.tex',
 %% generated with the extract package.
 %% 
-%% Generated on :  2018/11/06,17:19
+%% Generated on :  2018/11/07,21:08
 %% From source  :  "Math 541 Lecture Notes".tex
 %% Using options:  active,generate=Math_541_Theorems,extract-env={theorem,corollary}
 %% 
@@ -207,5 +207,18 @@ and
 \item $L_1 \leq L_2 \implies [L_2 : L_1] = [\phi(L_2) : \phi(L_1)]$
 \end{enumerate}
 \end{theorem}
+
+\begin{theorem}(Sylow's Theorem)
+Let $p$ be a prime number, let $G$ be a finite group, and let $p^n$ be the largest power of $p$ that divides $
+|G|$. Then $G$ contains a subgroup $P$ of order $p^n$. $P$ is called a $p$-Sylow subgroup of $G$.
+\end{theorem}
+
+\begin{theorem}($p$-Sylow subgroups are conjugate)
+Let $G$ be a finite group and let $P,Q$ be $p$-Sylow subgroups of $G$. Then there exists $g \in G$ such that $gPg^{-1} = Q$.
+\end{theorem}
+
+\begin{corollary}
+Let $G$ be a finite group and let $P$ be a $p$-Sylow subgroup of $G$. Then $P$ is a unique $p$-Sylow subgroup if and only if $P \trianglelefteq G$.
+\end{corollary}
 
 \end{document}

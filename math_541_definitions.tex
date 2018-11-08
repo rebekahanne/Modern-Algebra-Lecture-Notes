@@ -2,7 +2,7 @@
 %% This is file, `math_541_definitions.tex',
 %% generated with the extract package.
 %% 
-%% Generated on :  2018/11/01,18:44
+%% Generated on :  2018/11/08,8:15
 %% From source  :  "Math 541 Lecture Notes".tex
 %% Using options:  active,generate=Math_541_Definitions,extract-env={definition}
 %% 
@@ -15,6 +15,8 @@
   \definecolor{Tm}{rgb}{0,0,0.80}
   %\newtheorem{definition}{Definition}
   \newtheorem{definition}{\color{NavyBlue}{\textbf{Definition}}}
+  \newtheorem{theorem}{\color{ForestGreen}{\textbf{Theorem}}}
+  \newtheorem{corollary}{Corollary}
   %\newtheorem{example}{Example}
 \newcommand{\e}{\epsilon}
 %\newcommand{\d}{\delta}
@@ -159,12 +161,19 @@ Let $G$ be a group that acts on a set $X$.
 \begin{equation}
 gx = x \implies g = 1
 \end{equation}
-Thus the only element that acts like the identity is actually the identity $g=1$.
+Thus the only element that acts like the identity is actually the identity $g=1$. Alternatively,
+\begin{equation}
+\cap_{x \in X} G_x = \{1\}
+\end{equation}
 \item The action is free if for all $g\in G$ and for all $x \in X$
 \begin{equation}
 gx = x \implies g = 1
 \end{equation}
-This means all stabilizers are trivial. Or, any element which has a fixed point is the identity element.
+Alternatively, this means all stabilizers are trivial. We have that for all $x \in X$,
+\begin{equation}
+G_x = \{1\}
+\end{equation}
+ Or, any element which has a fixed point is the identity element.
 \end{enumerate}
 \end{definition}
 
