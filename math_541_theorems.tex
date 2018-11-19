@@ -2,7 +2,7 @@
 %% This is file, `math_541_theorems.tex',
 %% generated with the extract package.
 %% 
-%% Generated on :  2018/11/07,21:08
+%% Generated on :  2018/11/18,19:41
 %% From source  :  "Math 541 Lecture Notes".tex
 %% Using options:  active,generate=Math_541_Theorems,extract-env={theorem,corollary}
 %% 
@@ -26,15 +26,15 @@
 
 \begin{document}
 
-\begin{theorem}(The unit element is unique)
+\begin{theorem}[The unit element is unique]
 Let $G$ be a group and $\star$ its binary operation. Suppose that $e_1, e_2 \in G$ are both units elements. Then, $e_1 = e_2$.
 \end{theorem}
 
-\begin{theorem}(Cancellation Law)
+\begin{theorem}[Cancellation Law]
 For every group $G$ and $a,b,c \in G$ that satisfy $ab = ac$, we have $b=c$.
 \end{theorem}
 
-\begin{theorem}(The inverse of a group element is unique)
+\begin{theorem}[The inverse of a group element is unique]
 Let $G$ be a group and let $a \in G$. If $b$ and $c$ are inverses of $a$, then $b = c$.
 \end{theorem}
 
@@ -46,7 +46,7 @@ The order of a $k$-cycle is $k$.
 Disjoint cycles commute.
 \end{theorem}
 
-\begin{theorem}(Basic facts about homomorphisms)
+\begin{theorem}[Basic facts about homomorphisms]
 Let $\phi : G \to H$ be a homomorphism. Then
 \begin{enumerate}
 \item $\phi(1_G) = 1_H$ (the identity of $G$ is mapped to the identity of $H$).
@@ -62,15 +62,15 @@ Let $\phi : G \to H$ be a homomorphism. Then $Im(\phi) = \{ \phi(g) | g \in G \}
 Let $\phi: G \to H$ be a homomorphism. Then $\ker(\phi) \leq G$. That is, the kernel of $\phi$ is a subgroup of $G$.
 \end{theorem}
 
-\begin{theorem}(All left cosets of $H$ have the same size)
+\begin{theorem}[All left cosets of $H$ have the same size]
 Let $H \leq G$ be groups and let $a \in G$. Then $|[a] | = |aH| = |H|$
 \end{theorem}
 
-\begin{theorem}(Lagrange)
+\begin{theorem}[Lagrange]
 Let $G$ be a finite group and let $H \leq G$. Then $|H|$ divides $|G|$.
 \end{theorem}
 
-\begin{theorem}(Equivalent conditions to be a normal subgroup)
+\begin{theorem}[Equivalent conditions to be a normal subgroup]
 Let $N \leq G$. Then $N \trianglelefteq G$ if one of the following holds:
 \begin{enumerate}
 \item $\forall g\in G$, $gN = Ng$
@@ -80,18 +80,18 @@ Let $N \leq G$. Then $N \trianglelefteq G$ if one of the following holds:
 \end{enumerate}
 \end{theorem}
 
-\begin{theorem}(The Kernal of a Homomorphism is a Normal Subgroup)
+\begin{theorem}[The Kernal of a Homomorphism is a Normal Subgroup]
 Let $\phi : G \to H$ be homomorphism. Then $\ker (\phi) \trianglelefteq G$.
 \end{theorem}
 
-\begin{theorem}(Every cyclic group is isomorphic to either $\mathbb{Z}$ or to $\mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.) For every group $H$ for which there exists an $x \in H$ such that $H = \langle x \rangle$, there exists a bijective homomorphism (i.e. an isomorphism) $\phi : H \to C$ where $C = \mathbb{Z}$ or $C = \mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.
+\begin{theorem}[Every cyclic group is isomorphic to either $\mathbb{Z}$ or to $\mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.] For every group $H$ for which there exists an $x \in H$ such that $H = \langle x \rangle$, there exists a bijective homomorphism (i.e. an isomorphism) $\phi : H \to C$ where $C = \mathbb{Z}$ or $C = \mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.
 \end{theorem}
 
 \begin{theorem}
 Let $G$ be a finite cyclic group of order $n$. For every $m | n$ ($m$ that divides $n$) there exists a unique subgroup $H$ of $G$ with $|H|=m$. Furthermore, $H$ is cyclic.
 \end{theorem}
 
-\begin{theorem}(Important Identity for Dihedral Groups)
+\begin{theorem}[Important Identity for Dihedral Groups]
 $\rho \e = \e \rho^{-1}$.
 \end{theorem}
 
@@ -103,19 +103,19 @@ $\rho^i \e = \e \rho^{-i}$
 In the above definition, $G/N$ is a group.
 \end{theorem}
 
-\begin{theorem}(The First Isomorphism Theorem)
+\begin{theorem}[The First Isomorphism Theorem]
 If $\phi:G\to H$ is a homomorphism of groups, then $G / \ker(\phi) \cong Im \phi$.
 \end{theorem}
 
-\begin{theorem}(The Second or Diamond Isomorphism Theorem)
+\begin{theorem}[The Second or Diamond Isomorphism Theorem]
 Let $H \leq G$ and $K \trianglelefteq G$. Then $HK / K \cong H / H \cap K$.
 \end{theorem}
 
-\begin{theorem}(The stabilizer of a group element in a subgroup)
+\begin{theorem}[The stabilizer of a group element is a subgroup]
 $G_x \leq G$
 \end{theorem}
 
-\begin{theorem}(Orbit-Stabilizer Theorem)
+\begin{theorem}[Orbit-Stabilizer Theorem]
 There is a bijection
 \begin{equation}
 f : G / G_x \to O_x
@@ -131,7 +131,7 @@ In words, there is a bijection between the collection of all cosets of the stabi
 An action is transitive if and only if there exists an $x \in X$ such that $O_x = X$. That is, all elements of $X$ have the same equivalence class.
 \end{theorem}
 
-\begin{theorem}(Burnside)
+\begin{theorem}[Burnside]
 Let $G$ act on $X$. Suppose that $G,X$ are finite. Then,
 \begin{equation}
 N = \text{ \# of orbits (equivalence classes) } = \frac{1}{|G|} \sum_{g\in G} |X^g|
@@ -142,7 +142,7 @@ N = \text{ \# of orbits (equivalence classes) } = \frac{1}{|G|} \sum_{g\in G} |X
 $(\mathbb{Z}/n \mathbb{Z})^{\times}$ is a group.
 \end{theorem}
 
-\begin{theorem}(Fermat's Little Theorem)
+\begin{theorem}[Fermat's Little Theorem]
 For a prime number $p$ and $1 \leq x \leq p-1$, we have $x^{p-1} - 1$ is divisible by $p$.
 \end{theorem}
 
@@ -164,7 +164,7 @@ g(i) = \lambda(g)(i)
 Under the above assumptions: $\lambda$ is injective if and only if the action of $G$ on $X$ (which we can think of as $\{1,\ldots, n\}$) is faithful.
 \end{theorem}
 
-\begin{theorem}(Cayley)
+\begin{theorem}[Cayley]
 Let $G$ be a group of order $n$. Then, there exists an injective homomorphism $\phi : G \to S_n$.
 \end{theorem}
 
@@ -179,7 +179,7 @@ Let $G$ be a $p$-group that acts on a finite set $X$. Let $X^G = \cap_{g \in G} 
 \end{equation}
 \end{theorem}
 
-\begin{theorem}(A $p$-group has a non-trivial center)
+\begin{theorem}[A $p$-group has a non-trivial center]
 Let $G$ be a $p$-group. Then $Z(G) \neq \{1\}$.  In words, there has to be a non-trivial element of the group that commutes with everything else.
 \end{theorem}
 
@@ -187,11 +187,11 @@ Let $G$ be a $p$-group. Then $Z(G) \neq \{1\}$.  In words, there has to be a non
 Let $p$ be a prime number and let $G$ be a group of order $p^2$. Then $G$ is abelian.
 \end{corollary}
 
-\begin{theorem}(Cauchy)
+\begin{theorem}[Cauchy]
 Let $G$ be a finite group and suppose that $p \big\vert |G|$ for some prime $p$. Then there exists an element of order $p$ in $G$.
 \end{theorem}
 
-\begin{theorem}(Correspondence Theorem)
+\begin{theorem}[Correspondence Theorem]
 Let $G, H$ be groups, and let $\phi : G \to H$ be a group homomorphism. Then there exists a correspondence (i.e.\ a bijection)
 \begin{equation*}
 \{\text{Subgroups $K$ of $G$ containing $\ker \phi$}\} \iff \{\text{Subgroups $L$ of $H$ contained in $Im(\phi)$}\}
@@ -208,17 +208,35 @@ and
 \end{enumerate}
 \end{theorem}
 
-\begin{theorem}(Sylow's Theorem)
+\begin{theorem}[Sylow's Theorem]
 Let $p$ be a prime number, let $G$ be a finite group, and let $p^n$ be the largest power of $p$ that divides $
 |G|$. Then $G$ contains a subgroup $P$ of order $p^n$. $P$ is called a $p$-Sylow subgroup of $G$.
 \end{theorem}
 
-\begin{theorem}($p$-Sylow subgroups are conjugate)
+\begin{theorem}[$p$-Sylow subgroups are conjugate]
 Let $G$ be a finite group and let $P,Q$ be $p$-Sylow subgroups of $G$. Then there exists $g \in G$ such that $gPg^{-1} = Q$.
 \end{theorem}
 
 \begin{corollary}
 Let $G$ be a finite group and let $P$ be a $p$-Sylow subgroup of $G$. Then $P$ is a unique $p$-Sylow subgroup if and only if $P \trianglelefteq G$.
 \end{corollary}
+
+\begin{theorem}[$0\cdot a = 0$]
+\begin{align*}
+0 \cdot a &= (0 + 0) \cdot a \tag{$0$ additive identity}\\
+&= 0\cdot a + 0 \cdot a \tag{distributivity}
+\end{align*}
+Then cancellation gives $0 = 0 \cdot a$.
+\end{theorem}
+
+\begin{theorem}[$-a = (-1)\cdot a$]
+We want to show that $(-1)\cdot a$ is the additive inverse of $a$. To that end
+\begin{align*}
+a + (-1)\cdot a &= 1 \cdot a + (-1) \cdot a \tag{$1$ multiplicative identity}\\
+&= (1 + -1) \cdot a \tag{distributivity}\\
+&= 0 \cdot a \\
+&= 0
+\end{align*}
+\end{theorem}
 
 \end{document}
