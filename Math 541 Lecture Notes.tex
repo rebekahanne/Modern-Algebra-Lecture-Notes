@@ -153,7 +153,7 @@ The following are examples of groups.
 A group $G$ is abelian or commutative if $a \star b = b \star a$ for all $a \in G$.
 \end{definition}
 
-\begin{example}(Examples of Abelian Groups)
+\begin{example}[Examples of Abelian Groups]
 \begin{enumerate}
 \item Examples 1, 2, and 3 above are Abelian. The commutativity follows from the commutativity of addition and multiplication.
 \item Example 4 is not Abelian. It's easy to find a pair of elements that don't commute under composition.
@@ -161,28 +161,28 @@ A group $G$ is abelian or commutative if $a \star b = b \star a$ for all $a \in 
 \end{example}
 
 Not everything is a group.
-\begin{example}(Non-Examples of Groups)
+\begin{example}[Non-Examples of Groups]
 \begin{enumerate}
 \item $G = \mathbb{R}$ and $\star =$ maximum. For example, $2 \star \pi = \max(2,\pi) = \pi$. \underline{Associativity} is satisfied. The order in which we take the maximum of a set of elements doesn't matter -- we'll eventually find the largest element regardless. However, there is no \underline{unit element}. The reason is that there is no smallest element in $\mathbb{R}$.  
 \item $G = \mathbb{R}_{\geq 0}$ and $\star =$ maximum. \underline{Associativity} is satisfied. There is a \underline{unit element}, namely $0$ (observe that we've corrected the problem of not having a smallest element). Fix $g \in G$, and observe that $\max(g,0) = \max(0,g) = g$. However, there need not be an \underline{inverse} of each element. We can't take the maximum of some element $g > 0$ and $0$ and get $0$.
 \end{enumerate}
 \end{example}
 
-\begin{theorem}(The unit element is unique)
+\begin{theorem}[The unit element is unique]
 Let $G$ be a group and $\star$ its binary operation. Suppose that $e_1, e_2 \in G$ are both units elements. Then, $e_1 = e_2$.
 \end{theorem}
 \begin{proof}
 Since $e_1$ and $e_2$ are unit elements, we know that for all $a \in G$, $a \star e_1 = e_1 \star a = e_1$ and $a \star e_2 = e_2 \star a = e_2$. Consider the product $e_1 \star e_2$. We know that $e_1 \star e_2 = e_2$ since $e_2$ is a unit element. Further, $e_1 \star e_2 = e_1$ since $e_1$ is a unit element. Therefore, $e_1 = e_2$. 
 \end{proof}
 
-\begin{theorem}(Cancellation Law)
+\begin{theorem}[Cancellation Law]
 For every group $G$ and $a,b,c \in G$ that satisfy $ab = ac$, we have $b=c$.
 \end{theorem}
 \begin{proof}
 Let $x$ be the inverse of $a$. Then, $x(ab) = x(ac)$. Be associativity, we may write $(xa)b = (xa)c$. This simplifies to $1 \star b = 1 \star c$ or that $b = c$.
 \end{proof}
 
-\begin{theorem}(The inverse of a group element is unique)
+\begin{theorem}[The inverse of a group element is unique]
 Let $G$ be a group and let $a \in G$. If $b$ and $c$ are inverses of $a$, then $b = c$. 
 \end{theorem}
 \begin{proof}
@@ -210,7 +210,7 @@ Give an example of $\tau \in S_3$ such that $\tau \neq 1$, $\tau^2 \neq 1$, and 
 Consider $\tau(1) = 2$, $\tau(2) = 3$, $\tau(3) = 4$, $\tau(4) = 1$. Then, $\tau^2(1) = 3$ and $\tau^3(1) = 4$. This is sufficient to show that $\tau \neq 1$, $\tau^2 \neq 1$, and $\tau^3 \neq 1$.
 \end{solution}
 
-\begin{definition}(The group $\mathbb{Z} / n \mathbb{Z}$)
+\begin{definition}[The group $\mathbb{Z} / n \mathbb{Z}$]
 The group $\mathbb{Z} / n \mathbb{Z}$ is the set $\{0,1,\ldots,n-1\}$. That is, the possible (integer) remainders upon dividing by $n$. Recall that the remainder is the smallest number that you subtract from the original number so that it becomes divisible by $n$. 
 \end{definition}
 \begin{exercise}
@@ -228,7 +228,7 @@ Observe that $15 + 15 = 30 = 0$. Hence $15$ is its own inverse.
 
 \subsubsection{Order}
 
-\begin{definition}(Order of a group, order of an element of a group)
+\begin{definition}[Order of a group, order of an element of a group]
 Let $G$ be a group. We call $|G|$ the order of $G$ (i.e. the number of elements in $G$). Further, the least $d >0$ such that $g^d = 1$ is called the order of $g \in G$.
 \end{definition}
 \begin{example}(Orders of groups)
@@ -297,7 +297,7 @@ GL_n(\mathbb{R}) = \left\{ n\times n \text{ matrix } A \Big\vert \det{A} \neq 0 
 \end{example}
 
 \subsection{Subgroups}
-\begin{definition}(Subgroup)
+\begin{definition}[Subgroup]
 A subset $H$ of a group $G$ is called a subgroup of $G$ if the following axioms are satisfied
 \begin{enumerate}
 \item Identity: $1 \in H$ (we could also write $1_G \in H$).
@@ -307,7 +307,7 @@ A subset $H$ of a group $G$ is called a subgroup of $G$ if the following axioms 
 In this case we write $H \leq G$. Observe that $H$ is indeed a group.
 \end{definition}
 
-\begin{example}(Examples of Subgroups)
+\begin{example}[Examples of Subgroups]
 \begin{enumerate}
 	\item Define $H = \{ (1 2 3), (1 3 2), id \} \subset S_3$. Let's check the 3 axioms required to be a subgroup.
 	\begin{enumerate}
@@ -336,7 +336,7 @@ In this case we write $H \leq G$. Observe that $H$ is indeed a group.
 \end{enumerate}
 \end{example}
 
-\begin{example}(Non-example of Subgroup)
+\begin{example}[Non-example of Subgroup]
 Define $H = \{ \sigma \in S_3 | \sigma(1) \in \{1, 2 \} \} \subset S_3$. 
 \begin{enumerate}
 	\item Identity: Satisfied.
@@ -345,7 +345,7 @@ Define $H = \{ \sigma \in S_3 | \sigma(1) \in \{1, 2 \} \} \subset S_3$.
 \end{example}
 
 \subsection{Homomorphisms}
-\begin{definition}(Homomorphism)
+\begin{definition}[Homomorphism]
 	Let $G, H$ be groups. A function $\phi : G \to H$ is a homomorphism if for every $a,b \in G$, we have 
 	\begin{equation}
 		\phi(ab) = \phi(a)\phi(b)
@@ -353,7 +353,7 @@ Define $H = \{ \sigma \in S_3 | \sigma(1) \in \{1, 2 \} \} \subset S_3$.
 	Note the the product $ab$ on the left is computed in $G$ and the product $\phi(x)\phi(y)$ is computed in $H$.
 \end{definition}
 
-\begin{example}(Examples of Homomorphisms)
+\begin{example}[Examples of Homomorphisms]
 \begin{enumerate}
 	\item Let $G = GL_n(\mathbb{R})$, $H = \mathbb{R}^{\times}$, $\phi : G \to H$. Define $\phi(A) = \det(A)$.
 	\item Let $G = \mathbb{Z} / 7 \mathbb{Z}$, $H = \{z \in \mathbb{C}: z^7 = 1\}$. Define
@@ -376,7 +376,7 @@ Define $H = \{ \sigma \in S_3 | \sigma(1) \in \{1, 2 \} \} \subset S_3$.
 \end{enumerate}
 \end{example}
 
-\begin{theorem}(Basic facts about homomorphisms)
+\begin{theorem}[Basic facts about homomorphisms]
 Let $\phi : G \to H$ be a homomorphism. Then
 \begin{enumerate}
 	\item $\phi(1_G) = 1_H$ (the identity of $G$ is mapped to the identity of $H$).
@@ -391,7 +391,7 @@ Observe that
 \end{enumerate}
 \end{proof}
 
-\begin{example}(Example of facts about homomorphisms)
+\begin{example}[Example of facts about homomorphisms]
 Take $\sigma = (1 2 3) \in S_3$. Define $\phi : \mathbb{Z} / 3 \mathbb{Z} \to S_3$ by $\phi(t) = \sigma^t$. Then $\phi(0) = id$ (we expected this from the above claim), $\phi(1) = \sigma$, $\phi(2) = \sigma^2$. 
 \end{example}
 
@@ -408,7 +408,7 @@ Let's check the axioms required for $Im(\phi)$ to be a subgroup.
 Therefore $Im(\phi)$ is a subgroup.
 \end{proof}
 
-\begin{example}(The group $n \mathbb{Z}$)
+\begin{example}[The group $n \mathbb{Z}$]
 For $n \geq 1$, define $n \mathbb{Z} = \{ k \in \mathbb{Z} : \text{ $k$ is divisible by $n$} \}$. Observe that $n \mathbb{Z} \leq \mathbb{Z}$. Let's check the axioms:
 \begin{enumerate}
 	\item Identity: $0 \in n \mathbb{Z}$ because $0$ is divisible by everything. 
@@ -417,13 +417,13 @@ For $n \geq 1$, define $n \mathbb{Z} = \{ k \in \mathbb{Z} : \text{ $k$ is divis
 \end{enumerate}
 \end{example}
 
-\begin{example}(Another homomorphism)
+\begin{example}[Another homomorphism]
 Define $\phi : \mathbb{Z} \to \mathbb{Z} / n \mathbb{Z}$ by $\phi(k)$ is the remainder upon dividing $k$ by $n$ (clearly this remainder is in the set $\mathbb{Z} / n \mathbb{Z}$). Then $\phi$ is a homomorphism. We need to show that $\phi(a + b) = a + b$.  
 
 Observations about this example: Note that for each $k \in n \mathbb{Z}$, $\phi(k) = 0$. Moreover $\{ k \in \mathbb{Z} : \phi(k) = 0 \} = n \mathbb{Z}$. This motivates the following definition.
 \end{example}
 
-\begin{definition}(Kernel)
+\begin{definition}[Kernel]
 Let $\phi:G \to H$ be a homomorphism. Then
 \begin{equation}
 	\ker(\phi) = \{g \in G : \phi(g) = 1 \}
@@ -451,7 +451,7 @@ Let's check the 3 axioms required to be a subgroup:
 \end{enumerate}
 \end{proof}
 
-\begin{example}(Examples of Kernels)
+\begin{example}[Examples of Kernels]
 The following are examples of kernels of homomorphisms:
 \begin{enumerate}
 	\item The determinant is a homomorphism from $GL_n(\mathbb{R})$ to $\R^{\times}$. Then
@@ -469,7 +469,7 @@ The following are examples of kernels of homomorphisms:
 \end{example}
 
 \subsection{Cosets and Lagrange's Theorem}
-\begin{example}(Equivalence Relation)
+\begin{example}[Equivalence Relation]
 Let $G$ be a finite group and let $H \leq G$. Define a relation $\sim$ on $G$ by $a \sim b$ if and only if there exists an $h \in H$ such that $a = bh$. This condition also means that $b^{-1}a \in H$. We show that $\sim$ is indeed an equivalence relation:
 \begin{enumerate}
 	\item Reflexive ($\forall a \in G, a \sim a$): One way to see this is to recall that since $H$ is a subgroup, we know that $a^{-1}a = 1 \in H$. Or simply, $a = a \cdot 1$ and $1 \in H$. 
@@ -479,7 +479,7 @@ Let $G$ be a finite group and let $H \leq G$. Define a relation $\sim$ on $G$ by
 Then let $[a] = \{ b \in G | b \sim a \} = \{b \in G | \exists h \in H, b = ah \} = \{ah | h \in H \} = aH$. $G$ can be written as a disjoint union of equivalence classes. 
 \end{example}
 
-\begin{definition}(Coset)
+\begin{definition}[Coset]
 Let $H \leq G$ and fixed $a \in G$. Let
 \begin{align*}
 aH &= \{ ah | h \in H \} \\
@@ -490,11 +490,11 @@ These sets are called a left coset and right coset of $H$ in $G$.
 Write $G/H$ for the set of left cosets $\{aH | a \in G \}$.
 \end{definition}
 
-\begin{example}(Cosets)
+\begin{example}[Cosets]
 If $a=1$, then $aH = 1 \cdot H = H$. And, for any $a \in H$, $aH = H$: First observe that $aH \subset H$ since $H$ is a subgroup. Indeed if $a,h \in H$, then $ah \in H$. Next we'll show $H \subset aH$. Fix $h \in H$. We want to show that $h \in aH$, or that it can written in the form $a'h'$ where $h' \in H$. To achieve this, write $h = e \cdot h = a (a^{-1} h)$. Note that $a^{-1} h \in H$ since $H$ is a subgroup. Therefore $h \in aH$. Together these equivalences show that $aH = H$ when $a \in H$. 
 \end{example}
 
-\begin{theorem}(All left cosets of $H$ have the same size) 
+\begin{theorem}[All left cosets of $H$ have the same size]
 Let $H \leq G$ be groups and let $a \in G$. Then $|[a] | = |aH| = |H|$
 \end{theorem}
 \begin{proof}
@@ -506,7 +506,7 @@ We can give a bijection between the two sets to show they have the same number o
 Thus $f$ is a bijection. This result of course implies that $|aH| = |bH| = |H|$ for all $a, b \in H$. In words, all left cosets of $H$ have the same size as $H$. 
 \end{proof}
 
-\begin{theorem}(Lagrange)
+\begin{theorem}[Lagrange]
 	Let $G$ be a finite group and let $H \leq G$. Then $|H|$ divides $|G|$.
 \end{theorem}
 
@@ -514,11 +514,11 @@ Thus $f$ is a bijection. This result of course implies that $|aH| = |bH| = |H|$ 
 Using the above claim, define $f : H \to aH$ by $f(h) = ah$. Then it follows that $|[a] | = |aH| = |H|$. We can write $G$ as a disjoint union of equivalence classes. Let $k$ be the number of equivalence classes, and observe that they all have the same cardinality of as $H$. Therefore $|G| = k \cdot |H|$, so that $|H| \big\vert |G|$.
 \end{proof}
 
-\begin{definition}(Index)
+\begin{definition}[Index]
 If $G$ is a group (possibly infinite) and $H \leq G$, the number of left cosets of $H$ in $G$ is called the index of $H$ in $G$ and is denoted by $|G : H|$. Alternatively, $|G : H| = | G / H | =  |\{aH | a \in G\} |$. If $G$ is finite, the $|G:H| = \frac{|G|}{|H|}$.
 \end{definition}
 
-\begin{example}(Index when $G$ finite)
+\begin{example}[Index when $G$ finite]
 Let $G = S_3$ and $H = \{ (1 2 3), (1 3 2), id \}$. $H$ is a subgroup. Since $G$ is finite, we can calculate the index of $H$ in $G$ as
 \begin{equation}
 	|G : H| = \frac{|G|}{|H|} = \frac{6}{3} = 2
@@ -530,7 +530,7 @@ Thus there are $2$ left cosets of $H$ in $G$. To write out $G/H$ we need only fi
 You can verify that $(1 2) H = (1 3) H = (2 3) H$.
 \end{example}
 
-\begin{example}(Index when $G$ infinite)
+\begin{example}[Index when $G$ infinite]
 $\mathbb{R}_{>0} \subset \mathbb{R}^{\times}$. Then $|\mathbb{R}^{\times} : \mathbb{R}_{> 0}| = 2$. Recall that this means that there are two left cosets of $\mathbb{R}_{>0}$ in $\mathbb{R}^{\times}$. We can enumerate these as follows
 \begin{equation}
 	\mathbb{R}^{\times} / \mathbb{R}_{> 0} = \{\mathbb{R}_{> 0}, (-1) \cdot \mathbb{R}_{> 0}\}
@@ -541,7 +541,7 @@ We can make an observation about the left cosets of $\mathbb{R}_{> 0}$ more gene
 \end{equation}
 \end{example}
 
-\begin{example}(Index of Permutation Group)
+\begin{example}[Index of Permutation Group]
 As a slight abuse of notation, let $S_3$ be the set of permutations in $S_4$ for which the last index is fixed. Then, since $S_3$ is finite
 \begin{equation}
  	|S_4 : S_3| = \frac{24}{6} = 4
@@ -556,11 +556,11 @@ Therefore $S_4 / S_3$ has 4 elements. To find the left cosets of $S_3$ in $S_4$,
 Note that we can write each of these cosets as (using $C_2$ as an example): $\tau S_3$, where $\tau(4) = 3$. We can pick any such $\tau$ that satifies this requirement, and the left cosets generated by the different choices of $\tau$ will be the same.
 \end{example}
 
-\begin{definition}(Normal Subgroup)
+\begin{definition}[Normal Subgroup]
 We say that a subgroup $H$ of $G$ is normal if $aH = Ha$ for every $a \in G$. Write $H \trianglelefteq G$. This means that the left and right cosets of a group of equivalent.
 \end{definition}
 
-\begin{theorem}(Equivalent conditions to be a normal subgroup)
+\begin{theorem}[Equivalent conditions to be a normal subgroup]
 Let $N \leq G$. Then $N \trianglelefteq G$ if one of the following holds:
 \begin{enumerate}
 	\item $\forall g\in G$, $gN = Ng$
@@ -570,11 +570,11 @@ Let $N \leq G$. Then $N \trianglelefteq G$ if one of the following holds:
 \end{enumerate}
 \end{theorem}
 
-\begin{example}(Non-example of a Normal Subgroup)
+\begin{example}[Non-example of a Normal Subgroup]
 Continuing the above example, let $S_3$ be the set of permutations in $S_4$ for which the last index is fixed [[Incomplete]].
 \end{example}
 
-\begin{theorem}(The Kernal of a Homomorphism is a Normal Subgroup)
+\begin{theorem}[The Kernal of a Homomorphism is a Normal Subgroup]
 Let $\phi : G \to H$ be homomorphism. Then $\ker (\phi) \trianglelefteq G$.
 \end{theorem}
 \begin{proof}(Easier Proof)
@@ -606,13 +606,13 @@ The proof for the right cosets is similar. Together, these inclusions show that 
 \end{proof}
 
 \subsection{Cyclic Groups}
-\begin{definition}(Cyclic Group)
+\begin{definition}[Cyclic Group]
 A group $H$ is cyclic if $H$ can be generated by a single element, i.e., there is some element $x \in H$ such that $H = \{x^n | n \in \mathbb{Z} \}$. Write $H  = \langle x \rangle$ and say $H$ is generated by $x$.
 
 An alternative definition is: Let $G$ be a group and fix $x \in G$. Let $H$ be the subset of $G$ that contains all the powers of $x$. Then notice that $H = \{x^n | n \in \mathbb{Z} \}$ is a subgroup of $G$ (the identity element must be in $H$ since $x^0 = 1$, $H$ is closed under products since adding exponents will keep us in $H$, and the inverse of $x^n$ is $x^{-n}$, which is also in $H$). We call $H$ the subgroup of $G$ generated by $x$, $H = \langle x \rangle$, and $H$ is cyclic.  
 \end{definition}
 
-\begin{example}(Examples of Cyclic Groups)
+\begin{example}[Examples of Cyclic Groups]
 \begin{enumerate}
 	\item Let $x = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \in GL_2(\mathbb{R})$. Then
 	\begin{equation}
@@ -627,7 +627,7 @@ An alternative definition is: Let $G$ be a group and fix $x \in G$. Let $H$ be t
 \end{enumerate}
 \end{example}
 
-\begin{theorem}(Every cyclic group is isomorphic to either $\mathbb{Z}$ or to $\mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.) For every group $H$ for which there exists an $x \in H$ such that $H = \langle x \rangle$, there exists a bijective homomorphism (i.e. an isomorphism) $\phi : H \to C$ where $C = \mathbb{Z}$ or $C = \mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.
+\begin{theorem}[Every cyclic group is isomorphic to either $\mathbb{Z}$ or to $\mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.] For every group $H$ for which there exists an $x \in H$ such that $H = \langle x \rangle$, there exists a bijective homomorphism (i.e. an isomorphism) $\phi : H \to C$ where $C = \mathbb{Z}$ or $C = \mathbb{Z} / n \mathbb{Z}$ for some $n \geq 1$.
 \end{theorem}
 \begin{proof}
 There are two cases to consider. 
@@ -663,7 +663,7 @@ In general, we consider two types of symmetries:
 \end{enumerate}
 For a regular $n$-gon, there are $n$ rotational symmetries and $n$ mirror symmetries. Therefore $|D_n| = 2n$.
 
-\begin{example}($D_3$, Symmetries of a Triangle)
+\begin{example}[$D_3$, Symmetries of a Triangle]
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=3]{triangle_symmetries}
@@ -673,7 +673,7 @@ For a regular $n$-gon, there are $n$ rotational symmetries and $n$ mirror symmet
 \end{figure}
 \end{example}
 
-\begin{example}($D_4$, Symmetries of a Square)
+\begin{example}[$D_4$, Symmetries of a Square]
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=.75]{square-symmetries}
@@ -684,7 +684,7 @@ For a regular $n$-gon, there are $n$ rotational symmetries and $n$ mirror symmet
 
 \end{example}
 
-\begin{definition}(Dihedral Group, $D_n$)
+\begin{definition}[Dihedral Group, $D_n$]
 In general, $D_n$ is a group with $2n$ elements, where the binary operation is composition. It contains two types of symmetries:
 \begin{enumerate}
 	\item The rotation $\rho$ is $\frac{2\pi}{n}$ radians clockwise. The set of all rotations is $\langle \rho \rangle = \{1, \rho, \rho^2, \ldots, \rho^{n-1} \}$. 
@@ -693,7 +693,7 @@ In general, $D_n$ is a group with $2n$ elements, where the binary operation is c
 \end{definition}
 
 
-\begin{theorem}(Important Identity for Dihedral Groups)
+\begin{theorem}[Important Identity for Dihedral Groups]
 $\rho \e = \e \rho^{-1}$. 
 \end{theorem}
 We use this relation to make computations in dihedral groups. 
@@ -706,11 +706,11 @@ $\rho^i \e = \e \rho^{-i}$
 By induction, using the above claim. 
 \end{proof}
 
-\begin{example}(Uniqueness of rotations/mirror symmetries)
+\begin{example}[Uniqueness of rotations/mirror symmetries]
 Can two elements in the mirror symmetry set be equal, or equal to an element in the set of rotations? No! Suppose $\e \rho^i = \e \rho^j$. Then $\rho^i = \rho^j$, which implies $i = j$. Now suppose $\e \rho^i = \rho^j$, which implies $\e = \rho^{j-i}$. However this implies $\e$ is a rotation, which is nonsense.
 \end{example}
 
-\begin{example}(Mirror Symmetries are a Coset)
+\begin{example}[Mirror Symmetries are a Coset]
 Observe that the set of mirror symmetries is simply $\e \langle \rho \rangle$, thus they are a left coset of the cyclic group of rotations.  Then
 \begin{equation}
 	D_n / \langle \rho \rangle = \{ \langle \rho \rangle, \e \langle \rho \rangle\}
@@ -737,7 +737,7 @@ We know that $\rho \e = \e \rho^{-1}$, $\rho^5 = 1$, and $\e^2 = 1$. Then, with 
 
 \subsection{Quotient Groups}
 
-\begin{definition}(Quotient Group)
+\begin{definition}[Quotient Group]
 Let $G$ be a group and $N \trianglelefteq G$ (that is, $N$ is a normal subgroup of $G$). Let $G/N = \{gN|g \in G\}$ be the set of left cosets of $N$ in $G$. Then the quotient group of $G$ by $N$ is the group $(G/N, \cdot)$, where $\cdot$ is the binary operation on $G/N$ defined for all $g_1 N, g_2 N \in G / N$ by $g_1 N g_2 N = g_1g_2N$. 
 \end{definition}
 
@@ -785,7 +785,7 @@ We now check the axioms required to be a group.
 Therefore $G/H$ is a group. 
 \end{proof}
 
-\begin{example}(Examples of Quotient Groups)
+\begin{example}[Examples of Quotient Groups]
 \begin{enumerate}
 	\item $\mathbb{R}^{\times} / \mathbb{R}_{> 0} = \{\mathbb{R}_{> 0}, (-1) \cdot \mathbb{R}_{> 0}\} \cong \{\pm 1\}$
 	\item $\mathbb{Z} / 12 \mathbb{Z} = \{0 + 12 \mathbb{Z}, 1 + 12 \mathbb{Z}, \ldots, 11 + 12 \mathbb{Z} \} $
@@ -795,7 +795,7 @@ Therefore $G/H$ is a group.
 
 \subsection{Isomorphism Theorems}
 
-\begin{theorem}(The First Isomorphism Theorem)
+\begin{theorem}[The First Isomorphism Theorem]
 If $\phi:G\to H$ is a homomorphism of groups, then $G / \ker(\phi) \cong Im \phi$. 
 \end{theorem}
 
@@ -841,7 +841,7 @@ Intuition for this theorem:
 	\end{equation}
 \end{itemize}
 
-\begin{example}(Examples of applications of first isomorphism theorem) Consider the following examples
+\begin{example}[Examples of applications of first isomorphism theorem] Consider the following examples
 \begin{enumerate}
 	\item $sgn : \R^{\times} \to \{\pm 1 \}$. This is indeed a homomorphism. By the theorem, we know that
 	\begin{equation}
@@ -856,7 +856,7 @@ Intuition for this theorem:
 
 \end{example}
 
-\begin{theorem}(The Second or Diamond Isomorphism Theorem)
+\begin{theorem}[The Second or Diamond Isomorphism Theorem]
 Let $H \leq G$ and $K \trianglelefteq G$. Then $HK / K \cong H / H \cap K$. 
 \end{theorem}
 
@@ -891,7 +891,7 @@ Therefore $f$ is well-defined, and we now show $f$ is an isomorphism.
 \end{proof}
 
 \subsection{Actions, Orbits, and Stabilizers}
-\begin{definition}(Action)
+\begin{definition}[Action]
 An action of a group $G$ on $X$ (or we say $G$ acts on $X$) is a function $G \times X \to X$, $(g,x) \to gx$ where
 \begin{enumerate}
 	\item $1_G x = x \quad \forall x \in X$ 
@@ -899,7 +899,7 @@ An action of a group $G$ on $X$ (or we say $G$ acts on $X$) is a function $G \ti
 \end{enumerate}
 \end{definition}
 
-\begin{example}(Group Actions)
+\begin{example}[Group Actions]
 \begin{enumerate}
 	\item Set: $\R^n$, Group: $GL_n(\R)$, Action: $(A,v) \to Av$. In $\R^2$, we can see that
 	\begin{equation}
@@ -951,7 +951,7 @@ An action of a group $G$ on $X$ (or we say $G$ acts on $X$) is a function $G \ti
 \end{enumerate}
 \end{example}
 
-\begin{definition}(Orbit)
+\begin{definition}[Orbit]
 Given $x \in X$ the orbit of $x$ is 
 \begin{equation}
 	O(x) = O_x = \{gx | g \in G\}
@@ -959,14 +959,14 @@ Given $x \in X$ the orbit of $x$ is
 This is the set of all elements that can be reached from $x$ by applying elements from $G$. 
 \end{definition}
 
-\begin{example}(Examples of Orbits)
+\begin{example}[Examples of Orbits]
 \begin{enumerate}
 	\item Let $X = \{1, \ldots, n\}$. Suppose $G = S_n$. Then the orbit of each element is the whole set, $X$. 
 	\item $H$ is normal if and only if all if its orbits only contain one element [[?]]. 
 \end{enumerate}
 \end{example}
 
-\begin{definition}(Stabilizer, Isotropy Subgroup)
+\begin{definition}[Stabilizer, Isotropy Subgroup]
 Let $X$ be a $G$-set and $x \in X$. The stabilizer of $x$ is 
 \begin{equation}
 	G_x = Stab_G(x) = \{ g\in G | gx = x \}
@@ -974,7 +974,7 @@ Let $X$ be a $G$-set and $x \in X$. The stabilizer of $x$ is
 also called the isotropy subgroup of $x$. 
 \end{definition}
 
-\begin{theorem}(The stabilizer of a group element in a subgroup)
+\begin{theorem}[The stabilizer of a group element is a subgroup]
 $G_x \leq G$
 \end{theorem}
 \begin{proof}
@@ -991,7 +991,7 @@ We verify the three axioms required to be a subgroup:
 Thus $G_x$ is a subgroup. 
 \end{proof}
 
-\begin{theorem}(Orbit-Stabilizer Theorem)
+\begin{theorem}[Orbit-Stabilizer Theorem]
 There is a bijection 
 \begin{equation}
 	f : G / G_x \to O_x
@@ -1021,7 +1021,7 @@ We now show that $f$ is surjective. This is clear from the definition of the fun
 We now show that $f$ is injective (note here that $f$ is not a homomorphism. Thus we cannot use the trick that $f$ is injective if and only if its kernel is trivial). Suppose that $f(gG_x) = f(hG_x)$. Hence, $gx = hx$, so $h^{-1}gx = x$. Therefore, $h^{-1}g \in G_x$, which implies that $gG_x = hG_x$. 
 \end{proof}
 
-\begin{example}(Examples of Orbit-Stabilizer Theorem)
+\begin{example}[Examples of Orbit-Stabilizer Theorem]
 \begin{enumerate}
 	\item Suppose $D_3$ acts on the vertices of a triangle. That is, $G=D_3$ and $X=\{a,b,c\}$. Observe that $O_a = \{a,b,c\}$, because a rotation allows us to reach any other vertex starting from $a$. Next, $G_a = \{1, \text{ reflection at } a\}$. Observe that 
 	\begin{equation}
@@ -1049,11 +1049,11 @@ We now show that $f$ is injective (note here that $f$ is not a homomorphism. Thu
 \end{enumerate}
 \end{example}
 
-\begin{definition}(Transitive action)
+\begin{definition}[Transitive action]
 	We say that an action of $G$ on $X$ is transitive if for every $x,y \in X$, there is an element $g \in G$ such that $gx = y$. In words, this means that we can arrive at $y$ from $x$ by applying an element from $G$. 
 \end{definition}
 
-\begin{example}(Transitive actions)
+\begin{example}[Transitive actions]
 \begin{enumerate}
 	\item The action of $S_5$ on $\{1,2,3,4,5\}$ is transitive. 
 	\item The action of $GL_n(\R)$ on $\R^n$ is not transitive. Consider the zero vector. Then any matrix we apply to the zero vector will still give us the zero vector. Thus, we cannot reach another vector in $\R^n$. 
@@ -1061,7 +1061,7 @@ We now show that $f$ is injective (note here that $f$ is not a homomorphism. Thu
 \end{enumerate}
 \end{example}
 
-\begin{definition}(Action induces equivalence relation)
+\begin{definition}[Action induces equivalence relation]
 	The action of any group $G$ on $X$ induces an equivalence relation by saying $x \sim y$ if there exists a $g \in G$ such that $gx = y$. 
 \end{definition}
 \begin{proof}
@@ -1084,7 +1084,7 @@ An action is transitive if and only if there exists an $x \in X$ such that $O_x 
 	\color{Red}{TODO}
 \end{proof}
 
-\begin{definition}(Conjugation action, conjugacy classes, conjugate)
+\begin{definition}[Conjugation action, conjugacy classes, conjugate]
 	Consider the action of $G$ on itself by $g(x) = gxg^{-1}$. We call this the conjugation action. The equivalence classes created by this action are called the conjugacy classes of $G$. We say that two elements in $x,y\in G$ are conjugate if they belong to the same conjugacy class. 
 \end{definition}
 
@@ -1105,11 +1105,11 @@ An action is transitive if and only if there exists an $x \in X$ such that $O_x 
 	Thus we want to choose a $\sigma$ such that these two cycles are equivalent to the two given cycles. 
 \end{example}
 
-\begin{definition}(Fixed points)
+\begin{definition}[Fixed points]
 	For any element $g\in G$, let $X^g = \{x\in X|gx = x\}$. In words, this is the set of all elements in $X$ such that $g$ acts on them like the identity. 
 \end{definition}
 
-\begin{example}(Fixed points)
+\begin{example}[Fixed points]
 \begin{enumerate}
 	\item Let $G = D_3$ and $X = \{a,b,c\}$ be the vertices of a triangle. Then $X^\rho = \emptyset$. However, the set of fixed points of the reflection through $c$ is simply $\{c\}$. 
 	\item Let $G = GL_2(\R)$ and $X = \R^2$. Then
@@ -1130,7 +1130,7 @@ An action is transitive if and only if there exists an $x \in X$ such that $O_x 
 \end{enumerate}
 \end{example}
 
-\begin{theorem}(Burnside)
+\begin{theorem}[Burnside]
 Let $G$ act on $X$. Suppose that $G,X$ are finite. Then, 
 \begin{equation}
 	N = \text{ \# of orbits (equivalence classes) } = \frac{1}{|G|} \sum_{g\in G} |X^g|
@@ -1190,7 +1190,7 @@ In how many ways can one color the vertices of a square using $10$ distinct colo
 	\end{equation}
 \end{solution}
 
-\begin{definition}(Free, faithful action)
+\begin{definition}[Free, faithful action]
 	Let $G$ be a group that acts on a set $X$. 
 	\begin{enumerate}
 		\item The action is said to be faithful if for all $x \in X$
@@ -1218,7 +1218,7 @@ Observations:
 	\item If free, then faithful.
 \end{itemize}
 
-\begin{example}(Free, faithful actions)
+\begin{example}[Free, faithful actions]
 \begin{enumerate}
 	\item The action of $G$ on itself by left multiplication is free. 
 	\item The action of $D_n$ on the vertices of an $n$-gon is faithful but not free.
@@ -1229,18 +1229,18 @@ Observations:
 
 \subsection{Multiplicative group of integers modulo n}
 
-\begin{definition}(coprime)
+\begin{definition}[Coprime]
 	An integer $a$ is coprime to $n$ if the only positive divisor of both $a$ and $n$ is 1.
 \end{definition}
 
-\begin{definition}($(\mathbb{Z}/n \mathbb{Z})^{\times}$)
+\begin{definition}[$(\mathbb{Z}/n \mathbb{Z})^{\times}$]
 \begin{equation}
 	(\mathbb{Z}/n \mathbb{Z})^{\times} = \{1 \leq a \leq n - 1 | a \text{ coprime to } n\}
 \end{equation}
 $n \geq 2$. This is called the multiplicative group of integers modulo $n$, where the binary operation is multiplication and taking the remainder upon dividing by $n$. 
 \end{definition}
 
-\begin{example}($(\mathbb{Z}/n \mathbb{Z})^{\times}$)
+\begin{example}[$(\mathbb{Z}/n \mathbb{Z})^{\times}$]
 
 \begin{center}
 \begin{tabular}{c|c}
@@ -1255,7 +1255,7 @@ $n$ & ($(\mathbb{Z}/n \mathbb{Z})^{\times}$) \\
 \end{center}
 \end{example}
 
-\begin{example}(Computations in $(\mathbb{Z}/n \mathbb{Z})^{\times}$)
+\begin{example}[Computations in $(\mathbb{Z}/n \mathbb{Z})^{\times}$]
 Suppose $n=5$. Then we consider $(\mathbb{Z}/5 \mathbb{Z})^{\times}$. 
 \begin{enumerate}
 	\item $1 \cdot 2 = 2$ 
@@ -1284,7 +1284,7 @@ We verify the axioms:
 \end{enumerate}
 \end{proof}
 
-\begin{theorem}(Fermat's Little Theorem)
+\begin{theorem}[Fermat's Little Theorem]
 	For a prime number $p$ and $1 \leq x \leq p-1$, we have $x^{p-1} - 1$ is divisible by $p$.
 \end{theorem}
 \begin{proof}
@@ -1337,7 +1337,7 @@ We verify the axioms:
 	because there are $pq$ total possible elements, but $q$ are divisible by $p$, $p$ divisible by $q$, and 1 element ($pq$) that is divisible by both $p$ and $q$. 
 \end{proof}
 
-\begin{definition}(Permutation representation of action)
+\begin{definition}[Permutation representation of action]
 	Let $G$ be a group that acts on $\{1,\ldots, n\}$. Associated to the action is a homomorphism $\lambda : G \to S_n$, defined by 
 	\begin{equation}
 		\lambda(g)(i) = gi
@@ -1396,7 +1396,7 @@ Under the above assumptions: $\lambda$ is injective if and only if the action of
 	Hence, $\ker \lambda = \{1\}$ if and only if the action is faithful.
 \end{proof}
 
-\begin{theorem}(Cayley)
+\begin{theorem}[Cayley]
 	Let $G$ be a group of order $n$. Then, there exists an injective homomorphism $\phi : G \to S_n$.
 \end{theorem}
 \begin{proof}
@@ -1418,7 +1418,7 @@ Under the above assumptions: $\lambda$ is injective if and only if the action of
 
 \subsection{p-Groups}
 
-\begin{definition}($p$-Group)
+\begin{definition}[$p$-Group]
 	Let $p$ be a prime number. $G$ is a $p$-group if $|G|$ is a power of $p$. 
 \end{definition}
 
@@ -1444,7 +1444,7 @@ and by the orbit-stabilizer theorem
 Notice that $|G|$ is divisible by $p$. Further, $|G_{x_j}|$ must be divisible by $p$ since it is a subgroup of $G$ (this follows from Lagrange's theorem). Therefore, $|X|$ equals $|X^G|$ plus the sum of things divisible by $p$, so that we must have that $p$ divides $|X| - |X^G|$. 
 \end{proof}
 
-\begin{theorem}(A $p$-group has a non-trivial center)
+\begin{theorem}[A $p$-group has a non-trivial center]
 	Let $G$ be a $p$-group. Then $Z(G) \neq \{1\}$.  In words, there has to be a non-trivial element of the group that commutes with everything else.
 \end{theorem}
 \begin{proof}
@@ -1470,7 +1470,7 @@ Notice that $|G|$ is divisible by $p$. Further, $|G_{x_j}|$ must be divisible by
 
 This same result need not hold for higher powers of $p$. For example, consider $D_8$. $2^3 = 8$. But $|D_8|$ is not abelian. 
 
-\begin{theorem}(Cauchy)
+\begin{theorem}[Cauchy]
 	Let $G$ be a finite group and suppose that $p \big\vert |G|$ for some prime $p$. Then there exists an element of order $p$ in $G$. 
 \end{theorem}
 
@@ -1484,7 +1484,7 @@ This same result need not hold for higher powers of $p$. For example, consider $
 	Then $\Z / p \Z$ acts on $X$ by $a(g_1, \ldots, g_p)$ by cyclic rotation of $a$ times of $(g_1, \ldots, g_p)$ where $a \in \{0,1,\ldots, p-1\}$. 
 \end{proof}
 
-\begin{example}(Example of Cauchy's Theorem)
+\begin{example}[Example of Cauchy's Theorem]
 	Consider $G = S_5$. If $p=3$, then $(123)$ is an example of an element with order $3$. If $p=5$, then $(12345)$ is an example of an element with order $5$. 
 \end{example}
 
@@ -1493,7 +1493,7 @@ This same result need not hold for higher powers of $p$. For example, consider $
 	\item Any group of order $p$ is cyclic.
 \end{enumerate}
 
-\begin{theorem}(Correspondence Theorem)
+\begin{theorem}[Correspondence Theorem]
 	Let $G, H$ be groups, and let $\phi : G \to H$ be a group homomorphism. Then there exists a correspondence (i.e.\ a bijection)
 	\begin{equation*}
 		\{\text{Subgroups $K$ of $G$ containing $\ker \phi$}\} \iff \{\text{Subgroups $L$ of $H$ contained in $Im(\phi)$}\}
@@ -1510,7 +1510,7 @@ This same result need not hold for higher powers of $p$. For example, consider $
 	\end{enumerate}
 \end{theorem}
 
-\begin{theorem}(Sylow's Theorem)
+\begin{theorem}[Sylow's Theorem]
 	Let $p$ be a prime number, let $G$ be a finite group, and let $p^n$ be the largest power of $p$ that divides $
 	|G|$. Then $G$ contains a subgroup $P$ of order $p^n$. $P$ is called a $p$-Sylow subgroup of $G$. 
 \end{theorem}
@@ -1518,7 +1518,7 @@ This same result need not hold for higher powers of $p$. For example, consider $
 
 \end{proof}
 
-\begin{theorem}($p$-Sylow subgroups are conjugate)
+\begin{theorem}[$p$-Sylow subgroups are conjugate]
 	Let $G$ be a finite group and let $P,Q$ be $p$-Sylow subgroups of $G$. Then there exists $g \in G$ such that $gPg^{-1} = Q$. 
 \end{theorem}
 \begin{proof}
@@ -1533,6 +1533,67 @@ Observations about this theorem:
 \begin{corollary}
 	Let $G$ be a finite group and let $P$ be a $p$-Sylow subgroup of $G$. Then $P$ is a unique $p$-Sylow subgroup if and only if $P \trianglelefteq G$. 
 \end{corollary}
+
+\section{Ring Theory}
+\subsection{Ring Basics}
+\begin{definition}[Ring]
+Let $A$ be a set with two binary operations: addition and multiplication. A is called a ring if:
+\begin{enumerate}
+	\item $A$ is an abelian group under addition:
+	\begin{enumerate}
+		\item Addition associative: For all $a,b,c \in A$, $(a+b) + c = a + (b+c)$.
+		\item Additive identity: There exists a $0 \in A$ such that for all $a \in A$, $a + 0 = 0 + a = a$. 
+		\item Additive inverse: For all $a \in A$, there exists a $b \in A$ such that $a + b = b + a = 0$. 
+		\item Addition commutative: For all $a,b \in A$, $a + b = b + a$.
+	\end{enumerate}
+	\item Multiplication associative: For all $a,b,c \in A$, $(a \cdot b) \cdot c = a \cdot (b \cdot c)$. 
+	\item Multiplicative identity: There exists $1 \in A$ such that for all $a \in A$, $1 \cdot a = a \cdot 1 = a$.
+	\item Multiplication distributive: For all $a,b,c \in A$
+	\begin{enumerate}
+		\item $a \cdot (b + c) = a\cdot b + a \cdot c$.
+		\item $(b + c) \cdot a = b\cdot a + c \cdot a$.
+	\end{enumerate}
+\end{enumerate}
+\end{definition}
+
+\begin{example}[Examples of Rings]
+The following are examples of rings:
+\begin{enumerate}
+	\item $A = \Z = \{0, \pm 1, \pm 2, \ldots \}$. 
+	\item $A \in M_{n\times n}(\R) = \{n\times n \text{ matrices over } \R \}$.
+	\item $A = \R$
+	\item $A = \Z / n\Z = \{0,1,\ldots,n-1\}$, $n \geq 2$.
+	\item $A = \R[x] = \{\sum_{i=1}^n a_i x^i | a_i \in \R\}$ (the ring of polynomials with real coefficients).
+\end{enumerate}
+\end{example}
+
+\begin{definition}[Commutative Ring]
+	A ring is called commutative if for all $a,b \in A$, $ab = ba$. 
+\end{definition}
+
+\begin{definition}[Field]
+	A commutative ring is called a field if for all $a \neq 0$, $a \in A$, there exists a $b \in A$ such that $ab = ba = 1$. 
+\end{definition}
+
+Let $a \in A$ where $A$ is a ring. Then we have the following simple claims:
+\begin{theorem}[$0\cdot a = 0$]
+	\begin{align*}
+	0 \cdot a &= (0 + 0) \cdot a \tag{$0$ additive identity}\\
+	&= 0\cdot a + 0 \cdot a \tag{distributivity} 
+	\end{align*}
+	Then cancellation gives $0 = 0 \cdot a$. 
+\end{theorem}
+
+Suppose $-a$ is the additive inverse of $a$.
+\begin{theorem}[$-a = (-1)\cdot a$]
+	We want to show that $(-1)\cdot a$ is the additive inverse of $a$. To that end
+	\begin{align*}
+		a + (-1)\cdot a &= 1 \cdot a + (-1) \cdot a \tag{$1$ multiplicative identity}\\
+		&= (1 + -1) \cdot a \tag{distributivity}\\
+		&= 0 \cdot a \\
+		&= 0
+	\end{align*}
+\end{theorem}
 
 \section{Quizzes}
 The course did not give solutions to any quizzes, homeworks, or midterms, so be wary of the solutions I've written below. 
@@ -2267,7 +2328,7 @@ For the action of the dihedral group $D_4$ on the vertices of a square, determin
 The size of a vertex stabilizer is $2$: the identity element and the mirror symmetry which passes through the opposite vertex. All other symmetries do not fix a vertex. 
 \end{solution}
 
-\subsection*{Homework 7}
+\subsection{Homework 7}
 \begin{exercise}
 In how many ways can one color the vertices of a $5$-gon using $7$ colors?
 \end{exercise}
@@ -2498,6 +2559,30 @@ For the specific cases requested:
 	&D_7: \quad \{1\}, \{\rho, \rho^6\}, \{\rho^2,\rho^5\}, \{\rho^3,\rho^4\}, \{\e, \e\rho, \ldots, \e\rho^6\}
 \end{align*}
 \end{solution}
+
+\subsection{Homework 10}
+
+\subsection{Homework 11}
+\begin{exercise}
+	Let $A$ be a commutative ring. We say that $a \in A$ is invertible if there exists some $b \in A$ such that $ab = 1$. Denote by $A^{\times}$ the subset of invertible elements in $A$. 
+	\begin{enumerate}
+		\item Show that $A^{\times}$ is abelian group.
+		\item Show that $A$ is a field if and only if $A^{\times} = A \{0\}$.
+		\item Show that $\R[X]^{\times} = \R^{\times}$.
+	\end{enumerate}
+\end{exercise}
+\begin{solution}
+We prove each statement as follows:
+\begin{enumerate}
+	\item Trivial.
+	\item Also trivial.
+	\item Any non-degenerate polynomial does not have an inverse that is also a polynomial.
+\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+	Let $S$ be a set, and let $P(S)$ be the collection of all subset of $S$. Show that $P(S)$ is a commutative ring with respect to the binary operations of symmetric difference and intersection. 
+\end{exercise}
 
 \section{Honors Questions}
 \begin{exercise}
