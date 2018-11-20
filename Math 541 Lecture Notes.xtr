@@ -1,9 +1,3 @@
-\begin{XTRtheorem}[$-a = (-1)\cdot a$]
-We want to show that $(-1)\cdot a$ is the additive inverse of $a$. To that end
-\begin{align*}
-a + (-1)\cdot a &= 1 \cdot a + (-1) \cdot a \tag{$1$ multiplicative identity}\\
-&= (1 + -1) \cdot a \tag{distributivity}\\
-&= 0 \cdot a \\
-&= 0
-\end{align*}
-\end{XTRtheorem}
+\begin{XTRdefinition}[Field]
+A commutative ring is called a field if for all $a \neq 0$, $a \in A$, there exists a $b \in A$ such that $ab = ba = 1$.
+\end{XTRdefinition}
