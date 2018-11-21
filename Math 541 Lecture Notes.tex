@@ -19,7 +19,7 @@
   %\newtheorem{definition}{Definition}
   \newtheorem{definition}{\color{NavyBlue}{\textbf{Definition}}}
   \newtheorem{theorem}{\color{ForestGreen}{\textbf{Theorem}}}
-  \newtheorem{corollary}{Corollary}
+  \newtheorem{corollary}{\color{ForestGreen}{\textbf{Corollary}}}
   %\newtheorem{example}{Example}
 	\newcommand{\e}{\epsilon}
 	%\newcommand{\d}{\delta}
@@ -1509,14 +1509,39 @@ This same result need not hold for higher powers of $p$. For example, consider $
 		\item $L_1 \leq L_2 \implies [L_2 : L_1] = [\phi(L_2) : \phi(L_1)]$
 	\end{enumerate}
 \end{theorem}
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}[Corollary of Correspondence Theorem]
+	Let $G$ be a group and let $N \trianglelefteq G$. Then the subgroups of $G/N$ are all of the form $R/N$ for some $N\leq R\leq G$. Moreover,
+	\begin{equation}
+		[G:R] = [G/N:R/N]
+	\end{equation}
+\end{theorem}
+\begin{proof}
+
+\end{proof}
 
 \begin{theorem}[Sylow's Theorem]
 	Let $p$ be a prime number, let $G$ be a finite group, and let $p^n$ be the largest power of $p$ that divides $
 	|G|$. Then $G$ contains a subgroup $P$ of order $p^n$. $P$ is called a $p$-Sylow subgroup of $G$. 
 \end{theorem}
 \begin{proof}
-
+	\textcolor{red}{Todo}.
 \end{proof}
+
+\begin{example}[Example of 2-Sylow subgroup of $S_4$]
+	What is a $2$-Sylow subgroup of $S_4$? We are looking for a subgroup of $S_4$ which contains $8$ elements. A natural candidate is $D_4$ acting on the vertices of a square. This action gives rise to a homomorphism $\lambda$ from $D_4$ to $S_4$. Further, this homomorphism is injective (and also recall that this action should be faithful). Hence $Im \lambda \leq S_4$ of order $8$.
+\end{example}
+
+\begin{example}[Example of 3-Sylow subgroup of $\Z/45\Z$]
+	What is a $3$-Sylow subgroup of $\Z/45\Z$? We are looking for a subgroup with $9$ elements (since $3^2 = 9$ is the largest power of $3$ that divides $45$). Note that
+	\begin{equation}
+		\langle 5 \rangle = \{0,5,10,15,\ldots,35,40\}
+	\end{equation}
+	is a subgroup of order $9$.
+\end{example}
 
 \begin{theorem}[$p$-Sylow subgroups are conjugate]
 	Let $G$ be a finite group and let $P,Q$ be $p$-Sylow subgroups of $G$. Then there exists $g \in G$ such that $gPg^{-1} = Q$. 
@@ -1555,13 +1580,16 @@ Observations about this theorem:
 	\item If the group is abelian, then the Sylow subgroups are unique.
 \end{enumerate}
 
-\begin{corollary}
+\begin{corollary}[$p$-Sylow subgroup unique if and only if normal subgroup.]
 	Let $G$ be a finite group and let $P$ be a $p$-Sylow subgroup of $G$. Then $P$ is a unique $p$-Sylow subgroup if and only if $P \trianglelefteq G$. 
 \end{corollary}
 
-\begin{theorem}[Another sylow]
-
+\begin{theorem}[Sylow's Theorem (General)]
+	Let $G$ be a finite group and $p$ a prime. Suppose that $p^r$ divides $|G|$. Then $G$ has a subgroup $H$ of order $p^r$. Moreover, every subgroup of order $p^r$ is contained in a Sylow subgroup. 
 \end{theorem}
+\begin{proof}
+	\textcolor{red}{Todo}.
+\end{proof}
 
 \section{Ring Theory}
 \subsection{Ring Basics}
