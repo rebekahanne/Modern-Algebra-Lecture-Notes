@@ -2,7 +2,7 @@
 %% This is file, `math_541_definitions.tex',
 %% generated with the extract package.
 %% 
-%% Generated on :  2018/11/20,16:37
+%% Generated on :  2018/11/20,18:57
 %% From source  :  "Math 541 Lecture Notes".tex
 %% Using options:  active,generate=Math_541_Definitions,extract-env={definition}
 %% 
@@ -226,6 +226,57 @@ A ring is called commutative if for all $a,b \in A$, $ab = ba$.
 
 \begin{definition}[Field]
 A commutative ring is called a field if for all $a \neq 0$, $a \in A$, there exists a $b \in A$ such that $ab = ba = 1$.
+\end{definition}
+
+\begin{definition}[$GL_n(F)$]
+Let $F$ be a field (e.g., $F = \mathbb{R}, \mathbb{Q}, \mathbb{C}, \Z / p\Z $ ($p$ prime)). Then
+\begin{equation}
+GL_n(F) = \left\{ n \times n \text{ matrices over $F$ with non-zero determinant}\right\}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Subring]
+Let $A$ b a ring. We call $R \subset A$ a subring if the following conditions are satisfied:
+\begin{enumerate}
+\item Additive and multiplicative identity: $0,1 \in R$.
+\item Closed under addition: For all $a,b \in R$, $a+b \in R$.
+\item Closed under multiplication: For all $a,b \in R$, $ab \in R$.
+\item Closed under inverses (addition): For all $a \in R$, $-a \in R$.
+\end{enumerate}
+We then write $R \leq A$.
+\end{definition}
+
+\begin{definition}[Homomorphism of rings]
+Let $A,B$ be rings. A function $\phi: A \to B$ is called a homomorphism of rings if for all $a,b \in A$ the following conditions are satisfied:
+\begin{enumerate}
+\item $\phi(ab) = \phi(a)\phi(b)$
+\item $\phi(a+b) = \phi(a) + \phi(b)$
+\item $\phi(1_A) = 1_B$
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Kernel of homomorphism of rings]
+Suppose $A,B$ are rings and let $\phi:A \to B$ be a ring homomorphism. Then
+\begin{equation}
+\ker(\phi) = \{a \in A | \phi(a) = 0\} = \phi^{-1}\{0\}
+\end{equation}
+\end{definition}
+
+\begin{definition}[Ideal]
+A subset $I$ of a ring $R$ is called an ideal if the following conditions are satisfied:
+\begin{enumerate}
+\item Additive identity: $0 \in I$, which assures $I$ is non-empty.
+\item Closed under addition: For all $a,b \in I$, $a+b \in I$.
+\item Multiplication by elements of ring keeps us in idea: For all $r \in R$ and $a \in I$, $ar, ra \in I$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Multiplication on $A/I$]
+Let $A$ be a ring and $I \subset A$ an ideal. We define multiplication on $A/I$ by
+\begin{equation}
+(I+a)(I+b) = I + ab
+\end{equation}
+Further, $A/I$ is a ring.
 \end{definition}
 
 \end{document}

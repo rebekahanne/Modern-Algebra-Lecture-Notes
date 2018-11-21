@@ -574,7 +574,7 @@ Let $N \leq G$. Then $N \trianglelefteq G$ if one of the following holds:
 Continuing the above example, let $S_3$ be the set of permutations in $S_4$ for which the last index is fixed [[Incomplete]].
 \end{example}
 
-\begin{theorem}[The Kernal of a Homomorphism is a Normal Subgroup]
+\begin{theorem}[The kernel of a Homomorphism is a Normal Subgroup]
 Let $\phi : G \to H$ be homomorphism. Then $\ker (\phi) \trianglelefteq G$.
 \end{theorem}
 \begin{proof}(Easier Proof)
@@ -822,7 +822,7 @@ Therefore $f$ is well-defined. We now show $f$ is an isomorphism.
 		&= \{a \ker \phi : \phi(a) = 1_H \} \\
 		&= \{\ker \phi \} 
 	\end{align*}
-	Thus the kernal of $f$ is trivial (the trivial left coset), so $f$ is injective. 
+	Thus the kernel of $f$ is trivial (the trivial left coset), so $f$ is injective. 
 \end{enumerate}
 
 Therefore $f$ is an isomorphism.
@@ -880,7 +880,7 @@ Therefore $f$ is well-defined, and we now show $f$ is an isomorphism.
 	&= f(h_1 k_1 K) f(h_2 k_2 K)
 	\end{align*}
 	\item $f$ is surjective: Clear by the definition of $f$. 
-	\item $f$ is injective: We'll show the kernal of $f$ is trivial (in this context, the trivial left coset). 
+	\item $f$ is injective: We'll show the kernel of $f$ is trivial (in this context, the trivial left coset). 
 	\begin{align*}
 		\ker(f) &= \{ hk \cdot K | f(hk \cdot K) = H \cap K \} \\
 		&= \{ hk \cdot K | h (H \cap K) = H \cap K \} \\
@@ -1389,7 +1389,7 @@ We check the two conditions required to be an action:
 Under the above assumptions: $\lambda$ is injective if and only if the action of $G$ on $X$ (which we can think of as $\{1,\ldots, n\}$) is faithful.
 \end{theorem}
 \begin{proof}
-	Since $\lambda$ is a homomorphism, we can prove it is injective by showing its kernal is trivial. Then
+	Since $\lambda$ is a homomorphism, we can prove it is injective by showing its kernel is trivial. Then
 	\begin{equation}
 		\ker \lambda = \{g\in G | \lambda(g)(i) = i \quad \forall i \in X\}
 	\end{equation}
@@ -1422,7 +1422,7 @@ Under the above assumptions: $\lambda$ is injective if and only if the action of
 	Let $p$ be a prime number. $G$ is a $p$-group if $|G|$ is a power of $p$. 
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[Cardinality of set of fixed points of action of set on $p$-group equals cardinality of set mod $p$]\label{lemma:favlemma}
 	Let $G$ be a $p$-group that acts on a finite set $X$. Let $X^G = \cap_{g \in G} X^g$ where $X^g = \{x\in X| gx =x\}$, that is those $x\in X$ such that for all $g\in G$, $gx = x$. Then $p$ divides $|X| - |X^G|$, that is
 	\begin{equation}
 		|X^G| \equiv |X| \quad (mod p)
@@ -1522,7 +1522,32 @@ This same result need not hold for higher powers of $p$. For example, consider $
 	Let $G$ be a finite group and let $P,Q$ be $p$-Sylow subgroups of $G$. Then there exists $g \in G$ such that $gPg^{-1} = Q$. 
 \end{theorem}
 \begin{proof}
-
+	Recall that 
+	\begin{equation}
+		gPg^{-1} = \{gtg^{-1} |t \in P\}
+	\end{equation}
+	Let $P$ act on $X = G/Q$ by 
+	\begin{equation}
+		t(gQ) = tgQ, \quad (t \in P, g \in G)
+	\end{equation}
+	Also note that
+	\begin{equation}
+		|X| = \frac{|G|}{|Q|}
+	\end{equation}
+	is \emph{not} divisible by $p$ (since $|Q|$ is the largest power of $p$ that divides $|G|$). Then
+	\begin{align*}
+		X^p &= \{x \in X | \forall t \in P, \quad tx = x\} \\
+		&= \{gQ | \forall t \in P, \quad tgQ= gQ\} \\
+		&= \{gQ | \forall t \in P, \quad g^{-1}tg \in Q\} \\
+		&= \{gQ | \forall t \in P, \quad t \in gQg^{-1}\} \\
+		&= \{gQ | P \subseteq gQg^{-1}\}
+	\end{align*} 
+	By Theorem \ref{lemma:favlemma}, $|X^p|$ is also not divisible by $p$. Further $X^p \neq \emptyset$. Therefore there exists a $g \in G$ such that $P \subset gQg^{-1}$. Then
+	\begin{align*}
+		|gQg^{-1}| &= |Q| \tag{conjugation is a bijective operation} \\
+		&= |P| \tag{since both $p$-Sylow subgroups}
+	\end{align*}
+	This implies that $gPg^{-1} = Q$. 
 \end{proof}
 
 Observations about this theorem:
@@ -1533,6 +1558,10 @@ Observations about this theorem:
 \begin{corollary}
 	Let $G$ be a finite group and let $P$ be a $p$-Sylow subgroup of $G$. Then $P$ is a unique $p$-Sylow subgroup if and only if $P \trianglelefteq G$. 
 \end{corollary}
+
+\begin{theorem}[Another sylow]
+
+\end{theorem}
 
 \section{Ring Theory}
 \subsection{Ring Basics}
@@ -1594,6 +1623,213 @@ Suppose $-a$ is the additive inverse of $a$.
 		&= 0
 	\end{align*}
 \end{theorem}
+
+\subsection{Matrix Rings}
+
+\begin{definition}[$GL_n(F)$]
+	Let $F$ be a field (e.g., $F = \mathbb{R}, \mathbb{Q}, \mathbb{C}, \Z / p\Z $ ($p$ prime)). Then
+	\begin{equation}
+		GL_n(F) = \left\{ n \times n \text{ matrices over $F$ with non-zero determinant}\right\}
+	\end{equation}
+\end{definition}
+
+$GL_n(F)$ is clearly a group (under matrix multiplication).
+
+\begin{example}[$GL_n(\Z / p\Z)$]
+	Let $\mathbb{F}_p = \Z / p\Z $, where $p$ is a prime number. Take $p=3$ and $n=2$ and consider $GL_2(\mathbb{F}_3)$. As an example of multiplication in this ring, consider
+	\begin{equation}
+		\begin{pmatrix}
+		1 & 0 \\
+		1 & 2
+		\end{pmatrix}
+		\begin{pmatrix}
+		2 & 1 \\
+		1 & 0
+		\end{pmatrix}
+		=
+		\begin{pmatrix}
+		2 & 1 \\
+		1 & 1
+		\end{pmatrix}
+	\end{equation}
+\end{example}
+
+\begin{exercise}[Cardinality of $GL_2(\mathbb{F}_p)$]
+	What is $|GL_2(\mathbb{F}_p)|$ where $\mathbb{F}_p = \{0,1,\ldots,p-1\}$.
+\end{exercise}
+\begin{solution}
+	Recall that 
+	\begin{equation}
+		GL_2(\mathbb{F}_p) = \left\{
+		\begin{pmatrix}
+		a & b \\
+		c & d
+		\end{pmatrix}
+		\bigg\vert
+		a,b,c,d \in \mathbb{F}_p, \quad ad-bc \neq 0
+		\right\}
+	\end{equation}
+	We'll count the number of matrices in this set as follows:
+	\begin{enumerate}
+		\item First observe that both $a$ and $b$ cannot be 0 (if they were, the matrix would not be invertible). Thus, with this constraint imposed, there are $p^2 -1$ ways to choose $a$ and $b$. 
+		\item Next, when choosing $c,d$, we need to ensure that $ad - bc \neq 0$. Since either $a \neq 0$ or $b \neq 0$, we can as assume without loss of generality that $a \neq 0$. Thus, this means that 
+		\begin{equation}
+			d \neq \frac{b}{a} \cdot c
+		\end{equation}
+		This imposes no restrictions on $c$, so that there are $p$ ways to choose $c$. This clearly imposes one restriction on potential values of $d$, so that there are $p-1$ ways to choose $d$. 
+		\item In sum, we find that
+		\begin{equation}
+			|GL_2(\mathbb{F}_p)| = (p^2 - 1)p(p-1)
+		\end{equation}
+	\end{enumerate}
+\end{solution}
+
+\begin{exercise}[$p$-Sylow subgroup of $GL_2(\mathbb{F}_p)$]
+	What is a $p$-Sylow subgroup of $GL_2(\mathbb{F}_p)$, and is it unique?
+\end{exercise}
+\begin{solution}
+	To find the order of a $p$-Sylow subgroup, we need to find the largest power of $p$ that divides the order of 
+	$GL_2(\mathbb{F}_p)$. As calculated above, $p$ divides $|GL_2(\mathbb{F}_p)|$ (but no larger power does). Cosider the subgroup defined by
+	\begin{equation}
+		\left\{
+		\begin{pmatrix}
+		1 & a \\
+		0 & 1
+		\end{pmatrix}
+		\bigg\vert 
+		a \in \mathbb{F}_p
+		\right\} \leq
+		GL_2(\mathbb{F}_p)
+	\end{equation}
+	However, this $p$-Sylow subgroup is \emph{not} unique. Indeed, we can find another $p$-Sylow subgroup by taking the transpose of each matrix in the above subgroup. We can also recall that a $p$-Sylow subgroup is unique if and only if it is a normal subgroup, and this subgroup is not normal. 
+\end{solution}
+
+\subsection{Subrings, Homomorphisms of Rings, and Ideals}
+\begin{definition}[Subring]
+	Let $A$ b a ring. We call $R \subset A$ a subring if the following conditions are satisfied:
+	\begin{enumerate}
+		\item Additive and multiplicative identity: $0,1 \in R$.
+		\item Closed under addition: For all $a,b \in R$, $a+b \in R$.
+		\item Closed under multiplication: For all $a,b \in R$, $ab \in R$.
+		\item Closed under inverses (addition): For all $a \in R$, $-a \in R$. 
+	\end{enumerate}
+	We then write $R \leq A$.
+\end{definition}
+
+\begin{remark}
+	If we know that $-1 \in R$, then we don't need condition $4$ above, since we can use $3$ to ensure the additive inverses are in $R$.
+\end{remark}
+
+\begin{example}[Example of subrings]
+	$\Z \leq \mathbb{Q} \leq \R \leq \mathbb{C} \leq \mathbb{C}[X]$
+\end{example}
+
+\begin{definition}[Homomorphism of rings]
+	Let $A,B$ be rings. A function $\phi: A \to B$ is called a homomorphism of rings if for all $a,b \in A$ the following conditions are satisfied:
+	\begin{enumerate}
+		\item $\phi(ab) = \phi(a)\phi(b)$
+		\item $\phi(a+b) = \phi(a) + \phi(b)$
+		\item $\phi(1_A) = 1_B$
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	In groups, this final condition immediately follows from the fact that group elements have inverses, However, rings needn't have multiplicative inverses, so we need this final condition.
+\end{remark}
+\begin{remark}
+	Observe that (from 2) $\phi(0) = 0$ where the $0$ on the LHS is the additive identity of $A$ and the $0$ on the RHS is the additive identity of $B$. 
+\end{remark}
+
+\begin{example}[Examples of homomorphisms of rings]
+	The following are examples of homomorphisms of rings:
+	\begin{enumerate}
+		\item Polynomial evaluation homomorphism: $\phi_3:\R[X] \to \R$ where $\phi_3(f) = f(3)$.
+		\item Inclusion: $i: \Z \to \R$ by $i(a) = a$. 
+		\item Reduction mod $p$: $\phi : \Z \to \mathbb{F}_p$. Consider $p=7$. Then $\phi(100) = 2$.
+	\end{enumerate}
+\end{example}
+
+\begin{definition}[Kernel of homomorphism of rings]
+	Suppose $A,B$ are rings and let $\phi:A \to B$ be a ring homomorphism. Then
+	\begin{equation}
+		\ker(\phi) = \{a \in A | \phi(a) = 0\} = \phi^{-1}\{0\}
+	\end{equation}
+\end{definition}
+
+\begin{theorem}[Homomorphism of rings injective injective if and only its kernel is trivial]
+	Suppose $\phi$ is a homomorphism of rings. Then $\phi$ is injective if and only if $\ker(\phi) = \{0\}$.
+\end{theorem}
+
+\begin{example}[Kernel of homomorphism of rings]
+	Consider the polynomial evaluation homomorphism: $\phi_0:\R[X] \to \R$ where $\phi_0(f) = f(0)$. Then
+	\begin{equation}
+		\ker(\phi_0) = \{\sum_{i=1}^n a_i x^i | a_i \in \R \}
+	\end{equation}
+	That is, all polynomials \emph{without} a constant offset.
+\end{example}
+
+\begin{definition}[Ideal]
+	A subset $I$ of a ring $R$ is called an ideal if the following conditions are satisfied:
+	\begin{enumerate}
+		\item Additive identity: $0 \in I$, which assures $I$ is non-empty.
+		\item Closed under addition: For all $a,b \in I$, $a+b \in I$.
+		\item Multiplication by elements of ring keeps us in idea: For all $r \in R$ and $a \in I$, $ar, ra \in I$. 
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Kernel of homomorphism of rings is an ideal of the ring which is the domain of the homomorphism]
+	Suppose $A,B$ are rings and let $\phi:A \to B$ be a ring homomorphism. Then $\ker(\phi)$ is an ideal of $A$.
+\end{theorem}
+\begin{proof}
+	We verify the $3$ conditions:
+	\begin{enumerate}
+		\item Identity: $0 \in \ker(\phi)$ because $\ker(0) = 0$.
+		\item Addition: Take $a,b \in \ker(\phi)$. We want to show that $(a+b)\in\ker(\phi)$, which means that $\phi(a+b) = 0$. To show this,
+		\begin{equation}
+			\phi(a + b) = \phi(a) + \phi(b) = 0 + 0 = 0
+		\end{equation}
+		\item Multiplication: Take $a \in \ker(\phi)$ and $r \in A$. We want to show that $ar,ra \in \ker(\phi)$, or that $\phi(ar) = \phi(ra) = 0$. To show this,
+		\begin{equation}
+			\phi(ar) = \phi(a)\phi(r) = 0 \cdot \phi(r) = 0
+		\end{equation}
+		and 
+		\begin{equation}
+			\phi(ra) = \phi(r)\phi(a) = \phi(r) \cdot 0 = 0
+		\end{equation}
+	\end{enumerate}
+\end{proof}
+
+\begin{theorem}[Ideal is an additive normal subgroup]
+	Suppose $A$ is a ring and $I$ is an ideal of $A$. Then $I$ is an an additive normal subgroup $A$.
+\end{theorem}
+\begin{proof}
+	$I$ is an ideal, so it is a subgroup of the ring under addition. By the definition of a ring, the elements of $A$ under addition are an abelian group. Thus a subgroup of an abelian group is normal, so $I$ is normal. 
+\end{proof}
+
+\begin{definition}[Multiplication on $A/I$]
+	Let $A$ be a ring and $I \subset A$ an ideal. We define multiplication on $A/I$ by 
+	\begin{equation}
+		(I+a)(I+b) = I + ab
+	\end{equation}
+	Further, $A/I$ is a ring.
+\end{definition}
+
+\begin{theorem}
+	Suppose $\phi : A \to A/I$ is a homomorphism of rings where $\phi(a) = I + a$. Then 
+	\begin{equation}
+		\ker(\phi) = I
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	We prove this statement directly:
+	\begin{align*}
+		\ker(\phi) &= \{ a \in A | \phi(a) = 0\} \\ 
+		&= \{ a \in A | \phi(a) = I + 0 = I\} \tag{$I$ is the trivial element of the quotient}\\
+		&= \{ a \in A | I + a = I \} \\
+		&= \{ a \in I \} \\
+		&= I
+	\end{align*}
+\end{proof}
 
 \section{Quizzes}
 The course did not give solutions to any quizzes, homeworks, or midterms, so be wary of the solutions I've written below. 
@@ -1795,6 +2031,9 @@ Let $\tau$ be a reflection (a mirror symmetry). Show that $G = \{1,\tau\} \leq D
 \section{Exams}
 \subsection{Exam 1}
 
+\subsection{Exam 2}
+
+
 \section{Homework Exercises}
 \subsection{Homework 1}
 \begin{exercise}
@@ -1979,7 +2218,7 @@ Fix $a,b \in G$. Then
 Let $G, H$ be groups, and let $\phi : G \to H$ be a homomorphism. Show that $\phi$ is injective if and only if $\ker(\phi) = \{1\}$.
 \end{exercise}
 \begin{solution}
-First suppose $\phi$ is injective. Since $f$ is a homomorphism, the identity element $e$ of $G$ is mapped to the identity element $e'$ of $H$. Thus $\phi(e) = e'$. Let $g \in \ker(\phi)$. By definition $\phi(g) = e'$. Thus since $\phi$ is injective, we have that $\phi(e) = \phi(g)$ implies that $e = g$. Therefore the kernal is trivial.
+First suppose $\phi$ is injective. Since $f$ is a homomorphism, the identity element $e$ of $G$ is mapped to the identity element $e'$ of $H$. Thus $\phi(e) = e'$. Let $g \in \ker(\phi)$. By definition $\phi(g) = e'$. Thus since $\phi$ is injective, we have that $\phi(e) = \phi(g)$ implies that $e = g$. Therefore the kernel is trivial.
 
 Now suppose $\ker(\phi) = \{1\}$. Fix $g_1, g_2 \in G$ such that $\phi(g_1) = \phi(g_2)$. Then
 \begin{align*}
