@@ -1801,9 +1801,31 @@ $GL_n(F)$ is clearly a group (under matrix multiplication).
 	\begin{enumerate}
 		\item Additive identity: $0 \in I$, which assures $I$ is non-empty.
 		\item Closed under addition: For all $a,b \in I$, $a+b \in I$.
-		\item Multiplication by elements of ring keeps us in idea: For all $r \in R$ and $a \in I$, $ar, ra \in I$. 
+		\item Multiplication by elements of ring keeps us in ideal: For all $r \in R$ and $a \in I$, $ar, ra \in I$. 
 	\end{enumerate}
 \end{definition}
+
+\begin{example}[Examples of Ideals]
+	The following are examples of ideals.
+	\begin{enumerate}
+		\item For any ring $R$, $R$ and $\{0\}$ are ideals.
+		\item $R = \Z$ and $I = \{ \text{Even integers}\}$. Note that $0$ is an even integer, the sum of two even integers is an even an integer, and the product of an even integer and any other integer is an even integer.
+		\item We can generalize this last example to any multiples of a certain integer (the last example was multiples of 2). $R = \Z$ and $I = n\Z = \{kn | k \in \Z \}$, $n \in \Z$.
+		\item $R = \{f: \R \to \R, \text{$f$ continuous}\}$ and $I = \{f \in R |f(0) = 0\}$. First note that $R$ is a commutative ring, with the identity element being $f(x) =  1$ for all $x \in \R$ (note that multiplication is defined pointwise). This ideal is the kernel of a ring homomorphism. Indeed, let $\phi: R \to \R$, where $\phi(f) = f(0)$. Then $\ker(\phi) = I$.
+	\end{enumerate}
+\end{example}
+
+\begin{theorem}[Field has only 2 ideals: the trivial ideal and the field itself.]
+	If $R$ is a field, then its ideals are $R$ and $\{0\}$.
+\end{theorem}
+\begin{proof}
+	First note that in a field, $0 \neq 1$. Let $\{0\} \neq I \subseteq R$ be an ideal. Take an $0 \neq x \in I$. Since $R$ is a field, $x$ has a multiplicative inverse: there exists an $a \in R$ such that $ax = 1$. Then since $I$ is an ideal and $a \in R$, $ax = 1 \in I$. But then for all $r \in R$, $r = r\times 1 \in I$, since $r \in R$ and $1 \in I$. Thus $I = R$, since $I \subseteq R$, but for all $r \in R$, $r \in I$.
+\end{proof}
+
+\begin{theorem}[There are only 2 ideals in $M_{n\times n}(\R)$]
+\end{theorem}
+
+
 
 \begin{theorem}[Kernel of homomorphism of rings is an ideal of the ring which is the domain of the homomorphism]
 	Suppose $A,B$ are rings and let $\phi:A \to B$ be a ring homomorphism. Then $\ker(\phi)$ is an ideal of $A$.
@@ -2055,11 +2077,6 @@ Let $\tau$ be a reflection (a mirror symmetry). Show that $G = \{1,\tau\} \leq D
 \begin{solution}
 	Recall that if $G$ is a cyclic subgroup, then if $m$ divides $|G|$, then $G$ has a unique (cyclic) subgroup of order $m$. Note that $|(\Z/15 \Z)^{\times}| = 8$. $2$ divides $8$ so if $(\Z/15 \Z)^{\times}$ is cyclic, then it must have a unique subgroup of order $2$. However, we can find two. Consider $\{1,14\}$ and $\{1,4\}$. Each of these is a cyclic subgroup of order $2$, therefore $(\Z/15 \Z)^{\times}$ is not cyclic. 
 \end{solution}
-
-\section{Exams}
-\subsection{Exam 1}
-
-\subsection{Exam 2}
 
 
 \section{Homework Exercises}
@@ -2834,7 +2851,7 @@ For the specific cases requested:
 	Let $A$ be a commutative ring. We say that $a \in A$ is invertible if there exists some $b \in A$ such that $ab = 1$. Denote by $A^{\times}$ the subset of invertible elements in $A$. 
 	\begin{enumerate}
 		\item Show that $A^{\times}$ is abelian group.
-		\item Show that $A$ is a field if and only if $A^{\times} = A \{0\}$.
+		\item Show that $A$ is a field if and only if $A^{\times} = A \setminus \{0\}$.
 		\item Show that $\R[X]^{\times} = \R^{\times}$.
 	\end{enumerate}
 \end{exercise}
