@@ -1,13 +1,13 @@
 \documentclass[12pt]{article}
-\usepackage[active,
-            generate=Math_541_Definitions,
-            %extract-cmd={section},
-            extract-env={definition}]{extract}
-
 % \usepackage[active,
-%             generate=Math_541_Theorems,
+%             generate=Math_541_Definitions,
 %             %extract-cmd={section},
-%             extract-env={theorem,corollary}]{extract}
+%             extract-env={definition}]{extract}
+
+\usepackage[active,
+            generate=Math_541_Theorems,
+            %extract-cmd={section},
+            extract-env={theorem,corollary}]{extract}
 
 \begin{extract*}
   \usepackage{amsthm}
@@ -132,6 +132,7 @@ A set $G$ with a binary operation $\star: G \times G \rightarrow G$ is a group i
 \item Unit (or Identity): There exists an $e \in G$ such that $e \star a = a \star e = a$ for each a in $G$.
 \item Inverse: For each $a \in G$ there is a $b \in G$ such that $a \star b = b \star a = e$. 
 \end{enumerate} 
+Note that the binary operation requires closure, by definition.
 \end{definition}
 
 \begin{example}[Examples of Groups] 
@@ -150,18 +151,18 @@ The following are examples of groups.
 \end{example}
 
 \begin{definition}[Abelian/Commutative]
-A group $G$ is abelian or commutative if $a \star b = b \star a$ for all $a \in G$.
+A group $G$ is abelian or commutative if $a \star b = b \star a$ for all $a,b \in G$.
 \end{definition}
 
-\begin{example}[Examples of Abelian Groups]
-\begin{enumerate}
+\begin{example}[Examples of Abelian Groups] The following are examples of groups.
+\begin{enumerate} 
 \item Examples 1, 2, and 3 above are Abelian. The commutativity follows from the commutativity of addition and multiplication.
 \item Example 4 is not Abelian. It's easy to find a pair of elements that don't commute under composition.
 \end{enumerate}
 \end{example}
 
 Not everything is a group.
-\begin{example}[Non-Examples of Groups]
+\begin{example}[Non-Examples of Groups] The following are non-examples of groups.
 \begin{enumerate}
 \item $G = \mathbb{R}$ and $\star =$ maximum. For example, $2 \star \pi = \max(2,\pi) = \pi$. \underline{Associativity} is satisfied. The order in which we take the maximum of a set of elements doesn't matter -- we'll eventually find the largest element regardless. However, there is no \underline{unit element}. The reason is that there is no smallest element in $\mathbb{R}$.  
 \item $G = \mathbb{R}_{\geq 0}$ and $\star =$ maximum. \underline{Associativity} is satisfied. There is a \underline{unit element}, namely $0$ (observe that we've corrected the problem of not having a smallest element). Fix $g \in G$, and observe that $\max(g,0) = \max(0,g) = g$. However, there need not be an \underline{inverse} of each element. We can't take the maximum of some element $g > 0$ and $0$ and get $0$.
@@ -179,7 +180,7 @@ Since $e_1$ and $e_2$ are unit elements, we know that for all $a \in G$, $a \sta
 For every group $G$ and $a,b,c \in G$ that satisfy $ab = ac$, we have $b=c$.
 \end{theorem}
 \begin{proof}
-Let $x$ be the inverse of $a$. Then, $x(ab) = x(ac)$. Be associativity, we may write $(xa)b = (xa)c$. This simplifies to $1 \star b = 1 \star c$ or that $b = c$.
+Let $x$ be the inverse of $a$. Then, $x(ab) = x(ac)$. By associativity, we may write $(xa)b = (xa)c$. This simplifies to $1 \star b = 1 \star c$ or that $b = c$.
 \end{proof}
 
 \begin{theorem}[The inverse of a group element is unique]
@@ -200,11 +201,11 @@ And,
 \begin{equation}
 (b^{-1}a^{-1})(ab) = b^{-1} (a^{-1}a) b = b^{-1} \cdot 1 \cdot b = b^{-1}b = 1
 \end{equation}
-Therefore, $(ab)(b^{-1}a^{-1}) = (b^{-1}a^{-1})(ab) = 1$ so that $b^{-1}a^{-1}$ is the inverse of $(ab)^{-1}$.
+Therefore, $(ab)(b^{-1}a^{-1}) = (b^{-1}a^{-1})(ab) = 1$ so that $b^{-1}a^{-1}$ is the inverse of $(ab)$.
 \end{solution}
 
 \begin{exercise}
-Give an example of $\tau \in S_3$ such that $\tau \neq 1$, $\tau^2 \neq 1$, and $\tau^3 \neq 1$.
+Give an example of $\tau \in S_4$ such that $\tau \neq 1$, $\tau^2 \neq 1$, and $\tau^3 \neq 1$.
 \end{exercise}
 \begin{solution}
 Consider $\tau(1) = 2$, $\tau(2) = 3$, $\tau(3) = 4$, $\tau(4) = 1$. Then, $\tau^2(1) = 3$ and $\tau^3(1) = 4$. This is sufficient to show that $\tau \neq 1$, $\tau^2 \neq 1$, and $\tau^3 \neq 1$.
@@ -231,7 +232,7 @@ Observe that $15 + 15 = 30 = 0$. Hence $15$ is its own inverse.
 \begin{definition}[Order of a group, order of an element of a group]
 Let $G$ be a group. We call $|G|$ the order of $G$ (i.e. the number of elements in $G$). Further, the least $d >0$ such that $g^d = 1$ is called the order of $g \in G$.
 \end{definition}
-\begin{example}(Orders of groups)
+\begin{example}[Orders of groups]
 \begin{itemize}
 \item $|S_n| = n!$
 \item $|\mathbb{Z} / n \mathbb{Z}| = n$
@@ -249,19 +250,17 @@ The order of $2$ is $7$.
 Given groups $G, H$ we define a group structure on $G \times H$ by $(g_1,h_2)(g_2,h_2) = (g_1g_2,h_1h_2)$. The unit of $G \times H$ is $(1,1) = (1_G, 1_H)$. The inverse of $(g,h)$ is $(g,h)^{-1} = (g^{-1}, h^{-1})$. Questions about direct products will decompose into questions about the individual groups. 
 
 \subsubsection{Symmetric Groups}
-\begin{definition}(Cycle, Cycle Decomposition, Length, $k$-Cycle)
+\begin{definition}[Cycle, Cycle Decomposition, Length, $k$-Cycle]
 A cycle is a string of integers which represents the element of $S_n$ which cyclically permutes these integers (and fixes all other integers). The product of all the cycles is called the cycle decomposition. The length of a cycle is the number of integers which appear in it. A cycle of length $k$ is called a $k$-cycle. 
 \end{definition}
 
-\begin{theorem}
-The order of a $k$-cycle is $k$. 
+\begin{theorem}[The order of a $k$-cycle is $k$.]
 \end{theorem}
 \begin{proof}
 Let $(i_1 i_2 \ldots i_k)$ be a $k$-cycle. By checking each index, observe that $(i_1 i_2 \ldots i_k)^k = id$. For any $d < k$, note that $(i_1 i_2 \ldots i_k)^d (i_1) = i_{d+1} \neq i_1$, since $d < k$. 
 \end{proof}
 
-\begin{theorem}
-Disjoint cycles commute.
+\begin{theorem}[Disjoint cycles commute.]
 \end{theorem}
 \begin{proof}
 Let $\sigma = (s_1 s_2 \ldots s_k)$ and $\tau = (t_1 t_2 \ldots t_l)$ be disjoint cycles. Consider an index $s_i$ in the first cycle and an index $t_j$ in the second. Then
@@ -290,7 +289,7 @@ Let $GL_2(\mathbb{R}) = \left\{ \begin{pmatrix} a & b \\ c & d \end{pmatrix} \Bi
 \item Identity: Notice that $\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ is the identity element.
 \item Inverse: The condition $ad-bc \neq 0$ ensures that each element has an inverse.
 \end{enumerate}
-For completeness, we also need to check that the product of two invertible matrices is again invertible (one quick proof of this uses the fact that taking a determinant is homomorphism. For instance $\det(A) = \det(A)\det(B)$, From this note that if both $A$ and $B$ have non-zero determinants, then $AB$ also has a non-zero determinant). Also observe that this group is not abelian. More generally, for $n\geq 1$, we can define
+For completeness, we also need to check that the product of two invertible matrices is again invertible (one quick proof of this uses the fact that taking a determinant is homomorphism. For instance $\det(A) = \det(A)\det(B)$. From this note that if both $A$ and $B$ have non-zero determinants, then $AB$ also has a non-zero determinant). Also observe that this group is not abelian. More generally, for $n\geq 1$, we can define
 \begin{equation}
 GL_n(\mathbb{R}) = \left\{ n\times n \text{ matrix } A \Big\vert \det{A} \neq 0 \right\}
 \end{equation}
@@ -307,7 +306,7 @@ A subset $H$ of a group $G$ is called a subgroup of $G$ if the following axioms 
 In this case we write $H \leq G$. Observe that $H$ is indeed a group.
 \end{definition}
 
-\begin{example}[Examples of Subgroups]
+\begin{example}[Examples of Subgroups] The following are examples of subgroups.
 \begin{enumerate}
 	\item Define $H = \{ (1 2 3), (1 3 2), id \} \subset S_3$. Let's check the 3 axioms required to be a subgroup.
 	\begin{enumerate}
@@ -324,7 +323,7 @@ In this case we write $H \leq G$. Observe that $H$ is indeed a group.
 	\item Define $H = \{2, 4, 0 \} \subset \mathbb{Z} / 6 \mathbb{Z}$.
 	\begin{enumerate}
 		\item Identity: $0$ is in the set.
-		\item Closed under products: Note that $0 + 2 = 2 + 0 = 2 \in H$, $0 + 4 = 4 + 0 = 4 \in H$, and $2 + 4 = 4 + 2 = 0 \in H$.
+		\item Closed under products: Note that $0 + 2 = 2 + 0 = 2 \in H$, $0 + 4 = 4 + 0 = 4 \in H$, $2 + 4 = 4 + 2 = 0 \in H$, $2 + 2 = 4 \in H$, and $4 + 4 = 2 \in H$.
 		\item Closed under inverses: Note that $2^{-1} = 4 \in H$ (because $2 + 4 = 0$) and of course $4^{-1} = 2 \in H$.
 	\end{enumerate}
 	\item Define $H = \{ \sigma_n \in S_n | \sigma(n) = n \} \subset S_n$ (the set of $n$-permutations which fix the last index).
@@ -350,10 +349,10 @@ Define $H = \{ \sigma \in S_3 | \sigma(1) \in \{1, 2 \} \} \subset S_3$.
 	\begin{equation}
 		\phi(ab) = \phi(a)\phi(b)
 	\end{equation}
-	Note the the product $ab$ on the left is computed in $G$ and the product $\phi(x)\phi(y)$ is computed in $H$.
+	Note the the product $ab$ on the left is computed in $G$ and the product $\phi(a)\phi(b)$ is computed in $H$.
 \end{definition}
 
-\begin{example}[Examples of Homomorphisms]
+\begin{example}[Examples of Homomorphisms] The following are examples of homomorphisms.
 \begin{enumerate}
 	\item Let $G = GL_n(\mathbb{R})$, $H = \mathbb{R}^{\times}$, $\phi : G \to H$. Define $\phi(A) = \det(A)$.
 	\item Let $G = \mathbb{Z} / 7 \mathbb{Z}$, $H = \{z \in \mathbb{C}: z^7 = 1\}$. Define
@@ -395,7 +394,7 @@ Observe that
 Take $\sigma = (1 2 3) \in S_3$. Define $\phi : \mathbb{Z} / 3 \mathbb{Z} \to S_3$ by $\phi(t) = \sigma^t$. Then $\phi(0) = id$ (we expected this from the above claim), $\phi(1) = \sigma$, $\phi(2) = \sigma^2$. 
 \end{example}
 
-\begin{theorem}
+\begin{theorem}[Kernel of a homomorphism is a subgroup]
 Let $\phi : G \to H$ be a homomorphism. Then $Im(\phi) = \{ \phi(g) | g \in G \} \leq H$.
 \end{theorem}
 \begin{proof}
@@ -480,7 +479,7 @@ Then let $[a] = \{ b \in G | b \sim a \} = \{b \in G | \exists h \in H, b = ah \
 \end{example}
 
 \begin{definition}[Coset]
-Let $H \leq G$ and fixed $a \in G$. Let
+Let $H \leq G$ and fix $a \in G$. Let
 \begin{align*}
 aH &= \{ ah | h \in H \} \\
 Ha &= \{ ha | h \in H \} 
@@ -564,7 +563,7 @@ We say that a subgroup $H$ of $G$ is normal if $aH = Ha$ for every $a \in G$. Wr
 Let $N \leq G$. Then $N \trianglelefteq G$ if one of the following holds:
 \begin{enumerate}
 	\item $\forall g\in G$, $gN = Ng$
-	\item $\forall g\in G$, $gNG^{-1} = N$
+	\item $\forall g\in G$, $gNg^{-1} = N$
 	\item $\forall g\in G$, $gNg^{-1} \subseteq N$
 	\item $\forall g\in G$ and $\forall n\in N$, $gng^{-1} \in N$
 \end{enumerate}
@@ -612,7 +611,7 @@ A group $H$ is cyclic if $H$ can be generated by a single element, i.e., there i
 An alternative definition is: Let $G$ be a group and fix $x \in G$. Let $H$ be the subset of $G$ that contains all the powers of $x$. Then notice that $H = \{x^n | n \in \mathbb{Z} \}$ is a subgroup of $G$ (the identity element must be in $H$ since $x^0 = 1$, $H$ is closed under products since adding exponents will keep us in $H$, and the inverse of $x^n$ is $x^{-n}$, which is also in $H$). We call $H$ the subgroup of $G$ generated by $x$, $H = \langle x \rangle$, and $H$ is cyclic.  
 \end{definition}
 
-\begin{example}[Examples of Cyclic Groups]
+\begin{example}[Examples of Cyclic Groups] The following are examples of cyclic groups.
 \begin{enumerate}
 	\item Let $x = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \in GL_2(\mathbb{R})$. Then
 	\begin{equation}

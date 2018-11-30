@@ -2,7 +2,7 @@
 %% This is file, `math_541_theorems.tex',
 %% generated with the extract package.
 %% 
-%% Generated on :  2018/11/18,19:41
+%% Generated on :  2018/11/29,18:51
 %% From source  :  "Math 541 Lecture Notes".tex
 %% Using options:  active,generate=Math_541_Theorems,extract-env={theorem,corollary}
 %% 
@@ -16,7 +16,7 @@
   %\newtheorem{definition}{Definition}
   \newtheorem{definition}{\color{NavyBlue}{\textbf{Definition}}}
   \newtheorem{theorem}{\color{ForestGreen}{\textbf{Theorem}}}
-  \newtheorem{corollary}{Corollary}
+  \newtheorem{corollary}{\color{ForestGreen}{\textbf{Corollary}}}
   %\newtheorem{example}{Example}
 \newcommand{\e}{\epsilon}
 %\newcommand{\d}{\delta}
@@ -38,12 +38,10 @@ For every group $G$ and $a,b,c \in G$ that satisfy $ab = ac$, we have $b=c$.
 Let $G$ be a group and let $a \in G$. If $b$ and $c$ are inverses of $a$, then $b = c$.
 \end{theorem}
 
-\begin{theorem}
-The order of a $k$-cycle is $k$.
+\begin{theorem}[The order of a $k$-cycle is $k$.]
 \end{theorem}
 
-\begin{theorem}
-Disjoint cycles commute.
+\begin{theorem}[Disjoint cycles commute.]
 \end{theorem}
 
 \begin{theorem}[Basic facts about homomorphisms]
@@ -54,7 +52,7 @@ Let $\phi : G \to H$ be a homomorphism. Then
 \end{enumerate}
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[Kernel of a homomorphism is a subgroup]
 Let $\phi : G \to H$ be a homomorphism. Then $Im(\phi) = \{ \phi(g) | g \in G \} \leq H$.
 \end{theorem}
 
@@ -74,13 +72,13 @@ Let $G$ be a finite group and let $H \leq G$. Then $|H|$ divides $|G|$.
 Let $N \leq G$. Then $N \trianglelefteq G$ if one of the following holds:
 \begin{enumerate}
 \item $\forall g\in G$, $gN = Ng$
-\item $\forall g\in G$, $gNG^{-1} = N$
+\item $\forall g\in G$, $gNg^{-1} = N$
 \item $\forall g\in G$, $gNg^{-1} \subseteq N$
 \item $\forall g\in G$ and $\forall n\in N$, $gng^{-1} \in N$
 \end{enumerate}
 \end{theorem}
 
-\begin{theorem}[The Kernal of a Homomorphism is a Normal Subgroup]
+\begin{theorem}[The kernel of a Homomorphism is a Normal Subgroup]
 Let $\phi : G \to H$ be homomorphism. Then $\ker (\phi) \trianglelefteq G$.
 \end{theorem}
 
@@ -172,7 +170,7 @@ Let $G$ be a group of order $n$. Then, there exists an injective homomorphism $\
 If $|G| = n$, then $G$ is isomorphic to a subgroup of $S_n$. Indeed $\phi : G \to Im(\phi) \subset S_n$.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[Cardinality of set of fixed points of action of set on $p$-group equals cardinality of set mod $p$]\label{lemma:favlemma}
 Let $G$ be a $p$-group that acts on a finite set $X$. Let $X^G = \cap_{g \in G} X^g$ where $X^g = \{x\in X| gx =x\}$, that is those $x\in X$ such that for all $g\in G$, $gx = x$. Then $p$ divides $|X| - |X^G|$, that is
 \begin{equation}
 |X^G| \equiv |X| \quad (mod p)
@@ -208,6 +206,13 @@ and
 \end{enumerate}
 \end{theorem}
 
+\begin{theorem}[Corollary of Correspondence Theorem]
+Let $G$ be a group and let $N \trianglelefteq G$. Then the subgroups of $G/N$ are all of the form $R/N$ for some $N\leq R\leq G$. Moreover,
+\begin{equation}
+[G:R] = [G/N:R/N]
+\end{equation}
+\end{theorem}
+
 \begin{theorem}[Sylow's Theorem]
 Let $p$ be a prime number, let $G$ be a finite group, and let $p^n$ be the largest power of $p$ that divides $
 |G|$. Then $G$ contains a subgroup $P$ of order $p^n$. $P$ is called a $p$-Sylow subgroup of $G$.
@@ -217,9 +222,13 @@ Let $p$ be a prime number, let $G$ be a finite group, and let $p^n$ be the large
 Let $G$ be a finite group and let $P,Q$ be $p$-Sylow subgroups of $G$. Then there exists $g \in G$ such that $gPg^{-1} = Q$.
 \end{theorem}
 
-\begin{corollary}
+\begin{corollary}[$p$-Sylow subgroup unique if and only if normal subgroup.]
 Let $G$ be a finite group and let $P$ be a $p$-Sylow subgroup of $G$. Then $P$ is a unique $p$-Sylow subgroup if and only if $P \trianglelefteq G$.
 \end{corollary}
+
+\begin{theorem}[Sylow's Theorem (General)]
+Let $G$ be a finite group and $p$ a prime. Suppose that $p^r$ divides $|G|$. Then $G$ has a subgroup $H$ of order $p^r$. Moreover, every subgroup of order $p^r$ is contained in a Sylow subgroup.
+\end{theorem}
 
 \begin{theorem}[$0\cdot a = 0$]
 \begin{align*}
@@ -237,6 +246,32 @@ a + (-1)\cdot a &= 1 \cdot a + (-1) \cdot a \tag{$1$ multiplicative identity}\\
 &= 0 \cdot a \\
 &= 0
 \end{align*}
+\end{theorem}
+
+\begin{theorem}[Homomorphism of rings injective injective if and only its kernel is trivial]
+Suppose $\phi$ is a homomorphism of rings. Then $\phi$ is injective if and only if $\ker(\phi) = \{0\}$.
+\end{theorem}
+
+\begin{theorem}[Field has only 2 ideals: the trivial ideal and the field itself.]
+If $R$ is a field, then its ideals are $R$ and $\{0\}$.
+\end{theorem}
+
+\begin{theorem}[There are only 2 ideals in $M_{n\times n}(\R)$]
+\end{theorem}
+
+\begin{theorem}[Kernel of homomorphism of rings is an ideal of the ring which is the domain of the homomorphism]
+Suppose $A,B$ are rings and let $\phi:A \to B$ be a ring homomorphism. Then $\ker(\phi)$ is an ideal of $A$.
+\end{theorem}
+
+\begin{theorem}[Ideal is an additive normal subgroup]
+Suppose $A$ is a ring and $I$ is an ideal of $A$. Then $I$ is an an additive normal subgroup $A$.
+\end{theorem}
+
+\begin{theorem}
+Suppose $\phi : A \to A/I$ is a homomorphism of rings where $\phi(a) = I + a$. Then
+\begin{equation}
+\ker(\phi) = I
+\end{equation}
 \end{theorem}
 
 \end{document}
