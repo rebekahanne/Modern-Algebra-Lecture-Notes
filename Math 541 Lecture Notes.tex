@@ -1,13 +1,13 @@
 \documentclass[12pt]{article}
-% \usepackage[active,
-%             generate=Math_541_Definitions,
-%             %extract-cmd={section},
-%             extract-env={definition}]{extract}
-
 \usepackage[active,
-            generate=Math_541_Theorems,
+            generate=Math_541_Definitions,
             %extract-cmd={section},
-            extract-env={theorem,corollary}]{extract}
+            extract-env={definition}]{extract}
+
+% \usepackage[active,
+%             generate=Math_541_Theorems,
+%             %extract-cmd={section},
+%             extract-env={theorem,corollary}]{extract}
 
 \begin{extract*}
   \usepackage{amsthm}
@@ -394,7 +394,7 @@ Observe that
 Take $\sigma = (1 2 3) \in S_3$. Define $\phi : \mathbb{Z} / 3 \mathbb{Z} \to S_3$ by $\phi(t) = \sigma^t$. Then $\phi(0) = id$ (we expected this from the above claim), $\phi(1) = \sigma$, $\phi(2) = \sigma^2$. 
 \end{example}
 
-\begin{theorem}[Kernel of a homomorphism is a subgroup]
+\begin{theorem}[Image of a homomorphism is a subgroup]
 Let $\phi : G \to H$ be a homomorphism. Then $Im(\phi) = \{ \phi(g) | g \in G \} \leq H$.
 \end{theorem}
 \begin{proof}
@@ -430,7 +430,7 @@ Let $\phi:G \to H$ be a homomorphism. Then
 (note that $1$ is the identity of H).
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[Kernel of a homomorphism is a subgroup]
 Let $\phi: G \to H$ be a homomorphism. Then $\ker(\phi) \leq G$. That is, the kernel of $\phi$ is a subgroup of $G$.
 \end{theorem}
 \begin{proof}
@@ -645,7 +645,7 @@ There are two cases to consider.
 \end{enumerate}
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[Subgroups of cylic group]
 Let $G$ be a finite cyclic group of order $n$. For every $m | n$ ($m$ that divides $n$) there exists a unique subgroup $H$ of $G$ with $|H|=m$. Furthermore, $H$ is cyclic.
 \end{theorem}
 \begin{proof}
@@ -1076,7 +1076,7 @@ We'll show that this is indeed an equivalence relation. We need to verify three 
 The equivalence class of $x \in X$ is the orbit of $x$, $O_x$. 
 \end{remark}
 
-\begin{theorem}
+\begin{theorem}[Action transitive iff one orbit]
 An action is transitive if and only if there exists an $x \in X$ such that $O_x = X$. That is, all elements of $X$ have the same equivalence class. 
 \end{theorem}
 \begin{proof}
@@ -1264,7 +1264,7 @@ Suppose $n=5$. Then we consider $(\mathbb{Z}/5 \mathbb{Z})^{\times}$.
 \end{enumerate}
 \end{example}
 
-\begin{theorem}
+\begin{theorem}[Multiplication module $n$ is a group]
 $(\mathbb{Z}/n \mathbb{Z})^{\times}$ is a group.
 \end{theorem}
 \begin{proof}
@@ -1456,7 +1456,7 @@ Notice that $|G|$ is divisible by $p$. Further, $|G_{x_j}|$ must be divisible by
 	We always have that $1 \in Z(G)$. Now since $p$ divides $|X^G|$, we must have that $Z(G) \neq \{1\}$, since no prime $p$ divides 1.  
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[Group of order $p^2$ abelian]
 	Let $p$ be a prime number and let $G$ be a group of order $p^2$. Then $G$ is abelian.
 \end{corollary}
 \begin{proof}	
@@ -2271,7 +2271,7 @@ Let $\tau$ be a reflection (a mirror symmetry). Show that $G = \{1,\tau\} \leq D
 	Let $G$ be a subgroup, let $P$ be a subgroup of $G$ of order 21, and let $Q$ be a subgroup of $G$ of order $40$. Show that $P \cap Q = \{1\}$. 
 \end{exercise}
 \begin{solution}
-	First notice that 21 and 40 are coprime. Next, we know that the order of an element in a group must divide the order of a group (immediate consequence of Lagrange's theorem). Thus $P$ can have elements with orders 1, 3, 7, 21. $Q$ can have elements with orders 1, 2, 4, 5, 8, 10, 20, 40. Thus the only comment element to both $P$ and $Q$ can be the identity element.   
+	First notice that 21 and 40 are coprime. Next, we know that the order of an element in a group must divide the order of a group (immediate consequence of Lagrange's theorem). Thus $P$ can have elements with orders 1, 3, 7, 21. $Q$ can have elements with orders 1, 2, 4, 5, 8, 10, 20, 40. Thus the only commen element to both $P$ and $Q$ can be the identity element.   
 \end{solution}
 
 \begin{exercise}

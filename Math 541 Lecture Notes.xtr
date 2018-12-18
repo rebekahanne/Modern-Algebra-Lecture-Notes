@@ -1,6 +1,7 @@
-\begin{XTRtheorem}
-Suppose $\phi : A \to A/I$ is a homomorphism of rings where $\phi(a) = I + a$. Then
+\begin{XTRdefinition}[Multiplication on $A/I$]
+Let $A$ be a ring and $I \subset A$ an ideal. We define multiplication on $A/I$ by
 \begin{equation}
-\ker(\phi) = I
+(I+a)(I+b) = I + ab
 \end{equation}
-\end{XTRtheorem}
+Further, $A/I$ is a ring.
+\end{XTRdefinition}

@@ -2,7 +2,7 @@
 %% This is file, `math_541_definitions.tex',
 %% generated with the extract package.
 %% 
-%% Generated on :  2018/11/27,18:21
+%% Generated on :  2018/12/18,15:51
 %% From source  :  "Math 541 Lecture Notes".tex
 %% Using options:  active,generate=Math_541_Definitions,extract-env={definition}
 %% 
@@ -33,10 +33,11 @@ A set $G$ with a binary operation $\star: G \times G \rightarrow G$ is a group i
 \item Unit (or Identity): There exists an $e \in G$ such that $e \star a = a \star e = a$ for each a in $G$.
 \item Inverse: For each $a \in G$ there is a $b \in G$ such that $a \star b = b \star a = e$.
 \end{enumerate}
+Note that the binary operation requires closure, by definition.
 \end{definition}
 
 \begin{definition}[Abelian/Commutative]
-A group $G$ is abelian or commutative if $a \star b = b \star a$ for all $a \in G$.
+A group $G$ is abelian or commutative if $a \star b = b \star a$ for all $a,b \in G$.
 \end{definition}
 
 \begin{definition}[The group $\mathbb{Z} / n \mathbb{Z}$]
@@ -47,7 +48,7 @@ The group $\mathbb{Z} / n \mathbb{Z}$ is the set $\{0,1,\ldots,n-1\}$. That is, 
 Let $G$ be a group. We call $|G|$ the order of $G$ (i.e. the number of elements in $G$). Further, the least $d >0$ such that $g^d = 1$ is called the order of $g \in G$.
 \end{definition}
 
-\begin{definition}(Cycle, Cycle Decomposition, Length, $k$-Cycle)
+\begin{definition}[Cycle, Cycle Decomposition, Length, $k$-Cycle]
 A cycle is a string of integers which represents the element of $S_n$ which cyclically permutes these integers (and fixes all other integers). The product of all the cycles is called the cycle decomposition. The length of a cycle is the number of integers which appear in it. A cycle of length $k$ is called a $k$-cycle.
 \end{definition}
 
@@ -66,7 +67,7 @@ Let $G, H$ be groups. A function $\phi : G \to H$ is a homomorphism if for every
 \begin{equation}
 \phi(ab) = \phi(a)\phi(b)
 \end{equation}
-Note the the product $ab$ on the left is computed in $G$ and the product $\phi(x)\phi(y)$ is computed in $H$.
+Note the the product $ab$ on the left is computed in $G$ and the product $\phi(a)\phi(b)$ is computed in $H$.
 \end{definition}
 
 \begin{definition}[Kernel]
@@ -78,7 +79,7 @@ Let $\phi:G \to H$ be a homomorphism. Then
 \end{definition}
 
 \begin{definition}[Coset]
-Let $H \leq G$ and fixed $a \in G$. Let
+Let $H \leq G$ and fix $a \in G$. Let
 \begin{align*}
 aH &= \{ ah | h \in H \} \\
 Ha &= \{ ha | h \in H \}
