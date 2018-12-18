@@ -2065,18 +2065,92 @@ Let $G$ be a group and fix $g \in G$. Define $\phi : G \to G$ by $\phi(x) = gxg^
 Let $G$ be a group and define $\phi : G \to G$ by $\phi(g) = g^{-1}$ for $g \in G$. Show that $\phi$ is a homomorphism if and only if $G$ is abelian.
 \end{exercise}
 \begin{solution}
+	First suppose $\phi$ is a homomorphism. Let $a,b \in G$. Then
+	\begin{align*}
+		ab &= (b^{-1}a^{-1})^{-1} \\
+		&= \phi(b^{-1}a^{-1}) \\
+		&= \phi(b^{-1})\phi(a^{-1}) \\
+		&= (b^{-1})^{-1} (a^{-1})^{-1} \\
+		&= b a
+	\end{align*}
+	Thus $G$ is abelian. 
 
+	Next suppose $G$ is abelian. Fix $a,b \in G$. Note that $ab = ba$. Now,
+	\begin{align*}
+	\phi(ab) &= (ab)^{-1} \tag{definition of $\phi$}\\
+	&= b^{-1} a^{-1} \\
+	&= a^{-1} b^{-1} \tag{$G$ abelian} \\
+	&= \phi(a) \phi(b)
+	\end{align*}
+	Thus $\phi$ is a homomorphism, since for all $a,b \in G$, $\phi(ab) = \phi(a)\phi(b)$. 
 \end{solution}
 
 \begin{exercise}
 Define $H = \{\sigma \in S_5 : \{\sigma(1), \sigma(2), \sigma(3) \} \in \{ 1, 2, 3 \} \}$. Show that $H \leq S_5$ and calculate $[S_5 : H]$. 
 \end{exercise}
 \begin{solution}
+Observe that $H$ is a set of permutations that fix 4 and 5. We need to check the three subgroup axioms:
+\begin{enumerate}
+	\item Identity: the identity permutation also fixes 4 and 5.
+	\item Closed under products: The product (under composition) of two permutations that fix 4 and 5 will also fix 4 and 5. 
+	\item Closed under inverse: same as above.
+\end{enumerate}
 
-Since $S_5$ is a finite group, we can use Lagrange's theorem to find $[S_5 : H] = \frac{|S_5|}{|H|}$.  $|S_5| = 5! = 120$. Then $|H| = 3! \times 2! = 12$. Therefore 
+Since $S_5$ is a finite group, we can use Lagrange's theorem to find $[S_5 : H] = \frac{|S_5|}{|H|}$.  $|S_5| = 5! = 120$. Then $|H| = 3! \times 2! = 12$. Therefore $[S_5 : H] = 10$.
 \end{solution}
 
 \subsection{Quiz 4}
+
+\begin{solution}
+	Let $G$ be a group and let $H,K \triangleleft G$. Show that $HK \triangleleft G$, where $HK = \{hk | h\in H, k \in K\}$. Show $HK$ is a subgroup and normal.
+\end{solution}
+\begin{exercise}
+	We first check the three axioms needed to be a subgroup:
+	\begin{enumerate}
+		\item Identity: Since $H,K$ both subgroups, they each contain the identity. Thus, $1 \in H, 1\in K$, so $1 \in HK$. 
+		\item Closed under products: Let $a, b\in HK$. Thus there exist $h,h' \in H$ and $k,k' \in K$ such that $a=hk$ and $b=h'k'$. Since $K$ is a normal subgroup in $G$, we know that for all $k\in K$ and $h' \in H \subseteq G$, there exists and $\tilde{h} \in H$ such that $kh' = \tilde{h}k$. Thus,
+		\begin{equation}
+			hkh'k' = h\tilde{h}kk'
+		\end{equation}
+		Since $H,K$ are each subgroups, they are closed under multiplication. Thus, $h\tilde{h}kk' = h''k'' \in HK$ for some $h'' \in H$ and $k'' \in K$. Thus $HK$ is closed under products. 
+		\item Closed under inverses: Let $g = hk \in HK$. Then $g^{-1} = (hk)^{-1} = k^{-1}h^{-1}$. Since $K$ is a normal subgroup in $G$, for all $k^{-1} \in K$ and $h^{-1} \in H$, there exists a $\tilde{h} \in H$ such that 
+		\begin{equation}
+		 	k^{-1}h^{-1} = \tilde{h}k^{-1}
+		 \end{equation} 
+		 Therefore $g^{-1} = \tilde{h}k^{-1} \in HK$. Thus $g^{-1} \in HK$, so that $HK$ is closed under inverses. 
+	\end{enumerate}
+	Next we show the subgroup is normal. Let $a=hk \in HK$ and fix $g \in G$. Then
+	\begin{equation}
+		ghkg^{-1} = ghg^{-1}gkg^{-1} = (ghg^{-1})(gkg^{-1})
+	\end{equation}
+	Since $H,K$ are normal in G, we can find a $\tilde{h}$ and $\tilde{k}$ such that $ghg^{-1} = \tilde{h}$ and $gkg^{-1} = \tilde{k}$. Thus, $ghkg^{-1} = \tilde{h}\tilde{k} \in HK$. Thus, $gag^{-1} \in HK$ for all $a \in HK$. Thus $HK$ is a normal subgroup of $G$. 
+\end{exercise}
+
+\begin{exercise}
+	Show that $S_3$ is not cyclic.
+\end{exercise}
+\begin{solution}
+	Cyclic groups are abelian. $S_3$ is not abelian, so not cyclic.
+\end{solution}
+
+\begin{exercise}
+	Show that the subgroup of rotations is normal in $D_n$ ($n \geq 3$).
+\end{exercise}
+\begin{solution}
+	Let $P$ be the cyclic subgroup of rotations. Let $l \in P$. Thus, $l \in \rho^j$ for some $j$. We will show that $glg^{-1} \in P$ for all $g \in D_n$. There are two cases to consider. First suppose that $g$ is a mirror symmetry. Then $g = \e \rho^i$ for some $i$. In this case,
+	\begin{align*}
+		\e \rho^i \rho^j (\e \rho^i)^{-1} &= \e \rho^i \rho^j \rho^{-i}\e^{-1} \\
+		&= \e \rho^i \rho^j \rho^{-i}\e \\
+		&= \e \rho^j \e \\
+		&= \rho^{-j} \e \e \\
+		&= \rho^{-j} \in P
+	\end{align*}
+	since $P$ cyclic and $\rho \in P$. For the second case, suppose $g$ is rotation. Thus $g = \rho^i$ for some $i$. Then
+	\begin{equation}
+		\rho^i \rho^j \rho^{-i} = \rho^j \in P
+	\end{equation}
+	Thus $g\rho^jg \in P$ for all $g \in D_n$, so that $P$ is a normal subgroup. 
+\end{solution}
 
 \subsection{Quiz 5}
 \begin{exercise}
@@ -2147,7 +2221,7 @@ Let $\tau$ be a reflection (a mirror symmetry). Show that $G = \{1,\tau\} \leq D
 	\begin{enumerate}
 		\item $\subseteq$: First let $h \in G_x$. We want to show that $ghg^{-1} \in G_y$, so that $ghg^{-1}(y) = y$.  Then
 		\begin{align*}
-			ghg^{-1}(y) &= gh(x) \tag{$g(x) = y$ implies $x = g^{-1}y$} \\
+			ghg^{-1}(y) &= gh(x) \tag{$g(x) = y$ implies $x = g^{-1}(y)$} \\
 			&= g(x) \tag{since $h \in G_x$} \\
 			&= y 
 		\end{align*}
@@ -2205,6 +2279,61 @@ Let $\tau$ be a reflection (a mirror symmetry). Show that $G = \{1,\tau\} \leq D
 \end{exercise}
 \begin{solution}
 	
+\end{solution}
+
+\begin{solution}
+	Let $G$ be a group. Let $x,y \in G$ be two elements that belong to the same conjugacy class, and let $\phi : G \to A$ be a homomorphism to an abelian group $A$. Show that $\phi(x) = \phi(y)$. Now suppose $G = GL_2(\R)$. Are 
+	\begin{equation}
+		\begin{pmatrix}
+		0 & 1 \\
+		1 & 0
+		\end{pmatrix}
+		\quad
+		\text{ and } 
+		\quad 
+		\begin{pmatrix}
+		1 & 0 \\
+		1 & 1
+		\end{pmatrix}
+	\end{equation}
+	in the same conjugacy class?
+\end{solution}
+\begin{exercise}
+	Since $x,y$ are in the same conjugacy class, there must exist some $g \in G$ such that $gxg^{-1} = y$. Then
+	\begin{align*}
+		\phi(y) &= \phi(gxg^{-1}) \\
+		&= \phi(g)\phi(x)\phi(g^{-1}) \\
+		&= \phi(g)\phi(x)\phi(g)^{-1} \\
+		&= \phi(g)\phi(g)^{-1}\phi(x) \tag{since $A$ is abelian} \\
+		&= \phi(x)
+	\end{align*}
+
+	Take $\phi$ to be the determinant homomorphism. If the matrices are in the same conjugacy class, they must have the same determinant. The determinants are -1 and 1 respectively. Thus they are not in the same conjugacy class. 
+\end{exercise}
+
+\begin{exercise}
+	Define
+	\begin{equation}
+		H = \left\{
+		\begin{pmatrix}
+		1 & a & b \\
+		0 & 1 & c \\
+		0 & 0 & 1
+		\end{pmatrix}
+		\bigg\vert
+		a,b,c \in \R
+		\right\}
+	\end{equation}
+	Show that $H$ is a subgroup of $GL_3(\R)$ and that $Z(H)$ is isomorphic to $\R$. 
+\end{exercise}
+\begin{solution}
+	We check the 3 axioms required to be a subgroup:
+	\begin{enumerate}
+		\item Identity: The identity matrix is unit upper triangular.
+		\item Closed under products: The product of two unit upper triangular matrices is also unit upper triangular.
+		\item Closed under inverses: The inverse of a unit upper triangular matrix is also a unit upper triangular matrix. 
+	\end{enumerate}
+	We next demonstrate an isomorphism between $Z(H)$ of $\R$. 
 \end{solution}
 
 \subsection{Quiz 10}
@@ -3235,13 +3364,6 @@ We prove each statement as follows:
 	Let $S$ be a set, and let $P(S)$ be the collection of all subset of $S$. Show that $P(S)$ is a commutative ring with respect to the binary operations of symmetric difference and intersection. 
 \end{exercise}
 
-\section{Honors Questions}
-\begin{exercise}
-From homework 1, we showed that if $g^2 = 1$ for all $g \in G$ where $G$ is a group, then $G$ is abelian. Note that $ab = ba$ iff $aba^{-1}b^{-1} = 1$. Can we write $aba^{-1}b^{-1}$ as a product of squares $c_1 c_2 c_3 \ldots $? (And then each $c^2_i = 1$).
-\end{exercise}
-\begin{solution}
-
-\end{solution}
 
 
 \end{document}
