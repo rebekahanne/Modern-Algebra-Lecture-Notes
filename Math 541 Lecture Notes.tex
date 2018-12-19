@@ -1590,6 +1590,25 @@ Observations about this theorem:
 	\textcolor{red}{Todo}.
 \end{proof}
 
+\subsection{Commutator Subgroups}
+\begin{definition}[Commutator]
+	Let $G$ be a group and let $x,y \in G$. The commutator of $x,y$ is
+	\begin{equation}
+		[x,y] = x^{-1}y^{-1}xy
+	\end{equation}
+\end{definition}
+
+\begin{definition}[Commutator subgroup]
+	Let $G$ be a group. Notation: Let $A,B \subseteq G$. Then
+	\begin{equation}
+		[A,B] = \langle [a,b] | a \in A, b \in B \rangle
+	\end{equation}
+	Then the commutator subgroup of $G$ is
+	\begin{equation}
+		G' = [G,G] = \langle [a,b] | a,b \in G \rangle
+	\end{equation}
+\end{definition}
+
 \section{Ring Theory}
 \subsection{Ring Basics}
 \begin{definition}[Ring]
@@ -3318,7 +3337,27 @@ Let $G$ be a group and let $H \leq G$.
 	Give an example where $H = N_G(H)$.
 \end{exercise}
 \begin{solution}
-	
+	Suppose $G = S_4$ and $H = S_3$ a subset of $G$ (i.e., permutations that fix a certain element). Notice that $[G : H] = 4$. There are four elements in $N_G(H)$ (the three permutations that leave one element fixed and the identity). Thus $H + N_G(H)$. 
+
+	Other: Let $P$ be a $p$-Sylow subgroup pf $G$. Let $H$ be a subgroup of $G$ containing $N_G(P)$. Then $N_G(H) = H$. We already know $H \subseteq N_G(H)$. Let $a \in N_G(H)$. since $P \subseteq N_G(P) \subseteq H$, we know
+	\begin{equation}
+	 	aPa^{-1} \subseteq aHa^{-1} = H
+	 \end{equation} 
+	 (since $a \in N_G(H)$). Thus $P$ and $aPa^{-1}$ are Sylow subgroups of $H$, and hence conjugate. Thus there is some $b \in H$ such that $bPb^{-1} = aHa^{-1}$. Then $(b^{-1}a)P(b^{-1}a)^{-1} = P$ and $b^{-1}a \in N_G(P) \subseteq H$.  Thus $a \in H$, since $B \in H$. 
+\end{solution}
+
+\begin{exercise}
+	Suppose that $H$ is a $p$-Sylow subgroup of $G$. Show that $N_G(N_G(H)) = N_G(H)$.
+\end{exercise}
+\begin{solution}
+	Use the previous exercise with $H = N_G(P)$. Then $N_G(N_G(H)) = N_G(H)$. 
+\end{solution}
+
+\begin{exercise}
+	Number of $p$-Sylow subgroups of $G$ is $[G:N_G(H)]$. 
+\end{exercise}
+\begin{solution}
+	Sylow subgroups are conjugate. And number of conjugates is equal to the index of the normalizer of the subgroup. 
 \end{solution}
 
 \begin{exercise}
@@ -3354,15 +3393,62 @@ Let $G$ be a group and let $H \leq G$.
 \begin{solution}
 We prove each statement as follows:
 \begin{enumerate}
-	\item Trivial.
-	\item Also trivial.
-	\item Any non-degenerate polynomial does not have an inverse that is also a polynomial.
+	\item Check group axioms. Contains multiplicative identity and associative since a ring. Inverses are assumed to exist. Closed under products?
+	\item Suppose $A$ is a field. Then each non-zero element has to be invertible.
+	\item Any non-degenerate polynomial does not have an inverse that is also a polynomial. 
 \end{enumerate}
 \end{solution}
 
 \begin{exercise}
 	Let $S$ be a set, and let $P(S)$ be the collection of all subset of $S$. Show that $P(S)$ is a commutative ring with respect to the binary operations of symmetric difference and intersection. 
 \end{exercise}
+\begin{solution}
+	Let symmetric difference correspond to addition and intersection correspond to multiplication. We'll first show that $P(S)$ is an abelian group under addition:
+	\begin{enumerate}
+		\item Identity: $S \Delta \emptyset = (S - \emptyset) \cup (\emptyset - S) = S \cup \emptyset = S$
+		\item Associativity: $(X \Delta Y) \Delta Z = X \Delta (Y \Delta Z)$
+		\item Inverse: $X \Delta X = \emptyset$
+		\item Commutativity: ``symmetric difference''. 
+	\end{enumerate}
+	Next we check multiplication:
+	\begin{enumerate}
+		\item Commutativity: Intersection commutative
+		\item Associativity: Intersection associative
+		\item Identity: Suppose $E$ is the universe. Then $S \cap E = S$.
+		\item Distributivity with respect to addition:
+		\begin{align*}
+			(X \Delta Y) \cap Z &= ((X-Y)\cup (Y-X)) \cap Z \\
+			&= ((X-Y)\cap Z) \cup ((Y-X) \cap Z) \\
+			&= (X \cap Z - Y \cap Z) \cup (Y \cap Z - X \cap z) \\
+			&= (X \cap Z) \Delta (Y \cap Z)
+		\end{align*}
+	\end{enumerate}
+\end{solution}
+
+\begin{exercise}
+	Let $A$ be a commutative ring. We say that $A$ is an integral domain if $ab = 0$ holds for some $a,b \in A$ only in case $a=0$ or $b=0$. 
+	\begin{enumerate}
+		\item Show that $\Z$ is an integral domain.
+		\item Show that any field is an integral domain.
+		\item Show that $\R[X]$ is an integral domain.
+		\item Show that every finite integral domain is a field. 
+		\item Is $P(S)$ an integral domain?
+	\end{enumerate}
+\end{exercise}
+\begin{solution}
+	We prove each item in turn: 
+	\begin{enumerate}
+		\item Follows from basic properties of integers.
+		\item Let $F$ be a field and let $x,y \in F$ be non-zero. Suppose that $F$ is not an integral domain, and that $xy=0$. Then,
+		\begin{equation}
+			xy = 0 \implies z^{-1}(xy) = 0 \implies y = 0
+		\end{equation}
+		which is a contradiction. 
+		\item Suppose not. Suppose there exists $p,q \in R[X]$ non-zero such that $pq=0$. Suppose $p$ is order $m$ and $q$ is order $n$. Then consider the coefficient on the highest power, $x^{m+n}$, which is called $a_m b_n$. This is non-zero by assumption, so the product of the polynomials can't be zero ($\R$ is an integral domain).
+		\item Let $F$ be a finite integral domain. $F$ is already assumed to be a commutative ring, so we need to show that it has multiplicative inverses. Let $r \in F$, $r \neq 0$. We show $r^{-1} \in F$. Consider the map $f : F \to F$ defined by $f(x) = rx$. We show that $f$ is injective. To that end, fix $x,y \neq 0$ such that $f(x) = f(y)$. Thus $rx = ry$, which implies $r(x-y) = 0$. Since $F$ is an integral domain and $r \neq 0$, we must have that $x=y$. This shows injectivity, and finiteness implies surjectivity. Thus, there exists some $x \in F$ such that $f(x) = rx = 1$, which shows that $r^{-1} \in F$. Thus $F$ contains multiplicative inverses for non-zero elements, and is thus a field. 
+		\item No. We can find subsets that are non-empty whose intersection is empty. 
+	\end{enumerate}
+\end{solution}
 
 
 

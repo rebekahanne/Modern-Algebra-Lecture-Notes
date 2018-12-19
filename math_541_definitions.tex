@@ -2,7 +2,7 @@
 %% This is file, `math_541_definitions.tex',
 %% generated with the extract package.
 %% 
-%% Generated on :  2018/12/18,15:51
+%% Generated on :  2018/12/18,21:15
 %% From source  :  "Math 541 Lecture Notes".tex
 %% Using options:  active,generate=Math_541_Definitions,extract-env={definition}
 %% 
@@ -199,6 +199,24 @@ where the RHS is the action of $g$ on $i$, $i \in \{1,\ldots, n\}$.
 
 \begin{definition}[$p$-Group]
 Let $p$ be a prime number. $G$ is a $p$-group if $|G|$ is a power of $p$.
+\end{definition}
+
+\begin{definition}[Commutator]
+Let $G$ be a group and let $x,y \in G$. The commutator of $x,y$ is
+\begin{equation}
+[x,y] = x^{-1}y^{-1}xy
+\end{equation}
+\end{definition}
+
+\begin{definition}[Commutator subgroup]
+Let $G$ be a group. Notation: Let $A,B \subseteq G$. Then
+\begin{equation}
+[A,B] = \langle [a,b] | a \in A, b \in B \rangle
+\end{equation}
+Then the commutator subgroup of $G$ is
+\begin{equation}
+G' = [G,G] = \langle [a,b] | a,b \in G \rangle
+\end{equation}
 \end{definition}
 
 \begin{definition}[Ring]
